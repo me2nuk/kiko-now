@@ -188,11 +188,11 @@ excerpt: "ShaktiCTF 2021 Writeup"
 
     ![Home Page](/post-images/ShaktiCTF/2021/WEB/Unsafereputation/Homepage.png)
 
-    문제의 웹 사이트에 들어가보면 이러한 텍스트가 나오게됩니다.
+    문제의 웹 사이트에 들어가보면 이러한 텍스트가 나오는데
 
     문제를 풀기 위해 아무리 분석해봤지만 아무것도 나오지 않았습니다.
 
-    하지만 해당 문제는 ``main.js`` 파일 소스코드를 제공하기때문에 한번 살펴보면
+    하지만 해당 문제는 ``main.js`` 소스코드를 제공하기때문에 한번 살펴보면
 
     ```js
     var express = require('express');
@@ -225,15 +225,15 @@ excerpt: "ShaktiCTF 2021 Writeup"
 
     이러한 소스코드를 사용하는것을 볼 수 있습니다.
 
-    해당 main.js 소스코드를 분석해보면 
-    
-    URL에 ``req.query.text`` 즉 ``/?text=1`` 이러한 값을 전송하면
+    ``main.js`` 소스코드를 분석해보면
+
+    URL에 ``/?text=1``을 입력한 결과
 
     ![Welcome](/post-images/ShaktiCTF/2021/WEB/Unsafereputation/Welcome-text.png)
 
     ``Welcom to the world 1`` 이런 텍스트가 출력됩니다.
 
-    그리고 우리가 입력한 값은 inp 변수에 저장되며
+    우리가 입력한 값은 inp 변수에 저장되며
 
     ```js
     if(blacklist.map(v=>inp.includes(v)).filter(v=>v).length !== 0){
