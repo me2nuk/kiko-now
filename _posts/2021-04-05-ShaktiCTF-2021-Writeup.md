@@ -155,9 +155,7 @@ excerpt: "ShaktiCTF 2021 Writeup"
     ...
     ```
 
-    SQL Injection 페이로드를 주입해봤지만
-
-    별 효과가 있지 않았습니다.
+    SQL Injection 페이로드를 주입해봤지만 취약점이 발생하지 않았습니다.
 
     하지만 로그인할때 SQL만 쓰이는것이 아닌 NoSQL이라는것도 있기때문에
 
