@@ -8,10 +8,7 @@ excerpt: "UTCTF 2021 Writeup"
 ## Sanity Check 2
 
 ```
-+ 문제 제목
-    + Oinker
-
-+ 문제 설명
++ Description
     + do not confuse encodINg wiD Encryption XD !
 ```
 
@@ -64,17 +61,14 @@ excerpt: "UTCTF 2021 Writeup"
 ## SQL 2.0
 
 ```
-+ 문제 제목
-    + SQL 2.0
-
-+ 문제 설명
++ Description
     + You cant get what you inject. ;)
     + someone exported this dump
 
-+ 문제 링크
++ Link
     + http://chall.codefest.tech:5000/
 
-+ 문제 파일
++ FILE
     + dump.txt
 ```
 

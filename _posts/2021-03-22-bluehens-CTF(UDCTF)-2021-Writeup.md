@@ -11,7 +11,7 @@ excerpt: "Bluehens CTF 2021 Writeup"
 + Description
   + find flag.txt
 
-+ Link
++ Created by
   + challenges.ctfd.io:30595
 ```
 
@@ -74,7 +74,7 @@ excerpt: "Bluehens CTF 2021 Writeup"
 ## speedrun-1
 
 ```
-+ Link
++ Created by
   + challenges.ctfd.io:30025
 ```
 
@@ -107,7 +107,7 @@ excerpt: "Bluehens CTF 2021 Writeup"
 ## speedrun-2
 
 ```
-+ Link
++ Created by
   + challenges.ctfd.io:30026
 ```
 
@@ -245,7 +245,7 @@ excerpt: "Bluehens CTF 2021 Writeup"
 ## speedrun-3
 
 ```
-+ Link
++ Created by
   + http://challenges.ctfd.io:30043/
 ```
 
