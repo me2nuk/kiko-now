@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://me2nuk.com/sitemap.xml
