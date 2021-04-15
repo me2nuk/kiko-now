@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Flask 서버 구축 가이드"
+title:  "Flask 서버 구축하는법"
 tags: [python,Flask,Server,build]
-excerpt: "Flask 서버 구축 가이드"
+excerpt: "Flask 서버 구축하는법"
 ---
 
 * * *
