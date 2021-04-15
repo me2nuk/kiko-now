@@ -27,17 +27,19 @@ permalink: /about/
 
   + [Hacking Camp CTF 2th](/files/HackingCamp/CTF-2th.png)
   + [The Hacking Championship Junior 2020 CTF 10th](http://www.kukinews.com/newsView/kuk202011260227)
+  + [Shakti CTF 6th](/files/ShaktiCTF/ShaktiCTF-6th-TeamH4C.png)
 
 * * *
 
 ## CTF 참여 경험
 
   + #### 2021
-    + [UMassCTF 2021](https://ctftime.org/event/1282/)
-    + [bluehens CTF(UDCTF) 2021](https://ctftime.org/event/1298/)
-    + [codeFest CTF](https://ctftime.org/event/1305/)
-    + [UTCTF](https://ctftime.org/event/1177)
-    + [DaVinci CTF](https://ctftime.org/event/1296)
+    + [Shakti CTF](https://ctftime.org/event/1251/) / [Writeup](https://me2nuk.com/ShaktiCTF-2021-Writeup/)
+    + [UMassCTF 2021](https://ctftime.org/event/1282/) / [Writeup](https://me2nuk.com/UMassCTF-2021-Writeup/)
+    + [Bluehens CTF(UDCTF) 2021](https://ctftime.org/event/1298/) / [Writeup](https://me2nuk.com/bluehens-CTF(UDCTF)-2021-Writeup/)
+    + [codeFest CTF](https://ctftime.org/event/1305/) / [Writeup](https://me2nuk.com/codeFest-2021-Writeup/)
+    + [UTCTF](https://ctftime.org/event/1177) / [Writeup](https://me2nuk.com/UTCTF-2021-Writeup/)
+    + [DaVinci CTF](https://ctftime.org/event/1296) / [Wirteup](https://me2nuk.com/DaVinciCTF-2021-Writeup/)
     + [Hacking Camp CTF](http://hackingcamp.org/)
 
   + #### 2020
