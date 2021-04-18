@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Flask 서버 구축하는법"
-tags: [python,Flask,Server,build]
+tags: [python,Flask,Server]
 excerpt: "Flask 서버 구축하는법"
 ---
 
