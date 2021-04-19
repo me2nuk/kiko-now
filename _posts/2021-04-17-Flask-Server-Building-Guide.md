@@ -11,7 +11,7 @@ excerpt: "Flask URL 라우팅(Routing) 방법(URL Route Registrations)"
 
 Flask에서 자주 사용하는 route 데코레이터와 관련된것들에 대해 정리
 
-만약 Flask에 대해 잘 모르거나 Python으로 기본적인 구축할 줄 모른다면 [해당 블로그](/Flask-Basic-Server-building/)를 참고하면 됩니다.
+만약 Flask에 대해 잘 모르거나 Python으로 기본적인 구축할 줄 모른다면 [해당 블로그](/Flask-Server-Basic-building/)를 참고하면 됩니다.
 
 * * *
 
