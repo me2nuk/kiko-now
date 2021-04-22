@@ -45,4 +45,19 @@ http 메서드는 클라이언트가 서버에게 요청하는 목적 및 그 �
 
 + [HTTP method Documentation](https://tools.ietf.org/html/rfc2616#section-9.1.2)
 
+## requests GET, POST, PUT , DELETE, HEAD, OPTIONS
+
+HTTP 메소드마다 사용되는 함수와 매개변수가 각각 조금씩 다르며 일반적인 요청의 경우 함수명만 변경하여 쉽게 할 수 있습니다.
+
+```py
+>>> r = requests.get("https://example.com")
+>>> r = requests.post("https://example.com")
+>>> r = requests.put("https://example.com")
+>>> r = requests.delete("https://example.com")
+>>> r = requests.head("https://example.com")
+>>> r = requests.options("https://example.com")
+```
+
 * * *
+
+# requests 모듈 기본 사용법
