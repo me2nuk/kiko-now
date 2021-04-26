@@ -27,7 +27,7 @@ permalink: /about/
 
   + [Hacking Camp CTF 2th](/files/HackingCamp/CTF-2th.png)
   + [The Hacking Championship Junior 2020 CTF 10th](http://www.kukinews.com/newsView/kuk202011260227)
-  + [Shakti CTF 6th](/files/ShaktiCTF/ShaktiCTF-6th-TeamH4C.png)
+  + [Shakti CTF 6th](/files/ShaktiCTF/ShaktiCTF-6th-TeamH4C.png) / (비공식)
 
 * * *
 
