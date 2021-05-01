@@ -35,6 +35,8 @@ pip 명령어를 이용하여 requests 모듈을 다운로드 하면 import 또�
 
 ``[ ... ]`` = 부분 생략
 
+> Example Code
+
 ```py
 >>> import requests
 >>> r = requests.get("https://example.com/")
@@ -207,6 +209,8 @@ requests 모듈은 ``[PUT, GET, POST, HEAD, PATCH, DELETE, OPTIONS]`` 메서드�
 
 > ``requests.put(url, data=None, **kwargs)``
 
+> Example Code
+
 ```py
 >>> r = requests.put("http://httpbin.org/put", data={'put1':'data1', 'put2':'data2'})
 >>> r.request.method
@@ -335,6 +339,12 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 * * *
 
+## Request **kwargs
+
+여기에서 설명하는 **kwargs는 요청할때 requests.request에 들어갈 매개변수 입니다. 더 자세하게는 [requests.sessions.Session.request](https://docs.python-requests.org/en/latest/_modules/requests/sessions/#Session.request)으로 연결됩니다.
+
+예로 ``requests.get``나 ``requests.post``에서 사용할 수 있습니다.
+
 <br>
 
 * * *
@@ -349,6 +359,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 대부분의 예시는 하단의 코드로 대체됩니다.
 
+> Example Code
+
 ```py
 >>> import requests
 >>> r = requests.get("https:/example.com")
@@ -357,6 +369,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 + ### ``r.text``
 
 text는 요청/응답 본문을 자동으로 디코드시킨 값을 str 타입으로 반환합니다.
+
+> Example Code
 
 ```py
 >>> r.text
@@ -385,6 +399,8 @@ text는 요청/응답 본문을 자동으로 디코드시킨 값을 str 타입�
 + ### ``r.content``
 
 content는 요청/응답 본문을 byte 타입으로 반환됩니다.
+
+> Example Code
 
 ```py
 >>> r.content
@@ -426,6 +442,8 @@ json() 는 요청/응답 본문을 json 형식으로 디코딩하여 반환합�
 
 만약 올바른 json 형식이 아닌 경우 에러를 반환합니다.
 
+> Example Code
+
 ```py
 >>> import requests
 >>> r = requests.get("https://example.com")
@@ -447,6 +465,8 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
 ``status_code``는 [http 응답 코드](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 나타냅니다. 요청에 성공한 경우 일반적으로 200을 반환 합니다.
 
+> Example Code
+
 ```py
 >>> r = requests.get("https://example.com")
 >>> r.status_code
@@ -460,6 +480,8 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 ``url``은 요청한 뒤 응답의 최종 URL을 반환합니다.
 
 URL redirection이 되는 경우에도 리다이렉션이 된 최종 URL을 출력합니다.
+
+로컬에서 Flask로 리다이렉션을 구현하였습니다.
 
 > Example Code
 
@@ -480,6 +502,8 @@ URL redirection이 되는 경우에도 리다이렉션이 된 최종 URL을 출�
 ### ``r.history``
 
 ``history``는 모든 리다이렉션 응답은 가장 오래된 요청에서 최근 요청 순으로 Response 개체 목록을 반환 합니다.
+
+로컬에서 Flask으로 여러번 리다이렉션을 반복하는것을 구현했습니다.
 
 > Example Code
 
@@ -559,7 +583,7 @@ KeyError: 'link'
 
 ### ``r.cookies``
 
-``cookies``
+``cookies``는 요청한 뒤 응답 헤더에 있는 쿠키를 편하게 보여줍니다.
 
 > Example Code
 
@@ -668,6 +692,8 @@ False
 
 ``raise_for_status()``는 요청/응답 코드가 200이 아니면 예외를 발생시킵니다.
 
+> Example Code
+
 ```py
 >>> r = requests.put("https://google.com")
 >>> r.raise_for_status()
@@ -695,6 +721,8 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://exam
 ### ``r.encoding``
 
 ``encoding``는 요청/응답 헤더를 이용하여 데이터의 인코딩 방식을 추측하여 반환합니다.
+
+> Example Code
 
 ```py
 >>> r = requests.get("https://example.com")
@@ -870,6 +898,94 @@ b'/html>\n'
 
 ### ``r.request``
 
+``request``는 PreparedRequest클래스를 반환하며 요청시에 사용했던 정보들을 확인할 수 있습니다.
+
+> Example Code
+
+```py
+>>> r = requests.get("https://example.com")
+>>> r.request
+<PreparedRequest [GET]>
+>>> dir(r.request)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_body_position', '_cookies', '_encode_files', '_encode_params', '_get_idna_encoded_host', 'body', 'copy', 'deregister_hook', 'headers', 'hooks', 'method', 'path_url', 'prepare', 'prepare_auth', 'prepare_body', 'prepare_content_length', 'prepare_cookies', 'prepare_headers', 'prepare_hooks', 'prepare_method', 'prepare_url', 'register_hook', 'url']
+```
+
++ #### ``r.request.headers``
+
+    ``request.headers``는 요청할때 사용된 헤더를 dict 타입으로 반환합니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com")
+    >>> r.request
+    <PreparedRequest [GET]>
+    >>>
+    >>> r.request.headers
+    {'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+    >>> r.request.headers['User-Agent']
+    'python-requests/2.22.0'
+    ```
+
++ #### ``r.request._cookies``
+
+    ``request._cookies``는 요청할때 사용된 쿠키 내용을 dict 타입으로 반환됩니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com", cookies={'cookie1':'cookie_value'})
+    >>> r.request
+    <PreparedRequest [GET]>
+    >>>
+    >>> r.request._cookies
+    >>> r.request._cookies['cookie1']
+    'cookie_value'
+    >>> r.request._cookies.get_dict()
+    {'cookie1': 'cookie_value'}
+    ```
+
++ #### ``r.request.copy()``
+
+    ``request.copy()`` PreparedRequest의 카피본을 반환합니다.
+
+    > request.copy Source Code
+
+    ```py
+    def copy(self):
+        p = PreparedRequest()
+        p.method = self.method
+        p.url = self.url
+        p.headers = self.headers.copy() if self.headers is not None else None
+        p._cookies = _copy_cookie_jar(self._cookies)
+        p.body = self.body
+        p.hooks = self.hooks
+        p._body_position = self._body_position
+        return p
+    ```
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com")
+    >>> r.request
+    <PreparedRequest [GET]>
+    >>>
+    >>> r.request.copy
+    <bound method PreparedRequest.copy of <PreparedRequest [GET]>>
+    >>> r.request.copy()
+    <PreparedRequest [GET]>
+    >>> r.request.method
+    'GET'
+    >>> r_copy = r.request.copy()
+    >>> r_copy
+    <PreparedRequest [GET]>
+    >>> r_copy.method
+    'GET'
+    ```
+
++ #### 추가 request 작성중..
+
 * * *
 
 ### ``r.raw``
@@ -882,34 +998,36 @@ b'/html>\n'
 >>> r = requests.get("https://example.com", stream=True)
 >>> r.raw
 <urllib3.response.HTTPResponse object at 0x7f53bba651f0>
+>>> dir(r.raw)
+['CONTENT_DECODERS', 'DECODER_ERROR_CLASSES', 'REDIRECT_STATUSES', '__abstractmethods__', '__class__', '__del__', '__delattr__', '__dict__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__next__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_abc_impl', '_body', '_checkClosed', '_checkReadable', '_checkSeekable', '_checkWritable', '_connection', '_decode', '_decoder', '_error_catcher', '_flush_decoder', '_fp', '_fp_bytes_read', '_handle_chunk', '_init_decoder', '_init_length', '_original_response', '_pool', '_request_url', '_update_chunk_length', 'auto_close', 'chunk_left', 'chunked', 'close', 'closed', 'connection', 'data', 'decode_content', 'enforce_content_length', 'fileno', 'flush', 'from_httplib', 'get_redirect_location', 'getheader', 'getheaders', 'geturl', 'headers', 'info', 'isatty', 'isclosed', 'length_remaining', 'msg', 'read', 'read_chunked', 'readable', 'readinto', 'readline', 'readlines', 'reason', 'release_conn', 'retries', 'seek', 'seekable', 'status', 'stream', 'strict', 'supports_chunked_reads', 'tell', 'truncate', 'version', 'writable', 'writelines']
 ```
 
 * * *
 
-#### ``r.raw.read()``
++ #### ``r.raw.read()``
 
-> ``read(self, amt=None, decode_content=None, cache_content=False)``
+    > ``read(self, amt=None, decode_content=None, cache_content=False)``
 
-``r.raw.read()``함수를 이용하여 응답 본문 컨텐츠를 원하는 만큼 인코딩된 값을 출력할 수 있습니다.
+    ``r.raw.read()``함수를 이용하여 응답 본문 컨텐츠를 원하는 만큼 인코딩된 값을 출력할 수 있습니다.
 
-해당 기능은 open.read 함수와 유사합니다.
+    해당 기능은 open.read 함수와 유사합니다.
 
-> Example Code
+    > Example Code
 
-```py
->>> r = requests.get("https://example.com" ,stream = True)
->>> r.raw
-<urllib3.response.HTTPResponse object at 0x7f8f692dc8b0>
->>> r.raw.read()
-b'\x1f\x8b\x08\x00\xc2\x15\xa8]\x00\x03}TMs\xdb \x10\xbd\xfbWl\xd5K2#$\'i\x1a\x8f-i\xfa\x99i\x0fi\x0fi\x0f=\x12\xb1\xb2\x98\x08P\x01\xc9\xf6t\xf2\xdf\xbbB\x8e#7\x99\x9a\x91[ ... ]d0x\x11\x10\xb34\x88\x93\xa5{\xa9\xd2\xf1A\xfb\x0b(\xeb|o\xe8\x04\x00\x00'
->>> r.raw.read(10)
-b''
->>> r = requests.get("https://example.com", stream=True)
->>>
->>> r.raw.read(10)
-b'\x1f\x8b\x08\x00\xc2\x15\xa8]\x00\x03'
->>> r.raw.read(10)
-b'}TMs\xdb \x10\xbd\xfbW'
-```
+    ```py
+    >>> r = requests.get("https://example.com" ,stream = True)
+    >>> r.raw
+    <urllib3.response.HTTPResponse object at 0x7f8f692dc8b0>
+    >>> r.raw.read()
+    b'\x1f\x8b\x08\x00\xc2\x15\xa8]\x00\x03}TMs\xdb \x10\xbd\xfbWl\xd5K2#$\'i\x1a\x8f-i\xfa\x99i\x0fi\x0fi\x0f=\x12\xb1\xb2\x98\x08P\x01\xc9\xf6t\xf2\xdf\xbbB\x8e#7\x99\x9a\x91[ ... ]d0x\x11\x10\xb34\x88\x93\xa5{\xa9\xd2\xf1A\xfb\x0b(\xeb|o\xe8\x04\x00\x00'
+    >>> r.raw.read(10)
+    b''
+    >>> r = requests.get("https://example.com", stream=True)
+    >>>
+    >>> r.raw.read(10)
+    b'\x1f\x8b\x08\x00\xc2\x15\xa8]\x00\x03'
+    >>> r.raw.read(10)
+    b'}TMs\xdb \x10\xbd\xfbW'
+    ```
 
 # 현재 작성중...
