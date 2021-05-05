@@ -13,10 +13,41 @@ requests는 python사용자들을 위해 만들어진 간단한 Python용 HTTP �
 
 requests 코드 예시를 위해 [httpbin](http://httpbin.org/), [example](https://example.com), [google](https://www.google.com) 3개의 사이트를 이용했습니다.
 
+### 이 글을 작성한 이유
+
+그냥 python 쓰면서 requests 모듈을 쓰게 되는 경우가 많은데
+
+내가 모르는 기능이 있는지 궁금하기도 하고 심심해서 한번 requests모듈 분석했다.
+
 #### References
 
 + [requests Github](https://github.com/psf/requests)
 + [requests Documentation](https://docs.python-requests.org/)
+
+* * *
+
+## requests module FILE 구조
+
+```bash
+requests
+   ├── __version__.py
+   ├── _internal_utils.py
+   ├── adapters.py
+   ├── api.py
+   ├── auth.py
+   ├── certs.py
+   ├── compat.py
+   ├── cookies.py
+   ├── exceptions.py
+   ├── help.py
+   ├── hooks.py
+   ├── models.py
+   ├── packages.py
+   ├── sessions.py
+   ├── status_codes.py
+   ├── structures.py
+   └── utils.py
+```
 
 * * *
 
@@ -76,6 +107,8 @@ HTTP 메소드마다 사용되는 함수와 매개변수가 각각 조금씩 다
 
 ```py
 >>> r = requests.get("http://httpbin.org/get")
+>>> r
+<Response [200]>
 >>> r = requests.post("http://httpbin.org/post")
 >>> r = requests.put("http://httpbin.org/put")
 >>> r = requests.head("http://httpbin.org/get")
@@ -86,7 +119,7 @@ HTTP 메소드마다 사용되는 함수와 매개변수가 각각 조금씩 다
 
 * * *
 
-# requests 모듈 기본 사용법
+# requests 모듈 사용법
 
 requests는 from 또는 import로 모듈 불러오면 사용할 수 있습니다.
 
@@ -101,22 +134,57 @@ requests는 from 또는 import로 모듈 불러오면 사용할 수 있습니다
 
 > ``requests.request(method, url, **kwargs)``
 
-
 요청의 모든 기능은 7가지 방법으로 액세스 할 수 있습니다.
 
-``**kwargs``에 들어가는 옵션은 ``request`` 메소드에 있는
+> request.request Function Code
+
+```py
+def request(method, url, **kwargs):
+    [ ... ]
+    with sessions.Session() as session:
+        return session.request(method=method, url=url, **kwargs)
+```
 
 * * *
 
 ### Request Headers
 
-requests 모듈은 [``requests.utils.default_headers``](https://github.com/psf/requests/blob/master/requests/utils.py#L808-L826) 함수에 의해 새로운 요청 시 기본값으로 Header 4개가 포함됩니다.
+requests 모듈은 [requests.utils.default_headers](https://github.com/psf/requests/blob/master/requests/utils.py#L808-L826) 함수에 의해 새로운 요청 시 기본값으로 Header 4개가 포함됩니다.
+
+> default_headers Function Code
+
+```py
+def default_user_agent(name="python-requests"):
+    """
+    Return a string representing the default user agent.
+    :rtype: str
+    """
+    return '%s/%s' % (name, __version__)
+
+
+def default_headers():
+    """
+    :rtype: requests.structures.CaseInsensitiveDict
+    """
+    return CaseInsensitiveDict({
+        'User-Agent': default_user_agent(),
+        'Accept-Encoding': ', '.join(('gzip', 'deflate')),
+        'Accept': '*/*',
+        'Connection': 'keep-alive',
+    })
+```
+
+> Example Code
+
+```py
+>>> r = requests.get("https://example.com")
+>>> r.request.headers
+{'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+```
 
 <br>
 
 * * *
-
-
 
 ### Request method
 
@@ -126,43 +194,56 @@ requests 클래스에서 지원하는 요청 메서드를 쉽게 사용하기 �
 
 requests 모듈은 ``[PUT, GET, POST, HEAD, PATCH, DELETE, OPTIONS]`` 메서드가 존재합니다.
 
+그리고 위의 7가지 메소드는 전부 ``requests.request``로 연결됩니다.
+
+예시로는 많이 쓰이는 requests.get 메소드 또한 ``requests.request``를 사용합니다.
+
+> requests.get Function Code
+
+```py
+def get(url, params=None, **kwargs):
+    [ ... ]
+    kwargs.setdefault('allow_redirects', True)
+    return request('get', url, params=params, **kwargs)
+```
+
 * * *
 
 ### 간단히
 
-+ parameter
++ ##### parameter
 
-    + url( 필수 )
+    + ##### url( 필수 )
 
         url 매개 변수는  ``requests.request`` 객체에 사용되기 위한 URL 입니다.
 
         > https://google.com
 
-    + params(선택 사항)
+    + ##### params(선택 사항)
 
         튜플(tuple), 딕셔너리(dict)형식으로 매개변수에 넣으면 양식이 URL 인코딩이 되어 URL에 추가됩니다.
 
-        > URL?key=value&key1=value1
+        > ``URL?key=value&key1=value1``
 
-    + data(선택 사항)
+    + ##### data(선택 사항)
 
         튜플(tuple), 딕셔너리(dict)형식으로 매개변수에 넣으면 양식이 인코딩되어 요청 본문에 추가됩니다.
 
-        > key=value&key1=value1
+        > ``key=value&key1=value1``
 
-    + json(선택 사항)
+    + ##### json(선택 사항)
 
         JSON 매개 변수를 이용하여 요청 본문에 json 형식으로 추가됩니다.
 
-        > { 'key':'value', 'key1':'value1' }
+        > ``{ 'key':'value', 'key1':'value1' }``
 
-    + **kwargs( 선택 사항 )
+    + ##### **kwargs( 선택 사항 )
 
-        ``**kwargs``는 요청하기 위한 매개변수 옵션이며 [requests.sessions.Session.request](https://docs.python-requests.org/en/latest/_modules/requests/sessions/#Session.request)로 연결됩니다.
+        ``**kwargs``는 요청하기 위한 매개변수이며 [requests.sessions.Session.request](https://docs.python-requests.org/en/latest/_modules/requests/sessions/#Session.request)로 연결되어 처리됩니다.
 
-        [자세한 옵션 사용법은 여기를 참고하면 됩니다.](#request-kwargs)
+        [자세한 **kwargs 매개변수 사용법은 여기를 참고하면 됩니다.](#request-kwargs)
 
-        + **kwargs 옵션 종류
+        + **kwargs 매개변수 종류
 
             > ``request(self, method, url,
             params=None, data=None, headers=None, cookies=None, files=None,
@@ -173,41 +254,116 @@ requests 모듈은 ``[PUT, GET, POST, HEAD, PATCH, DELETE, OPTIONS]`` 메서드�
         
         ``[PUT, GET, POST, HEEAD, PATCH, DELETE, OPTIONS]``는 기본적으로 [requests.Response](https://docs.python-requests.org/en/master/api/#requests.Response) 객체를 반환합니다.
  
+* * *
+
 + PUT
 
-> ``requests.put(url, data=None, **kwargs)`` [_Souce Code_](https://docs.python-requests.org/en/latest/_modules/requests/api/#put)
+> ``requests.put(url, data=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L120-L132)
+
+> requests.put Function Code
+
+```py
+def put(url, data=None, **kwargs):
+    [ ... ]
+    return request('put', url, data=data, **kwargs)
+```
+
+* * *
 
 + GET
 
-> ``requests.get(url, params=None, **kwargs)`` [_Souce Code_](https://docs.python-requests.org/en/latest/_modules/requests/api/#get)
+> ``requests.get(url, params=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L64-L75)
+
+> requests.get Function Code
+
+```py
+def get(url, params=None, **kwargs):
+    [ ... ]
+    kwargs.setdefault('allow_redirects', True)
+    return request('get', url, params=params, **kwargs)
+```
+
+* * *
 
 + POST
 
-> ``requests.post(url, data=None, json=None, **kwargs)`` [_Souce Code_](https://docs.python-requests.org/en/latest/_modules/requests/api/#post)
+> ``requests.post(url, data=None, json=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L105-L117)
+
+> request.post Function Code
+
+```py
+def post(url, data=None, json=None, **kwargs):
+    [ ... ]
+    return request('post', url, data=data, json=json, **kwargs)
+```
+
+* * *
 
 + HEAD
 
-> ``requests.head(url, **kwargs)`` [_Souce Code_](https://docs.python-requests.org/en/latest/_modules/requests/api/#head)
+> ``requests.head(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L90-L102)
+
+> requests.head Function Code
+
+```py
+def head(url, **kwargs):
+    [ ... ]
+    kwargs.setdefault('allow_redirects', False)
+    return request('head', url, **kwargs)
+```
+
+* * *
 
 + PATCH
 
-> ``requests.patch(url, data=None, **kwargs)`` [_Souce Code_](https://docs.python-requests.org/en/latest/_modules/requests/api/#patch)
+> ``requests.patch(url, data=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L135-L147)
+
+> requests.patch Function Code
+
+```py
+def patch(url, data=None, **kwargs):
+    [ ... ]
+    return request('patch', url, data=data, **kwargs)
+```
+
+* * *
 
 + DELETE
 
-> ``requests.delete(url, **kwargs)`` [_Souce Code_](https://docs.python-requests.org/en/latest/_modules/requests/api/#delete)
+> ``requests.delete(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L150-L159)
+
+> requests.delete Function Code
+
+```py
+def delete(url, **kwargs):
+    [ ... ]
+    return request('delete', url, **kwargs)
+```
+
+* * *
 
 + OPTIONS
 
-> ``requests.options(url, **kwargs)`` [_Souce Code_](https://docs.python-requests.org/en/latest/_modules/requests/api/#options)
+> ``requests.options(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L78-L87)
+
+```py
+def options(url, **kwargs):
+    [ ... ]
+    kwargs.setdefault('allow_redirects', True)
+    return request('options', url, **kwargs)
+```
 
 * * *
 
 ## 자세히
 
+* * *
+
 ### ``PUT``
 
 > ``requests.put(url, data=None, **kwargs)``
+
+put 메소드는 요청 시 PUT 방식으로 요청되며 data 매개 변수를 지원합니다.
 
 > Example Code
 
@@ -339,11 +495,316 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 * * *
 
+## ``requests.request``
+
+``requests.request``는 요청하기 위해 사용되는 메소드이며 Response 개체를 반환합니다.
+
+자주 사용되는 메소드중 ``requests.get``, ``requests.post`` 또한 requests.request를 호출합니다.
+
+```py
+>>> r = requests.request('GET', 'https://example.com')
+>>> r
+<Response [200]>
+>>> r.status_code
+200
+```
+
+* * *
+
 ## Request **kwargs
 
-여기에서 설명하는 **kwargs는 요청할때 requests.request에 들어갈 매개변수 입니다. 더 자세하게는 [requests.sessions.Session.request](https://docs.python-requests.org/en/latest/_modules/requests/sessions/#Session.request)으로 연결됩니다.
+``**kwargs``는 위에서 한번 언급했던 [**kwargs](#kwargs-선택-사항-)를 설명합니다.
 
-예로 ``requests.get``나 ``requests.post``에서 사용할 수 있습니다.
+예로 [위의 글에서](#request-method)다뤘던 requests 메소드 7개 매개변수 또한 **kwargs가 존재합니다.
+
+* * *
+
+### **kwargs 매개 변수 종류
+
+>``request(self, method, url,
+            params=None, data=None, headers=None, cookies=None, files=None,
+            auth=None, timeout=None, allow_redirects=True, proxies=None,
+            hooks=None, stream=None, verify=None, cert=None, json=None)``
+
++ method
+
+    method 매개 변수는 요청 시 사용될 http 메소드 입니다.
+
+    GET 또는 POST등을 넣으면 됩니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.request(method = 'GET', url = 'https://example.com')
+    >>> r
+    <Response [200]>
+    >>> r = requests.request(method = 'PUT', url = 'http://httpbin.org/put')
+    <Resoinse [200]>
+    ```
+
++ url
+
+    url 매개 변수는 요청하고 싶은 URL을 넣으면 됩니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.request('GET', url='https://example.com')
+    <Response [200]>
+    ```
+
++ params
+
+    params 매개 변수는 요청하는 URL뒤에 GET방식으로 파라미터가 붙습니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.request('GET', url='https://example.com', params={'get1':'value1', 'get2','value2'})
+    <Response [200]>
+    >>> r.url
+    'https://example.com?get=value1&get2=value2'
+    ```
+
++ data
+
+    data 매개 변수는 요청될때 본문에 포함되어 서버로 데이터를 전송합니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.request('GET', url='http://httpbin.org/post', data={'post1':'value1', 'post2':'value2'})
+    >>> r
+    <Response [200]>
+    >>> r.request.body
+    'post1=value1&post2=value2'
+    ```
+
++ headers
+
+    headers 매개 변수는 요청할때 기본적인 헤더에 추가/수정/편집하여 서버에 전송합니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.request('GET', url='http://httpbin.org/get', headers={'header_test':'test'})
+    >>> r.request.headers
+    {'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'header_test': 'test'}
+    >>> r.request.headers['header_test']
+    'test'
+    ```
+
++ cookies( dict )
+
+    cookies 매개 변수는 요청할때 헤더에 쿠키에 대한 정보를 포함시킵니다.
+
+    ```py
+    >>> r = requests.request('GET', url='https://example.com', cookies={'cookies1':'value1'})
+    >>> r.request._cookies
+    <RequestsCookieJar[Cookie(version=0, name='cookies1', value='value1', port=None, port_specified=False, domain='', domain_specified=False, domain_initial_dot=False, path='/', path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)]>
+    >>> r.request._cookies.get_dict()
+    {'cookies1': 'value1'}
+    ```
+
++ files( dict, List, tpule )
+
+    files 매개 변수는 요청할 때 본문에 파일 내용을 포함시켜 파일 업로드하는 기능으로 사용할 수 있습니다.
+
+    requests를 이용하여 파일 업로드를 하기 위해 로컬에서 환경 구축한 다음 files매개 변수를 이용하여 업로드를 했습니다.
+
+    > 127.0.0.1:8080/uploads Code
+
+    ```py
+    from flask import Flask, request
+    from werkzeug.utils import secure_filename
+
+    app = Flask(__name__)
+
+    @app.route('/uploads', methods=['POST'])
+    def FILE_Uploads():
+        FILE = request.files['file']
+        FILE.save(os.path.join('uploads/', secure_filename(FILE.filename)))
+
+        return 'FILE Uploads Save'
+
+    app.run('127.0.0.1', 8080)
+    ```
+
+    > Example Code
+
+    ```py
+    >>> files = {'file':open('test.txt', 'rb')}
+    >>> url = 'http://127.0.0.1:8080/uploads'
+    >>> r = requests.post(url, files=files)
+    >>> r.request.body
+    b'--97d3077d15f7c7f9fc153b18d4575e58\r\nContent-Disposition: form-data; name="flie"; filename="test.txt"\r\n\r\nFILE Uploads TEST!!\n\r\n--97d3077d15f7c7f9fc153b18d4575e58--\r\n'
+    >>> print(r.request.body.decode())
+    --97d3077d15f7c7f9fc153b18d4575e58
+    Content-Disposition: form-data; name="flie"; filename="test.txt"
+
+    FILE Uploads TEST!!
+
+    --97d3077d15f7c7f9fc153b18d4575e58--
+
+    >>>
+    ```
+
++ auth( tuple )
+
+    auth 매개 변수는 [Authorization 헤더](https://tools.ietf.org/html/rfc7235#section-4.2)를 생성시켜 사용자 에이전트임을 증명할 수 있습니다.
+
+    필수는 아니지만 만약 인증을 해야되는 경우 auth를 이용합니다.
+
+    > auth Code
+
+    ```py
+    class HTTPBasicAuth(AuthBase):
+        """Attaches HTTP Basic Authorization to the given Request object."""
+
+        def __init__(self, username, password):
+            self.username = username
+            self.password = password
+
+        def __eq__(self, other):
+            return all([
+                self.username == getattr(other, 'username', None),
+                self.password == getattr(other, 'password', None)
+            ])
+
+        def __ne__(self, other):
+            return not self == other
+
+        def __call__(self, r):
+            r.headers['Authorization'] = _basic_auth_str(self.username, self.password)
+            return r
+    ```
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com", auth=("admin","pass"))
+    >>> r.request.headers
+    {'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic YWRtaW46cGFzcw=='}
+    >>> r.request.headers['Authorization']
+    'Basic YWRtaW46cGFzcw=='
+    >>> r = requests.get("https://example.com", auth=("admin","pass","test"))
+    Traceback (most recent call last):
+      [ ... ]
+    TypeError: 'tuple' object is not callable
+    >>> r = requests.get("https://example.com", auth=("admin"))
+    Traceback (most recent call last):
+      [ ... ]
+    TypeError: 'str' object is not callable
+    ```
+
++ timeout( float, tuple, int )
+
+    timeout 매개 변수는 요청 시간을 제한 시킵니다.
+
+    만약 응답을 받아오는데 10초 걸리는 사이트의 경우 timeout으로 빠르게 예외시킬 수 있습니다.
+
+    요청하고 응답 받는데 timeout에서 설정한 시간을 초과하면 에러가 발생합니다.
+
+    > 127.0.0.1:8080/time Code
+
+    ```py
+    import time
+    from flask import Flask
+
+    app = Flask(__name__)
+
+    @app.route('/time')
+    def time():
+        sleep(10)
+        return 'TIEM Loading'
+
+    app.run('127.0.0.1', 8080)
+    ```
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("http://127.0.0.1:8080/time", timeout=2)
+    Traceback (most recent call last):
+      File "/usr/li [ ... ]"
+        return self._sock.recv_into(b)
+    socket.timeout: timed out
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "/usr[ ... ]" 
+    urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=8080): Read timed out. (read timeout=2)
+
+    During handling of the above exception, another exception occurred:
+
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "/usr/lib[ ... ]"
+        raise ReadTimeout(e, request=request)
+    requests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=8080): Read timed out. (read timeout=2)
+    >>> r
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'r' is not defined
+    ```
+
++ allow_redirects( bool )
+
+    allow_redirects 매개 변수는 요청하고 응답을 받는 과정에 리다이렉션을 허용하지않게 할 수 있습니다.
+
+    만약 False로 설정하면 리다이렉션이 되지 않습니다.
+
+    로컬에서 Flask 서버를 이용하여 리다이렉션 테스트를 했습니다.
+
+    > 127.0.0.1:8080/redirect/n Code
+
+    ```py
+    from flask import Flask, redirect
+
+    app = Flask(__name__)
+
+    @app.route('/redirect/<int:n>')
+    def redirects(n):
+        return (redirect(f'/redirect/{n-1}', code=302) if n >= 1 else 'redirect TEST end')
+
+    app.run('127.0.0.1', 8080)
+    ```
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("http://127.0.0.1:8080/redirect/3", allow_redirects=False)
+    >>> r.url
+    'http://127.0.0.1:8080/redirect/3'
+    >>> r.history
+    []
+    >>> r = requests.get("http://127.0.0.1:8080/redirect/3", allow_redirects=True)
+    >>> r.url
+    'http://127.0.0.1:8080/redirect/0'
+    >>> r.history
+    [<Response [302]>, <Response [302]>, <Response [302]>]
+    >>> for History in r.history:
+    ...      History.url
+    ...
+    'http://127.0.0.1:8080/redirect/3'
+    'http://127.0.0.1:8080/redirect/2'
+    'http://127.0.0.1:8080/redirect/1'
+    ```
+
++ proxies ( dict )
+
+    proxies 매개 변수는
+
++ hooks
+
++ stream
+
++ verify
+
++ cert
+
++ json
 
 <br>
 
@@ -481,8 +942,6 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
 URL redirection이 되는 경우에도 리다이렉션이 된 최종 URL을 출력합니다.
 
-로컬에서 Flask로 리다이렉션을 구현하였습니다.
-
 > Example Code
 
 > ``http://127.0.0.1:8080/redirect`` -> ``/redirect_test``
@@ -503,37 +962,49 @@ URL redirection이 되는 경우에도 리다이렉션이 된 최종 URL을 출�
 
 ``history``는 모든 리다이렉션 응답은 가장 오래된 요청에서 최근 요청 순으로 Response 개체 목록을 반환 합니다.
 
-로컬에서 Flask으로 여러번 리다이렉션을 반복하는것을 구현했습니다.
+이해가 더 잘되기 위해 예시로 로컬에서 Flask으로 여러번 리다이렉션을 반복하여 테스트 했습니다.
+
+> 127.0.0.1:8080/redirect/n Code
+
+```py
+from flask import Flask, redirect
+
+app = Flask(__name__)
+
+@app.route('/redirect/<int:n>')
+def redirects(n):
+    return (redirect(f'/redirect/{n-1}', code=302) if n >= 1 else 'redirect TEST end')
+
+app.run('127.0.0.1', 8080)
+```
 
 > Example Code
 
-> ``http://127.0.0.1:8080/redirect`` -> ``/redirect_test``
-
-> ``http://127.0.0.1:8080/redirect2`` -> ``/redirect_test`` -> ``/redirect_test2``
+> ``127.0.0.1:8080/redirect/n`` -> ``/redirect/0``
 
 ```py
->>> r = requests.get("http://127.0.0.1:8080/redirect")
+>>> r = requests.get("https://example.com")
 >>> r.history
-[<Response [302]>]
+[]
 >>> r.url
-'http://127.0.0.1:8080/redirect_test'
->>> r = requests.get("http://127.0.0.1:8080/redirect2")
+'https://example.com'
+>>> r = requests.get("http://127.0.0.1:8080/redirect/2")
 >>> r.history
 [<Response [302]>, <Response [302]>]
 >>> r.url
-'http://127.0.0.1:8080/redirect_test2'
+'http://127.0.0.1:8080/redirect/0'
 >>>
 >>> r.history[0]
 <Response [302]>
 >>> r.history[0].url
-'http://127.0.0.1:8080/redirect2'
+'http://127.0.0.1:8080/redirect/2'
 >>>
 >>> r.history[1]
 <Response [302]>
 >>> r.history[1].url
-'http://127.0.0.1:8080/redirect_test'
+'http://127.0.0.1:8080/redirect/1'
 >>> r.url
-'http://127.0.0.1:8080/redirect_test2'
+'http://127.0.0.1:8080/redirect/0'
 ```
 
 * * *
@@ -640,10 +1111,25 @@ datetime.timedelta(microseconds=643703)
 
 ``raise_for_status()``를 이용하여 예외처리로 True, False를 구별합니다.
 
+> ok Function Code
+
+```py
+@property
+    def ok(self):
+        [ ... ]
+        try:
+            self.raise_for_status()
+        except HTTPError:
+            return False
+        return True
+```
+
 > Example Code
 
 ```py
 >>> r = requests.get("https://example.com")
+>>> r.status_code
+200
 >>> r.ok
 True
 >>> if r.ok:
@@ -652,6 +1138,8 @@ True
 1
 >>>
 >>> r = requests.get("https://example.com/not-found/")
+>>> r.status_code
+404
 >>> r.ok
 False
 >>> if r.ok:
@@ -947,7 +1435,7 @@ b'/html>\n'
 
 + #### ``r.request.copy()``
 
-    ``request.copy()`` PreparedRequest의 카피본을 반환합니다.
+    ``request.copy()``는 PreparedRequest의 카피본을 반환합니다.
 
     > request.copy Source Code
 
