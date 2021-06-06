@@ -34,7 +34,11 @@ permalink: /about/
 ## CTF 참여 경험
 
   + #### 2021
-    + [HeroCTF v3](https://ctftime.org/event/1284/) / [Writeup 작성중]()
+    + [Zh3r0 CTF V2](https://ctftime.org/event/128) / [Writeup 작성중]()
+    + [S.H.E.L.L. CTF](https://ctftime.org/event/1362/) / [Wirteup 작성중]()
+    + [wtfctf](https://ctftime.org/event/1373/) / [Writeup 작성중]()
+    + [DCTF](https://ctftime.org/event/1361/) / [Writeup 작성중]()
+    + [HeroCTF v3](https://ctftime.org/event/1284/) / [Writeup 쓸려다가 깜빡해서 못씀]()
     + [Shakti CTF](https://ctftime.org/event/1251/) / [Writeup](https://me2nuk.com/ShaktiCTF-2021-Writeup/)
     + [UMassCTF 2021](https://ctftime.org/event/1282/) / [Writeup](https://me2nuk.com/UMassCTF-2021-Writeup/)
     + [Bluehens CTF(UDCTF) 2021](https://ctftime.org/event/1298/) / [Writeup](https://me2nuk.com/bluehens-CTF(UDCTF)-2021-Writeup/)
