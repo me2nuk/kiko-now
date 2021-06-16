@@ -4,8 +4,7 @@ title:  "Python requests 모듈(module) 사용법"
 tags: [python,requests,Guide]
 excerpt: "Python requests 모듈(module) 사용법"
 ---
-
-* * *
+---
 
 # requests 모듈이란?
 
@@ -24,7 +23,7 @@ requests 코드 예시를 위해 [httpbin](http://httpbin.org/), [example](https
 + [requests Github](https://github.com/psf/requests)
 + [requests Documentation](https://docs.python-requests.org/)
 
-* * *
+---
 
 ## requests module FILE 구조
 
@@ -49,7 +48,7 @@ requests
    └── utils.py
 ```
 
-* * *
+---
 
 ### requests module install
 
@@ -77,7 +76,7 @@ pip 명령어를 이용하여 requests 모듈을 다운로드 하면 import 또�
 '<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title[ ... ]\n</body>\n</html>\n'
 ```
 
-* * *
+---
 
 ## HTTP 요청 메서드(HTTP request method)
 
@@ -91,17 +90,17 @@ http 메서드는 클라이언트가 서버에게 요청하는 목적 및 그 �
 
 + [HTTP method Documentation](https://tools.ietf.org/html/rfc2616#section-9.1.2)
 
-* * *
+---
 
 ## requests GET, POST, PUT , DELETE, HEAD, OPTIONS
 
 HTTP 메소드마다 사용되는 함수와 매개변수가 각각 조금씩 다르며 일반적인 요청의 경우 함수명만 변경하여 쉽게 할 수 있습니다.
 
-그리고 요청의 모든 기능은 하단의 코드 예시와 같이 7가지 방법으로 액세스할 수 있습니다. 
+그리고 요청의 모든 기능은 하단의 코드 예시와 같이 7가지 방법으로 액세스할 수 있습니다.
 
 모두 Response 개체의 인스턴스를 반환 합니다.
 
-* * *
+---
 
 > Example Code
 
@@ -117,7 +116,7 @@ HTTP 메소드마다 사용되는 함수와 매개변수가 각각 조금씩 다
 >>> r = requests.options("http://httpbin.org/get")
 ```
 
-* * *
+---
 
 # requests 모듈 사용법
 
@@ -128,7 +127,7 @@ requests는 from 또는 import로 모듈 불러오면 사용할 수 있습니다
 >>> import requests
 ```
 
-* * *
+---
 
 # Request
 
@@ -145,7 +144,7 @@ def request(method, url, **kwargs):
         return session.request(method=method, url=url, **kwargs)
 ```
 
-* * *
+---
 
 ### Request Headers
 
@@ -184,13 +183,13 @@ def default_headers():
 
 <br>
 
-* * *
+---
 
 ### Request method
 
 requests 클래스에서 지원하는 요청 메서드를 쉽게 사용하기 위해선 총 7가지의 메소드를 이용하여 활용할 수 있습니다.
 
-``HTTP/1.1`` 버전의 경우 여러가지의 메소드가 존재하는데 
+``HTTP/1.1`` 버전의 경우 여러가지의 메소드가 존재하는데
 
 requests 모듈은 ``[PUT, GET, POST, HEAD, PATCH, DELETE, OPTIONS]`` 메서드가 존재합니다.
 
@@ -207,7 +206,7 @@ def get(url, params=None, **kwargs):
     return request('get', url, params=params, **kwargs)
 ```
 
-* * *
+---
 
 ### 간단히
 
@@ -217,11 +216,13 @@ def get(url, params=None, **kwargs):
 
         url 매개 변수는  ``requests.request`` 객체에 사용되기 위한 URL 입니다.
 
+
         > https://google.com
 
     + ##### params(선택 사항)
 
         튜플(tuple), 딕셔너리(dict)형식으로 매개변수에 넣으면 양식이 URL 인코딩이 되어 URL에 추가됩니다.
+
 
         > ``URL?key=value&key1=value1``
 
@@ -229,11 +230,13 @@ def get(url, params=None, **kwargs):
 
         튜플(tuple), 딕셔너리(dict)형식으로 매개변수에 넣으면 양식이 인코딩되어 요청 본문에 추가됩니다.
 
+
         > ``key=value&key1=value1``
 
     + ##### json(선택 사항)
 
         JSON 매개 변수를 이용하여 요청 본문에 json 형식으로 추가됩니다.
+
 
         > ``{ 'key':'value', 'key1':'value1' }``
 
@@ -243,18 +246,16 @@ def get(url, params=None, **kwargs):
 
         [자세한 **kwargs 매개변수 사용법은 여기를 참고하면 됩니다.](#request-kwargs)
 
-        + **kwargs 매개변수 종류
 
-            > ``request(self, method, url,
-            params=None, data=None, headers=None, cookies=None, files=None,
-            auth=None, timeout=None, allow_redirects=True, proxies=None,
-            hooks=None, stream=None, verify=None, cert=None, json=None)``
+    + **kwargs 매개변수 종류
 
+        > ``request(self, method, url, params=None, data=None, headers=None, cookies=None, files=None, auth=None, timeout=None, allow_redirects=True, proxies=None, hooks=None, stream=None, verify=None, cert=None, json=None)``
+      
     + return
-        
+
         ``[PUT, GET, POST, HEEAD, PATCH, DELETE, OPTIONS]``는 기본적으로 [requests.Response](https://docs.python-requests.org/en/master/api/#requests.Response) 객체를 반환합니다.
- 
-* * *
+
+---
 
 + PUT
 
@@ -268,7 +269,7 @@ def put(url, data=None, **kwargs):
     return request('put', url, data=data, **kwargs)
 ```
 
-* * *
+---
 
 + GET
 
@@ -283,7 +284,7 @@ def get(url, params=None, **kwargs):
     return request('get', url, params=params, **kwargs)
 ```
 
-* * *
+---
 
 + POST
 
@@ -297,7 +298,7 @@ def post(url, data=None, json=None, **kwargs):
     return request('post', url, data=data, json=json, **kwargs)
 ```
 
-* * *
+---
 
 + HEAD
 
@@ -312,7 +313,7 @@ def head(url, **kwargs):
     return request('head', url, **kwargs)
 ```
 
-* * *
+---
 
 + PATCH
 
@@ -326,7 +327,7 @@ def patch(url, data=None, **kwargs):
     return request('patch', url, data=data, **kwargs)
 ```
 
-* * *
+---
 
 + DELETE
 
@@ -340,7 +341,7 @@ def delete(url, **kwargs):
     return request('delete', url, **kwargs)
 ```
 
-* * *
+---
 
 + OPTIONS
 
@@ -353,11 +354,11 @@ def options(url, **kwargs):
     return request('options', url, **kwargs)
 ```
 
-* * *
+---
 
 ## 자세히
 
-* * *
+---
 
 ### ``PUT``
 
@@ -375,7 +376,7 @@ put 메소드는 요청 시 PUT 방식으로 요청되며 data 매개 변수를 
 'put1=data1&put2=data2'
 ```
 
-* * *
+---
 
 ### ``GET``
 
@@ -397,7 +398,7 @@ get 메소드는 요청 시 GET 방식으로 요청되며 ``params`` 매개 변�
 'http://httpbin.org/get/?data1=value1&data2=value2'
 ```
 
-* * *
+---
 
 ### ``POST``
 
@@ -427,7 +428,7 @@ b'{"post1": "data1", "post2": "data2"}'
 'application/json'
 ```
 
-* * *
+---
 
 ### ``HEAD``
 
@@ -443,7 +444,7 @@ head 메소드는 요청 시 HEAD 방식으로 요청됩니다.
 'HEAD'
 ```
 
-* * *
+---
 
 ### ``PATCH``
 
@@ -461,7 +462,7 @@ patch 메소드는 요청 시 PATCH 방식으로 요청됩니다.
 'patch1=data1&patch2=data2'
 ```
 
-* * *
+---
 
 ### ``DELETE``
 
@@ -477,7 +478,7 @@ delete 메소드는 요청 시 DELETE 방식으로 요청됩니다.
 'DELETE'
 ```
 
-* * *
+---
 
 ### ``OPTIONS``
 
@@ -493,7 +494,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 'OPTIONS'
 ```
 
-* * *
+---
 
 ## ``requests.request``
 
@@ -509,7 +510,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 200
 ```
 
-* * *
+---
 
 ## Request **kwargs
 
@@ -517,60 +518,58 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 예로 [위의 글에서](#request-method)다뤘던 requests 메소드 7개 매개변수 또한 **kwargs가 존재합니다.
 
-* * *
+---
 
 ### **kwargs 매개 변수 종류
 
->``request(self, method, url,
-            params=None, data=None, headers=None, cookies=None, files=None,
-            auth=None, timeout=None, allow_redirects=True, proxies=None,
-            hooks=None, stream=None, verify=None, cert=None, json=None)``
+> ``request(self, method, url, params=None, data=None, headers=None, cookies=None, files=None, auth=None, timeout=None, allow_redirects=True, proxies=None, hooks=None, stream=None, verify=None, cert=None, json=None)``
 
 + method
 
-    method 매개 변수는 요청 시 사용될 http 메소드 입니다.
+  method 매개 변수는 요청 시 사용될 http 메소드 입니다.
 
-    GET 또는 POST등을 넣으면 됩니다.
+  GET 또는 POST등을 넣으면 됩니다.
 
-    > Example Code
+  > Example Code
 
-    ```py
-    >>> r = requests.request(method = 'GET', url = 'https://example.com')
-    >>> r
-    <Response [200]>
-    >>> r = requests.request(method = 'PUT', url = 'http://httpbin.org/put')
-    <Resoinse [200]>
-    ```
 
+  ```py
+  >>> r = requests.request(method = 'GET', url = 'https://example.com')
+  >>> r
+  <Response [200]>
+  >>> r = requests.request(method = 'PUT', url = 'http://httpbin.org/put')
+  <Resoinse [200]>
+  ```
 + url
 
     url 매개 변수는 요청하고 싶은 URL을 넣으면 됩니다.
 
     > Example Code
 
+
     ```py
     >>> r = requests.request('GET', url='https://example.com')
     <Response [200]>
     ```
-
 + params
 
     params 매개 변수는 요청하는 URL뒤에 GET방식으로 파라미터가 붙습니다.
 
     > Example Code
 
+
     ```py
-    >>> r = requests.request('GET', url='https://example.com', params={'get1':'value1', 'get2','value2'})
+    >>> r = requests.request('GET', url='https://example.com', params={'get1':'value1',   'get2','value2'})
     <Response [200]>
     >>> r.url
     'https://example.com?get=value1&get2=value2'
     ```
-
 + data
 
     data 매개 변수는 요청될때 본문에 포함되어 서버로 데이터를 전송합니다.
 
     > Example Code
+
 
     ```py
     >>> r = requests.request('GET', url='http://httpbin.org/post', data={'post1':'value1', 'post2':'value2'})
@@ -579,7 +578,6 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     >>> r.request.body
     'post1=value1&post2=value2'
     ```
-
 + headers
 
     headers 매개 변수는 요청할때 기본적인 헤더에 추가/수정/편집하여 서버에 전송합니다.
@@ -601,11 +599,10 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     ```py
     >>> r = requests.request('GET', url='https://example.com', cookies={'cookies1':'value1'})
     >>> r.request._cookies
-    <RequestsCookieJar[Cookie(version=0, name='cookies1', value='value1', port=None, port_specified=False, domain='', domain_specified=False, domain_initial_dot=False, path='/', path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)]>
+    <RequestsCookieJar[Cookie(version=0, name='cookies1', value='value1', port=None, port_specified=False, domain='', domain_specified=False, domain_initial_dot=False, path='/', path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)  ]>
     >>> r.request._cookies.get_dict()
     {'cookies1': 'value1'}
     ```
-
 + files( dict, List, tpule )
 
     files 매개 변수는 요청할 때 본문에 파일 내용을 포함시켜 파일 업로드하는 기능으로 사용할 수 있습니다.
@@ -648,7 +645,6 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     >>>
     ```
-
 + auth( tuple )
 
     auth 매개 변수는 [Authorization 헤더](https://tools.ietf.org/html/rfc7235#section-4.2)를 생성시켜 사용자 에이전트임을 증명할 수 있습니다.
@@ -656,6 +652,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     필수는 아니지만 만약 인증을 해야되는 경우 auth를 이용합니다.
 
     > auth Code
+
 
     ```py
     class HTTPBasicAuth(AuthBase):
@@ -681,10 +678,11 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     > Example Code
 
+
     ```py
     >>> r = requests.get("https://example.com", auth=("admin","pass"))
     >>> r.request.headers
-    {'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic YWRtaW46cGFzcw=='}
+    {'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Basic     YWRtaW46cGFzcw=='}
     >>> r.request.headers['Authorization']
     'Basic YWRtaW46cGFzcw=='
     >>> r = requests.get("https://example.com", auth=("admin","pass","test"))
@@ -696,7 +694,6 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
       [ ... ]
     TypeError: 'str' object is not callable
     ```
-
 + timeout( float, tuple, int )
 
     timeout 매개 변수는 요청 시간을 제한 시킵니다.
@@ -748,7 +745,6 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
       File "<stdin>", line 1, in <module>
     NameError: name 'r' is not defined
     ```
-
 + allow_redirects( bool )
 
     allow_redirects 매개 변수는 요청하고 응답을 받는 과정에 리다이렉션을 허용하지않게 할 수 있습니다.
@@ -791,24 +787,89 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     'http://127.0.0.1:8080/redirect/2'
     'http://127.0.0.1:8080/redirect/1'
     ```
-
 + proxies ( dict )
 
-    proxies 매개 변수는
+    proxies 매개 변수는 proxy 기능을 사용할 수 있습니다.
+
+    만약 requests 모듈로 요청하는걸 proxy로 잡고싶은 경우 porixes 매개 변수를 사용하면 됩니다.
+
+    Example Code 1
+
+    ```py
+    import requests
+
+    URL = 'http://httpbin.org'
+    HTTP_PROXY = 'http://127.0.0.1:8080'
+
+    PROXY_origin = {
+        'http':HTTP_PROXY
+    }
+
+    r = requests.get(URL, proxies=PROXY_origin)
+    print(r.text)
+    ```
+
+    해당 소스코드를 이용하여 ``http://127.0.0.1:8080``으로 프록시를 잡은 다음 proxies 매개 변수에 dict 타입으로 호출하면
+
+    테스트 하기 위해 Burp Suite툴을 이용하여 프록시 잡은 헤더를 살펴보면
+
+    ```http
+    GET / HTTP/1.1
+    Host: httpbin.org
+    User-Agent: python-requests/2.22.0
+    Accept-Encoding: gzip, deflate
+    Accept: */*
+    Connection: close
+
+
+    ```
+
+    이렇게 헤더와 본문이 나오는것을 볼 수 있습니다.
+
+    만약 cookies나 headers를 추가하면 proxy에 잡히는것을 볼 수 있습니다.
+
+    > Example Code 2
+
+    ```py
+    >>> headers = { 'test-headers':'Proxies' }
+    >>> cookies = { 'cookie1':'value1' }
+    >>> proxies = { 'http':'http://127.0.0.1:8080' }
+    >>> r = requests.get("http://httpbin.org", headers=headers, cookies=cookies, proxies=proxies)
+    ```
+
+    ```
+    GET / HTTP/1.1
+    Host: httpbin.org
+    User-Agent: python-requests/2.25.1
+    Accept-Encoding: gzip, deflate
+    Accept: */*
+    Connection: close
+    test-headers: Proxies
+    Cookie: cookie1=value1
+
+
+    ```
+
+    만약 별도의 설정 없이 컴퓨터의 환경 변수를 이용하여 모든 요청을 프록시로 잡을 수 있습니다.
+
+    linux의 경우 export 명령어를 이용하여 환경 변수를 추가할 수 있습니다.
+
+    ```bash
+    ~$ export HTTP_PROXY = 'http://127.0.0.1:8080'
+    ~$ export HTTPS_PROXY = 'http://127.0.0.1:8080'
+    ```
+
+    windows의 경우 
 
 + hooks
-
 + stream
-
 + verify
-
 + cert
-
 + json
 
 <br>
 
-* * *
+---
 
 <br>
 
@@ -827,7 +888,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 >>> r = requests.get("https:/example.com")
 ```
 
-+ ### ``r.text``
+### ``r.text``
 
 text는 요청/응답 본문을 자동으로 디코드시킨 값을 str 타입으로 반환합니다.
 
@@ -855,9 +916,9 @@ text는 요청/응답 본문을 자동으로 디코드시킨 값을 str 타입�
 </html>
 ```
 
-* * *
+---
 
-+ ### ``r.content``
+### ``r.content``
 
 content는 요청/응답 본문을 byte 타입으로 반환됩니다.
 
@@ -893,9 +954,9 @@ b'<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title> [ ... ] </b
 >>>
 ```
 
-* * *
+---
 
-+ ### ``r.json()``
+### ``r.json()``
 
 > ``json(self, **kwargs)``
 
@@ -920,7 +981,7 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 <class 'list'>
 ```
 
-* * *
+---
 
 ### ``r.status_code``
 
@@ -934,7 +995,7 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 200
 ```
 
-* * *
+---
 
 ### ``r.url``
 
@@ -956,7 +1017,7 @@ URL redirection이 되는 경우에도 리다이렉션이 된 최종 URL을 출�
 'http://127.0.0.1:8080/redirect_test'
 ```
 
-* * *
+---
 
 ### ``r.history``
 
@@ -1007,7 +1068,7 @@ app.run('127.0.0.1', 8080)
 'http://127.0.0.1:8080/redirect/0'
 ```
 
-* * *
+---
 
 ### ``r.links``
 
@@ -1036,7 +1097,7 @@ KeyError: 'link'
 {}
 ```
 
-* * *
+---
 
 ### ``r.headers``
 
@@ -1050,7 +1111,7 @@ KeyError: 'link'
 {'Content-Encoding': 'gzip', 'Age': '330304', 'Cache-Control': 'max-age=604800', 'Content-Type': 'text/html; charset=UTF-8', 'Date': 'Fri, 30 Apr 2021 13:58:41 GMT', 'Etag': '"3147526947+gzip"', 'Expires': 'Fri, 07 May 2021 13:58:41 GMT', 'Last-Modified': 'Thu, 17 Oct 2019 07:18:26 GMT', 'Server': 'ECS (sab/56BC)', 'Vary': 'Accept-Encoding', 'X-Cache': 'HIT', 'Content-Length': '648'}
 ```
 
-* * *
+---
 
 ### ``r.cookies``
 
@@ -1073,11 +1134,11 @@ KeyError: 'link'
 NID 214=V54rp0jqnDG7IFhEI8bUU1DhK8FERCtCfFYzPlPNdCgFLZTmwxQpUhUEzc5xtK_p_4BByikl28WX7558B2WWmY7iJPMMPiMmhnwvZbftcazRwyPLjDjgaA_3GBKRMkipp7qD0ONumogYbm9tbjaRCYjp08qNxfeDjOIgLiGSdaU
 ```
 
-* * *
+---
 
 ### ``r.connection``
 
-* * *
+---
 
 ### ``r.elapsed``
 
@@ -1095,15 +1156,15 @@ datetime.timedelta(microseconds=643703)
 0:00:00.643703
 ```
 
-* * *
+---
 
 ### ``r.is_permanent_redirect``
 
-* * *
+---
 
 ### ``r.is_redirect``
 
-* * *
+---
 
 ### ``r.ok``
 
@@ -1148,11 +1209,11 @@ False
 >>>
 ```
 
-* * *
+---
 
 ### ``r.reason``
 
-``reason``는 요청/응답 http 상태 코드의 텍스트를 출력합니다. 
+``reason``는 요청/응답 http 상태 코드의 텍스트를 출력합니다.
 
 > Example Code
 
@@ -1174,7 +1235,7 @@ False
 'Not Found'
 ```
 
-* * *
+---
 
 ### ``r.raise_for_status()``
 
@@ -1204,7 +1265,7 @@ Traceback (most recent call last):
 requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://example.com/a
 ```
 
-* * *
+---
 
 ### ``r.encoding``
 
@@ -1220,7 +1281,7 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://exam
 { [ ... ] 'Content-Type': 'text/html; charset=UTF-8', 'Date': 'Thu, 29 Apr 2021 14:21 [ ... ] IT', 'Content-Length': '648'}
 ```
 
-* * *
+---
 
 ### ``r.apparent_encoding``
 
@@ -1243,7 +1304,7 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://exam
 'ascii'
 ```
 
-* * *
+---
 
 ### ``r.iter_content()``
 
@@ -1303,7 +1364,7 @@ in illustrative examples in documents. You may use this
 </html>
 ```
 
-* * *
+---
 
 ### ``r.iter_lines()``
 
@@ -1366,7 +1427,7 @@ b'/body>\n'
 b'/html>\n'
 ```
 
-* * *
+---
 
 ### ``r.close()``
 
@@ -1382,7 +1443,7 @@ b'/html>\n'
 >>> r.close()
 ```
 
-* * *
+---
 
 ### ``r.request``
 
@@ -1402,6 +1463,7 @@ b'/html>\n'
 
     ``request.headers``는 요청할때 사용된 헤더를 dict 타입으로 반환합니다.
 
+
     > Example Code
 
     ```py
@@ -1414,10 +1476,11 @@ b'/html>\n'
     >>> r.request.headers['User-Agent']
     'python-requests/2.22.0'
     ```
-
+    
 + #### ``r.request._cookies``
 
     ``request._cookies``는 요청할때 사용된 쿠키 내용을 dict 타입으로 반환됩니다.
+
 
     > Example Code
 
@@ -1474,7 +1537,7 @@ b'/html>\n'
 
 + #### 추가 request 작성중..
 
-* * *
+---
 
 ### ``r.raw``
 
@@ -1490,9 +1553,10 @@ b'/html>\n'
 ['CONTENT_DECODERS', 'DECODER_ERROR_CLASSES', 'REDIRECT_STATUSES', '__abstractmethods__', '__class__', '__del__', '__delattr__', '__dict__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__next__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_abc_impl', '_body', '_checkClosed', '_checkReadable', '_checkSeekable', '_checkWritable', '_connection', '_decode', '_decoder', '_error_catcher', '_flush_decoder', '_fp', '_fp_bytes_read', '_handle_chunk', '_init_decoder', '_init_length', '_original_response', '_pool', '_request_url', '_update_chunk_length', 'auto_close', 'chunk_left', 'chunked', 'close', 'closed', 'connection', 'data', 'decode_content', 'enforce_content_length', 'fileno', 'flush', 'from_httplib', 'get_redirect_location', 'getheader', 'getheaders', 'geturl', 'headers', 'info', 'isatty', 'isclosed', 'length_remaining', 'msg', 'read', 'read_chunked', 'readable', 'readinto', 'readline', 'readlines', 'reason', 'release_conn', 'retries', 'seek', 'seekable', 'status', 'stream', 'strict', 'supports_chunked_reads', 'tell', 'truncate', 'version', 'writable', 'writelines']
 ```
 
-* * *
+---
 
 + #### ``r.raw.read()``
+
 
     > ``read(self, amt=None, decode_content=None, cache_content=False)``
 
