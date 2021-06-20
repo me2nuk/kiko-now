@@ -540,6 +540,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
   >>> r = requests.request(method = 'PUT', url = 'http://httpbin.org/put')
   <Resoinse [200]>
   ```
+
+---
+
 + url
 
     url 매개 변수는 요청하고 싶은 URL을 넣으면 됩니다.
@@ -551,6 +554,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     >>> r = requests.request('GET', url='https://example.com')
     <Response [200]>
     ```
+
+---
+
 + params
 
     params 매개 변수는 요청하는 URL뒤에 GET방식으로 파라미터가 붙습니다.
@@ -564,6 +570,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     >>> r.url
     'https://example.com?get=value1&get2=value2'
     ```
+
+---
+
 + data
 
     data 매개 변수는 요청될때 본문에 포함되어 서버로 데이터를 전송합니다.
@@ -578,6 +587,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     >>> r.request.body
     'post1=value1&post2=value2'
     ```
+
+---
+
 + headers
 
     headers 매개 변수는 요청할때 기본적인 헤더에 추가/수정/편집하여 서버에 전송합니다.
@@ -592,6 +604,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     'test'
     ```
 
+---
+
 + cookies( dict )
 
     cookies 매개 변수는 요청할때 헤더에 쿠키에 대한 정보를 포함시킵니다.
@@ -603,6 +617,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     >>> r.request._cookies.get_dict()
     {'cookies1': 'value1'}
     ```
+
+---
+
 + files( dict, List, tpule )
 
     files 매개 변수는 요청할 때 본문에 파일 내용을 포함시켜 파일 업로드하는 기능으로 사용할 수 있습니다.
@@ -627,6 +644,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     app.run('127.0.0.1', 8080)
     ```
 
+    ---
+
     > Example Code
 
     ```py
@@ -645,6 +664,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     >>>
     ```
+
+---
+
 + auth( tuple )
 
     auth 매개 변수는 [Authorization 헤더](https://tools.ietf.org/html/rfc7235#section-4.2)를 생성시켜 사용자 에이전트임을 증명할 수 있습니다.
@@ -676,8 +698,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
             return r
     ```
 
-    > Example Code
+    ---
 
+    > Example Code
 
     ```py
     >>> r = requests.get("https://example.com", auth=("admin","pass"))
@@ -694,6 +717,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
       [ ... ]
     TypeError: 'str' object is not callable
     ```
+
+---
+
 + timeout( float, tuple, int )
 
     timeout 매개 변수는 요청 시간을 제한 시킵니다.
@@ -717,6 +743,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     app.run('127.0.0.1', 8080)
     ```
+
+    ---
 
     > Example Code
 
@@ -745,6 +773,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
       File "<stdin>", line 1, in <module>
     NameError: name 'r' is not defined
     ```
+
+---
+
 + allow_redirects( bool )
 
     allow_redirects 매개 변수는 요청하고 응답을 받는 과정에 리다이렉션을 허용하지않게 할 수 있습니다.
@@ -766,6 +797,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     app.run('127.0.0.1', 8080)
     ```
+  
+    ---
 
     > Example Code
 
@@ -787,13 +820,16 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     'http://127.0.0.1:8080/redirect/2'
     'http://127.0.0.1:8080/redirect/1'
     ```
+    
+---
+
 + proxies ( dict )
 
     proxies 매개 변수는 proxy 기능을 사용할 수 있습니다.
 
     만약 requests 모듈로 요청하는걸 proxy로 잡고싶은 경우 porixes 매개 변수를 사용하면 됩니다.
 
-    Example Code 1
+    > Example Code 1
 
     ```py
     import requests
@@ -828,6 +864,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     만약 cookies나 headers를 추가하면 proxy에 잡히는것을 볼 수 있습니다.
 
+    ---
+
     > Example Code 2
 
     ```py
@@ -858,8 +896,6 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     ~$ export HTTP_PROXY = 'http://127.0.0.1:8080'
     ~$ export HTTPS_PROXY = 'http://127.0.0.1:8080'
     ```
-
-    windows의 경우 
 
 + hooks
 + stream
@@ -1039,6 +1075,8 @@ def redirects(n):
 app.run('127.0.0.1', 8080)
 ```
 
+---
+
 > Example Code
 
 > ``127.0.0.1:8080/redirect/n`` -> ``/redirect/0``
@@ -1185,6 +1223,8 @@ datetime.timedelta(microseconds=643703)
         return True
 ```
 
+---
+
 > Example Code
 
 ```py
@@ -1296,6 +1336,8 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://exam
         return chardet.detect(self.content)['encoding']
 ```
 
+---
+
 > Example Code
 
 ```py
@@ -1387,6 +1429,8 @@ def iter_lines(self, chunk_size=ITER_CHUNK_SIZE, decode_unicode=False, delimiter
                 lines = chunk.splitlines()
         ...
 ```
+
+---
 
 > Example Code
 
@@ -1514,6 +1558,8 @@ b'/html>\n'
         p._body_position = self._body_position
         return p
     ```
+
+    ---
 
     > Example Code
 
