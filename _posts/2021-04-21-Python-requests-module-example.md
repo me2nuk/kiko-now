@@ -903,11 +903,26 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 + cert
 + json
 
+    json 매개변수는 서버에 content-type을 application/json 타입으로 JSON 데이터를 요청할 때 유용하게 사용될 수 있습니다.
+
+    json 매개 변수를 사용하면 요청 헤더에 기본적으로 Content-Type이 application/json 으로 지정이 된 상태로 요청이 됩니다.
+
+    > Example Code
+
+    ```
+    >>> import requests
+    >>> r = requests.get("https://example.com", json={'test1':'jsondata2'})
+    >>> r.request.headers
+    {'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '22', 'Content-Type': 'application/json'}
+    >>> r.request.body
+    b'{"test1": "jsondata2"}'
+    >>> r.request.body.decode()
+    '{"test1": "jsondata2"}'
+    ```
+
 <br>
 
 ---
-
-<br>
 
 # Response
 
@@ -924,639 +939,305 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 >>> r = requests.get("https:/example.com")
 ```
 
-### ``r.text``
-
-text는 요청/응답 본문을 자동으로 디코드시킨 값을 str 타입으로 반환합니다.
-
-> Example Code
-
-```py
->>> r.text
-'<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>[ ... ]v>\n</body>\n</html>\n'
->>> print(r.text)
-<!doctype html>
-<html>
-<head>
-    <title>Example Domain</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-    [ ... ]
-</body>
-</html>
-```
-
 ---
 
-### ``r.content``
-
-content는 요청/응답 본문을 byte 타입으로 반환됩니다.
-
-> Example Code
-
-```py
->>> r.content
-b'<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title> [ ... ] </body>\n</html>\n'
->>> type(r.content)
-<class 'bytes'>
->>> print(r.content.decode())
-<!doctype html>
-<html>
-<head>
-    <title>Example Domain</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-    }
-    div {
-        width: 600px;
-    [ ... ]
-</body>
-</html>
->>>
-```
-
----
-
-### ``r.json()``
-
-> ``json(self, **kwargs)``
-
-json() 는 요청/응답 본문을 json 형식으로 디코딩하여 반환합니다.
-
-만약 올바른 json 형식이 아닌 경우 에러를 반환합니다.
-
-> Example Code
-
-```py
->>> import requests
->>> r = requests.get("https://example.com")
->>> r.json()
-Traceback (most recent call last):
-  File "<[ ... ] "
-    raise JSONDecodeError("Expecting value", s, err.value) from None
-json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
->>> r = requests.get("https://api.github.com/events")
->>> r.json()
-[{'id': '16070464781', 'type': 'ForkEvent', 'actor': [ ... ] 'at': '2021-04-24T10:30:31Z'}]
->>> type(r.json())
-<class 'list'>
-```
-
----
-
-### ``r.status_code``
-
-``status_code``는 [http 응답 코드](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 나타냅니다. 요청에 성공한 경우 일반적으로 200을 반환 합니다.
-
-> Example Code
-
-```py
->>> r = requests.get("https://example.com")
->>> r.status_code
-200
-```
-
----
-
-### ``r.url``
-
-``url``은 요청한 뒤 응답의 최종 URL을 반환합니다.
-
-URL redirection이 되는 경우에도 리다이렉션이 된 최종 URL을 출력합니다.
-
-> Example Code
-
-> ``http://127.0.0.1:8080/redirect`` -> ``/redirect_test``
-
-```py
->>> r = requests.get("https://example.com")
->>> r.url
-'https://example.com'
->>>
->>> r = requests.get("http://127.0.0.1:8080/redirect")
->>> r.url
-'http://127.0.0.1:8080/redirect_test'
-```
-
----
-
-### ``r.history``
-
-``history``는 모든 리다이렉션 응답은 가장 오래된 요청에서 최근 요청 순으로 Response 개체 목록을 반환 합니다.
-
-이해가 더 잘되기 위해 예시로 로컬에서 Flask으로 여러번 리다이렉션을 반복하여 테스트 했습니다.
-
-> 127.0.0.1:8080/redirect/n Code
-
-```py
-from flask import Flask, redirect
-
-app = Flask(__name__)
-
-@app.route('/redirect/<int:n>')
-def redirects(n):
-    return (redirect(f'/redirect/{n-1}', code=302) if n >= 1 else 'redirect TEST end')
-
-app.run('127.0.0.1', 8080)
-```
-
----
-
-> Example Code
-
-> ``127.0.0.1:8080/redirect/n`` -> ``/redirect/0``
-
-```py
->>> r = requests.get("https://example.com")
->>> r.history
-[]
->>> r.url
-'https://example.com'
->>> r = requests.get("http://127.0.0.1:8080/redirect/2")
->>> r.history
-[<Response [302]>, <Response [302]>]
->>> r.url
-'http://127.0.0.1:8080/redirect/0'
->>>
->>> r.history[0]
-<Response [302]>
->>> r.history[0].url
-'http://127.0.0.1:8080/redirect/2'
->>>
->>> r.history[1]
-<Response [302]>
->>> r.history[1].url
-'http://127.0.0.1:8080/redirect/1'
->>> r.url
-'http://127.0.0.1:8080/redirect/0'
-```
-
----
-
-### ``r.links``
-
-``links``는 요청/응답 [헤더의 link](https://tools.ietf.org/html/rfc8288#section-3)를 파싱한 결과를 반환합니다.
-
-만약 존재하지 않는 경우 ``{}`` 빈 딕셔너리를 반환합니다.
-
-> Example Code
-
-```py
->>> r = requests.get("https://api.github.com/users/kennethreitz/repos?page=1&per_page=10")
->>> r.headers['link']
-'<https://api.github.com/user/119893/repos?page=2&per_page=10>; rel="next", <https://api.github.com/user/119893/repos?page=5&per_page=10>; rel="last"'
->>> r.links
-{'next': {'url': 'https://api.github.com/user/119893/repos?page=2&per_page=10', 'rel': 'next'}, 'last': {'url': 'https://api.github.com/user/119893/repos?page=5&per_page=10', 'rel': 'last'}}
->>>
->>>
->>> r = requests.get("https://example.com")
->>> r.headers['link']
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/usr/lib/python3/dist-packages/requests/structures.py", line 52, in __getitem__
-    return self._store[key.lower()][1]
-KeyError: 'link'
->>> r.links
-{}
-```
-
----
-
-### ``r.headers``
-
-``headers``는 요청한 뒤 응답 헤더를 반환 합니다.
-
-> Example Code
-
-```py
->>> r = requests.get("https://example.com")
->>> r.headers
-{'Content-Encoding': 'gzip', 'Age': '330304', 'Cache-Control': 'max-age=604800', 'Content-Type': 'text/html; charset=UTF-8', 'Date': 'Fri, 30 Apr 2021 13:58:41 GMT', 'Etag': '"3147526947+gzip"', 'Expires': 'Fri, 07 May 2021 13:58:41 GMT', 'Last-Modified': 'Thu, 17 Oct 2019 07:18:26 GMT', 'Server': 'ECS (sab/56BC)', 'Vary': 'Accept-Encoding', 'X-Cache': 'HIT', 'Content-Length': '648'}
-```
-
----
-
-### ``r.cookies``
-
-``cookies``는 요청한 뒤 응답 헤더에 있는 쿠키를 편하게 보여줍니다.
-
-> Example Code
-
-```py
->>> r = requests.get("https://google.com")
->>> r.headers['set-cookie']
-'1P_JAR=2021-04-30-14; expires=Sun, 30-May-2021 14:02:07 GMT; path=/; domain=.google.com; Secure, NID=214=V54rp0jqnDG7IFhEI8bUU1DhK8FERCtCfFYzPlPNdCgFLZTmwxQpUhUEzc5xtK_p_4BByikl28WX7558B2WWmY7iJPMMPiMmhnwvZbftcazRwyPLjDjgaA_3GBKRMkipp7qD0ONumogYbm9tbjaRCYjp08qNxfeDjOIgLiGSdaU; expires=Sat, 30-Oct-2021 14:02:07 GMT; path=/; domain=.google.com; HttpOnly'
->>>
->>> r.cookies
-<RequestsCookieJar[Cookie(version=0, name='1P_JAR', value='2021-04-30-14', port=None, port_specified=False, domain='.google.com', domain_specified=True, domain_initial_dot=True, path='/', path_specified=True, secure=True, expires=1622383327, discard=False, comment=None, comment_url=None, rest={}, rfc2109=False), Cookie(version=0, name='NID', value='214=V54rp0jqnDG7IFhEI8bUU1DhK8FERCtCfFYzPlPNdCgFLZTmwxQpUhUEzc5xtK_p_4BByikl28WX7558B2WWmY7iJPMMPiMmhnwvZbftcazRwyPLjDjgaA_3GBKRMkipp7qD0ONumogYbm9tbjaRCYjp08qNxfeDjOIgLiGSdaU', port=None, port_specified=False, domain='.google.com', domain_specified=True, domain_initial_dot=True, path='/', path_specified=True, secure=False, expires=1635602527, discard=False, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)]>
->>>
->>> for key,value in r.cookies.items():
-...     print(key, value)
-...
-1P_JAR 2021-04-30-14
-NID 214=V54rp0jqnDG7IFhEI8bUU1DhK8FERCtCfFYzPlPNdCgFLZTmwxQpUhUEzc5xtK_p_4BByikl28WX7558B2WWmY7iJPMMPiMmhnwvZbftcazRwyPLjDjgaA_3GBKRMkipp7qD0ONumogYbm9tbjaRCYjp08qNxfeDjOIgLiGSdaU
-```
-
----
-
-### ``r.connection``
-
----
-
-### ``r.elapsed``
-
-``elapsed``는 요청을 보낸 후 응답이 도착할 때까지의 경과한 시간을 datetime.timedelta 객체로 반환합니다.
-
-> Example Code
-
-```py
->>> r = requests.get("https://example.com")
->>> r.elapsed
-datetime.timedelta(microseconds=643703)
->>> r.elapsed.microseconds
-643703
->>> print(r.elapsed)
-0:00:00.643703
-```
-
----
-
-### ``r.is_permanent_redirect``
-
----
-
-### ``r.is_redirect``
-
----
-
-### ``r.ok``
-
-``ok``는 요청/응답 코드가 200이면 True 아니면 False를 반환합니다.
-
-``raise_for_status()``를 이용하여 예외처리로 True, False를 구별합니다.
-
-> ok Function Code
-
-```py
-@property
-    def ok(self):
++ ### ``r.text``
+
+    text는 요청/응답 본문을 자동으로 디코드시킨 값을 str 타입으로 반환합니다.
+
+    > Example Code
+
+    ```py
+    >>> r.text
+    '<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>[ ... ]v>\n</body>\n</html>\n'
+    >>> print(r.text)
+    <!doctype html>
+    <html>
+    <head>
+        <title>Example Domain</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style type="text/css">
+        body {
+            background-color: #f0f0f2;
+            margin: 0;
+            padding: 0;
         [ ... ]
-        try:
-            self.raise_for_status()
-        except HTTPError:
-            return False
-        return True
-```
+    </body>
+    </html>
+    ```
 
----
+    ---
 
-> Example Code
++ ### ``r.content``
 
-```py
->>> r = requests.get("https://example.com")
->>> r.status_code
-200
->>> r.ok
-True
->>> if r.ok:
-...     print(1)
-...
-1
->>>
->>> r = requests.get("https://example.com/not-found/")
->>> r.status_code
-404
->>> r.ok
-False
->>> if r.ok:
-...     print(1)
-...
->>>
-```
+    content는 요청/응답 본문을 byte 타입으로 반환됩니다.
 
----
+    > Example Code
 
-### ``r.reason``
+    ```py
+    >>> r.content
+    b'<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title> [ ... ] </body>\n</html>\n'
+    >>> type(r.content)
+    <class 'bytes'>
+    >>> print(r.content.decode())
+    <!doctype html>
+    <html>
+    <head>
+        <title>Example Domain</title>
 
-``reason``는 요청/응답 http 상태 코드의 텍스트를 출력합니다.
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style type="text/css">
+        body {
+            background-color: #f0f0f2;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-> Example Code
+        }
+        div {
+            width: 600px;
+        [ ... ]
+    </body>
+    </html>
+    >>>
+    ```
 
-```py
->>> r = requests.get("https://example.com")
->>> r.ok
-True
->>> r.status_code
-200
->>> r.reason
-'OK'
->>>
->>> r = requests.get("https://example.com/a/")
->>> r.ok
-False
->>> r.status_code
-404
->>> r.reason
-'Not Found'
-```
+    ---
 
----
++ ### ``r.json()``
 
-### ``r.raise_for_status()``
+    > ``json(self, **kwargs)``
 
-``raise_for_status()``는 요청/응답 코드가 200이 아니면 예외를 발생시킵니다.
+    json() 는 요청/응답 본문을 json 형식으로 디코딩하여 반환합니다.
 
-> Example Code
+    만약 올바른 json 형식이 아닌 경우 에러를 반환합니다.
 
-```py
->>> r = requests.put("https://google.com")
->>> r.raise_for_status()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/usr/lib/python3/dist-packages/requests/models.py", line 940, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 405 Client Error: Method Not Allowed for url: https://google.com/
->>> r = requests.get("https://example.com")
->>> r.raise_for_status()
->>> type(r.raise_for_status())
-<class 'NoneType'>
->>> r = requests.get("https://example.com/a")
->>>
->>> r.raise_for_status()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/usr/lib/python3/dist-packages/requests/models.py", line 940, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://example.com/a
-```
+    > Example Code
 
----
+    ```py
+    >>> import requests
+    >>> r = requests.get("https://example.com")
+    >>> r.json()
+    Traceback (most recent call last):
+      File "<[ ... ] "
+        raise JSONDecodeError("Expecting value", s, err.value) from None
+    json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    >>> r = requests.get("https://api.github.com/events")
+    >>> r.json()
+    [{'id': '16070464781', 'type': 'ForkEvent', 'actor': [ ... ] 'at': '2021-04-24T10:30:31Z'}]
+    >>> type(r.json())
+    <class 'list'>
+    ```
 
-### ``r.encoding``
+    ---
 
-``encoding``는 요청/응답 헤더를 이용하여 데이터의 인코딩 방식을 추측하여 반환합니다.
++ ### ``r.status_code``
 
-> Example Code
-
-```py
->>> r = requests.get("https://example.com")
->>> r.encoding
-'UTF-8'
->>> r.headers
-{ [ ... ] 'Content-Type': 'text/html; charset=UTF-8', 'Date': 'Thu, 29 Apr 2021 14:21 [ ... ] IT', 'Content-Length': '648'}
-```
-
----
-
-### ``r.apparent_encoding``
-
-``apparent_encoding``는 ``chardet.detect``를 이용하여 자동으로 인코딩을 인식하고 반환합니다.
-
-> apparent_encoding Function Code
-
-```py
-@property
-    def apparent_encoding(self):
-        """The apparent encoding, provided by the chardet library."""
-        return chardet.detect(self.content)['encoding']
-```
-
----
-
-> Example Code
-
-```py
->>> r = requests.get("https://example.com")
->>> r.apparent_encoding
-'ascii'
-```
-
----
-
-### ``r.iter_content()``
-
-> ``iter_content(self, chunk_size=1, decode_unicode=False)``
-
-``iter_content()``는 요청/응답 데이터를 반복하여 대용량 응답을 위해 콘텐츠를 한 번에 메모리로 읽는 것을 방지하며 byte 타입으로 반환합니다.
-
-chunk_size는 메모리로 읽어햐하는 바이트 수 입니다.
-
-또한 decode_unicode가 True면 콘텐츠가 디코딩됩니다.
-
-> Example Code
-
-```py
->>> import requests
->>> r = requests.get("https://example.com", stream=True)
->>>
->>> r.iter_content()
-<generator object Response.iter_content.<locals>.generate at 0x7fee03824890>
->>> content = r.iter_content()
->>> for i in content:
-...     print(i)
-...
-b'<'
-b'!d'
-b'o'
-b'ct'
-[ ... ]
-b'</'
-b'body>\n</'
-b'html>\n'
->>> r = requests.get("https://example.com", stream=True)
->>> for i in r.iter_content(chunk_size=128):
-...     print(i)
-...
-b'<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>\n\n    <meta charset="utf-8" />\n    <meta http-'
-b'equiv="Content-type" content="text/html; charset=utf-8" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <style type="text/css">\n    body {\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -ap'
-b'ple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;\n        \n    }\n    div {\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px '
-b'3px 7px 2px rgba(0,0,0,0.02);\n    }\n    a:link, a:visited {\n        color: #38488f;\n        text-decoration: none;\n    }\n    @media (max-width: 700px) {\n        div {\n            margin: 0 auto;\n            width: auto;\n        }\n    }\n    </style>    \n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is for use '
-b'in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.</p>\n    <p><a href="https://www.iana.org/domains/example">More information...</a></p>\n</div>\n</body>\n</html>\n'
->>> r = requests.get("https://example.com", stream=True)
->>> content = r.iter_content(chunk_size=128, decode_unicode=True)
->>> for i in content:
-...     print(i)
-...
-<!doctype html>
-<html>
-<head>
-    <title>Example Domain</title>
-
-    [ ... ]
-in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
-</div>
-</body>
-</html>
-```
-
----
-
-### ``r.iter_lines()``
-
-> ``ITER_CHUNK_SIZE = 512``
-
-> ``iter_lines(self, chunk_size=ITER_CHUNK_SIZE, decode_unicode=False, delimiter=None)``
-
-``iter_lines()``는 ``iter_content()``를 이용하여 응답 데이터를 한 번에 한 줄씩 반복하면서 대용량 응답을 위해 콘텐츠를 한 번에 메모리로 읽는 것을 방지합니다.
-
-> iter_lines() Function Code
-
-```py
-def iter_lines(self, chunk_size=ITER_CHUNK_SIZE, decode_unicode=False, delimiter=None):
-    ...
-    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
-        ...
-        if delimiter:
-                lines = chunk.split(delimiter)
-            else:
-                lines = chunk.splitlines()
-        ...
-```
-
----
-
-> Example Code
-
-```py
->>> r = requests.get("https://example.com", stream=True)
->>> lines = r.iter_lines()
->>> for i in lines:
-...     print(i)
-...
-b'<!doctype html>'
-b'<html>'
-b'<head>'
-b'    <title>Example Domain</title>'
-b''
-b'    <meta charset="utf-8" />'
-[ ... ]
-b'<div>'
-b'    <h1>Example Domain</h1>'
-b'    <p>This domain is for use in illustrative examples in documents. You may use this'
-b'    domain in literature without prior coordination or asking for permission.</p>'
-b'    <p><a href="https://www.iana.org/domains/example">More information...</a></p>'
-b'</div>'
-b'</body>'
-b'</html>'
->>> r = requests.get("https://example.com", stream=True)
->>> lines = r.iter_lines(delimiter = b'<')
->>> for i in lines:
-...     print(i)
-...
-b''
-b'!doctype html>\n'
-b'html>\n'
-b'head>\n    '
-b'title>Example Domain'
-[ ... ]
-b'/div>\n'
-b'/body>\n'
-b'/html>\n'
-```
-
----
-
-### ``r.close()``
-
-``close()``는 서버와의 연결을 닫습니다.
-
-> Example Code
-
-```py
->>> r = requests.get("https://example.com")
->>> r
-<Response [200]>
->>> r.close
->>> r.close()
-```
-
----
-
-### ``r.request``
-
-``request``는 PreparedRequest클래스를 반환하며 요청시에 사용했던 정보들을 확인할 수 있습니다.
-
-> Example Code
-
-```py
->>> r = requests.get("https://example.com")
->>> r.request
-<PreparedRequest [GET]>
->>> dir(r.request)
-['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_body_position', '_cookies', '_encode_files', '_encode_params', '_get_idna_encoded_host', 'body', 'copy', 'deregister_hook', 'headers', 'hooks', 'method', 'path_url', 'prepare', 'prepare_auth', 'prepare_body', 'prepare_content_length', 'prepare_cookies', 'prepare_headers', 'prepare_hooks', 'prepare_method', 'prepare_url', 'register_hook', 'url']
-```
-
-+ #### ``r.request.headers``
-
-    ``request.headers``는 요청할때 사용된 헤더를 dict 타입으로 반환합니다.
-
+    ``status_code``는 [http 응답 코드](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 나타냅니다. 요청에 성공한 경우 일반적으로 200을 반환 합니다.
 
     > Example Code
 
     ```py
     >>> r = requests.get("https://example.com")
-    >>> r.request
-    <PreparedRequest [GET]>
-    >>>
-    >>> r.request.headers
-    {'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
-    >>> r.request.headers['User-Agent']
-    'python-requests/2.22.0'
+    >>> r.status_code
+    200
     ```
-    
-+ #### ``r.request._cookies``
 
-    ``request._cookies``는 요청할때 사용된 쿠키 내용을 dict 타입으로 반환됩니다.
+    ---
 
++ ### ``r.url``
+
+    ``url``은 요청한 뒤 응답의 최종 URL을 반환합니다.
+
+    URL redirection이 되는 경우에도 리다이렉션이 된 최종 URL을 출력합니다.
+
+    > Example Code
+
+    > ``http://127.0.0.1:8080/redirect`` -> ``/redirect_test``
+
+    ```py
+    >>> r = requests.get("https://example.com")
+    >>> r.url
+    'https://example.com'
+    >>>
+    >>> r = requests.get("http://127.0.0.1:8080/redirect")
+    >>> r.url
+    'http://127.0.0.1:8080/redirect_test'
+    ```
+
+    ---
+
++ ### ``r.history``
+
+    ``history``는 모든 리다이렉션 응답은 가장 오래된 요청에서 최근 요청 순으로 Response 개체 목록을 반환 합니다.
+
+    이해가 더 잘되기 위해 예시로 로컬에서 Flask으로 여러번 리다이렉션을 반복하여 테스트 했습니다.
+
+    > 127.0.0.1:8080/redirect/n Code
+
+    ```py
+    from flask import Flask, redirect
+
+    app = Flask(__name__)
+
+    @app.route('/redirect/<int:n>')
+    def redirects(n):
+        return (redirect(f'/redirect/{n-1}', code=302) if n >= 1 else 'redirect TEST end')
+
+    app.run('127.0.0.1', 8080)
+    ```
+
+    ---
+
+    > Example Code
+
+    > ``127.0.0.1:8080/redirect/n`` -> ``/redirect/0``
+
+    ```py
+    >>> r = requests.get("https://example.com")
+    >>> r.history
+    []
+    >>> r.url
+    'https://example.com'
+    >>> r = requests.get("http://127.0.0.1:8080/redirect/2")
+    >>> r.history
+    [<Response [302]>, <Response [302]>]
+    >>> r.url
+    'http://127.0.0.1:8080/redirect/0'
+    >>>
+    >>> r.history[0]
+    <Response [302]>
+    >>> r.history[0].url
+    'http://127.0.0.1:8080/redirect/2'
+    >>>
+    >>> r.history[1]
+    <Response [302]>
+    >>> r.history[1].url
+    'http://127.0.0.1:8080/redirect/1'
+    >>> r.url
+    'http://127.0.0.1:8080/redirect/0'
+    ```
+
+    ---
+
++ ### ``r.links``
+
+    ``links``는 요청/응답 [헤더의 link](https://tools.ietf.org/html/rfc8288#section-3)를 파싱한 결과를 반환합니다.
+
+    만약 존재하지 않는 경우 ``{}`` 빈 딕셔너리를 반환합니다.
 
     > Example Code
 
     ```py
-    >>> r = requests.get("https://example.com", cookies={'cookie1':'cookie_value'})
-    >>> r.request
-    <PreparedRequest [GET]>
+    >>> r = requests.get("https://api.github.com/users/kennethreitz/repos?page=1&per_page=10")
+    >>> r.headers['link']
+    '<https://api.github.com/user/119893/repos?page=2&per_page=10>; rel="next", <https://api.github.com/user/119893/repos?page=5&per_page=10>; rel="last"'
+    >>> r.links
+    {'next': {'url': 'https://api.github.com/user/119893/repos?page=2&per_page=10', 'rel': 'next'}, 'last': {'url': 'https://api.github.com/user/119893/repos?page=5&per_page=10', 'rel': 'last'}}
     >>>
-    >>> r.request._cookies
-    >>> r.request._cookies['cookie1']
-    'cookie_value'
-    >>> r.request._cookies.get_dict()
-    {'cookie1': 'cookie_value'}
+    >>>
+    >>> r = requests.get("https://example.com")
+    >>> r.headers['link']
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "/usr/lib/python3/dist-packages/requests/structures.py", line 52, in __getitem__
+        return self._store[key.lower()][1]
+    KeyError: 'link'
+    >>> r.links
+    {}
     ```
 
-+ #### ``r.request.copy()``
+    ---
 
-    ``request.copy()``는 PreparedRequest의 카피본을 반환합니다.
++ ### ``r.headers``
 
-    > request.copy Source Code
+    ``headers``는 요청한 뒤 응답 헤더를 반환 합니다.
+
+    > Example Code
 
     ```py
-    def copy(self):
-        p = PreparedRequest()
-        p.method = self.method
-        p.url = self.url
-        p.headers = self.headers.copy() if self.headers is not None else None
-        p._cookies = _copy_cookie_jar(self._cookies)
-        p.body = self.body
-        p.hooks = self.hooks
-        p._body_position = self._body_position
-        return p
+    >>> r = requests.get("https://example.com")
+    >>> r.headers
+    {'Content-Encoding': 'gzip', 'Age': '330304', 'Cache-Control': 'max-age=604800', 'Content-Type': 'text/html; charset=UTF-8', 'Date': 'Fri, 30 Apr 2021 13:58:41 GMT', 'Etag': '"3147526947+gzip"', 'Expires': 'Fri, 07 May 2021 13:58:41 GMT', 'Last-Modified': 'Thu, 17 Oct 2019 07:18:26 GMT', 'Server': 'ECS (sab/56BC)', 'Vary': 'Accept-Encoding', 'X-Cache': 'HIT', 'Content-Length': '648'}
+    ```
+
+    ---
+
++ ### ``r.cookies``
+
+    ``cookies``는 요청한 뒤 응답 헤더에 있는 쿠키를 편하게 보여줍니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://google.com")
+    >>> r.headers['set-cookie']
+    '1P_JAR=2021-04-30-14; expires=Sun, 30-May-2021 14:02:07 GMT; path=/; domain=.google.com; Secure, NID=214=V54rp0jqnDG7IFhEI8bUU1DhK8FERCtCfFYzPlPNdCgFLZTmwxQpUhUEzc5xtK_p_4BByikl28WX7558B2WWmY7iJPMMPiMmhnwvZbftcazRwyPLjDjgaA_3GBKRMkipp7qD0ONumogYbm9tbjaRCYjp08qNxfeDjOIgLiGSdaU; expires=Sat, 30-Oct-2021 14:02:07 GMT; path=/; domain=.google.com; HttpOnly'
+    >>>
+    >>> r.cookies
+    <RequestsCookieJar[Cookie(version=0, name='1P_JAR', value='2021-04-30-14', port=None, port_specified=False, domain='.google.com', domain_specified=True, domain_initial_dot=True, path='/', path_specified=True, secure=True, expires=1622383327, discard=False, comment=None, comment_url=None, rest={}, rfc2109=False), Cookie(version=0, name='NID', value='214=V54rp0jqnDG7IFhEI8bUU1DhK8FERCtCfFYzPlPNdCgFLZTmwxQpUhUEzc5xtK_p_4BByikl28WX7558B2WWmY7iJPMMPiMmhnwvZbftcazRwyPLjDjgaA_3GBKRMkipp7qD0ONumogYbm9tbjaRCYjp08qNxfeDjOIgLiGSdaU', port=None, port_specified=False, domain='.google.com', domain_specified=True, domain_initial_dot=True, path='/', path_specified=True, secure=False, expires=1635602527, discard=False, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)]>
+    >>>
+    >>> for key,value in r.cookies.items():
+    ...     print(key, value)
+    ...
+    1P_JAR 2021-04-30-14
+    NID 214=V54rp0jqnDG7IFhEI8bUU1DhK8FERCtCfFYzPlPNdCgFLZTmwxQpUhUEzc5xtK_p_4BByikl28WX7558B2WWmY7iJPMMPiMmhnwvZbftcazRwyPLjDjgaA_3GBKRMkipp7qD0ONumogYbm9tbjaRCYjp08qNxfeDjOIgLiGSdaU
+    ```
+
+    ---
+
++ ### ``r.connection``
+
+    ---
+
++ ### ``r.elapsed``
+
+    ``elapsed``는 요청을 보낸 후 응답이 도착할 때까지의 경과한 시간을 datetime.timedelta 객체로 반환합니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com")
+    >>> r.elapsed
+    datetime.timedelta(microseconds=643703)
+    >>> r.elapsed.microseconds
+    643703
+    >>> print(r.elapsed)
+    0:00:00.643703
+    ```
+
+    ---
+
++ ### ``r.is_permanent_redirect``
+
+    ---
+
++ ### ``r.is_redirect``
+
+    ---
+
++ ### ``r.ok``
+
+    ``ok``는 요청/응답 코드가 200이면 True 아니면 False를 반환합니다.
+
+    ``raise_for_status()``를 이용하여 예외처리로 True, False를 구별합니다.
+
+    > ok Function Code
+
+    ```py
+    @property
+        def ok(self):
+            [ ... ]
+            try:
+                self.raise_for_status()
+            except HTTPError:
+                return False
+            return True
     ```
 
     ---
@@ -1565,67 +1246,403 @@ b'/html>\n'
 
     ```py
     >>> r = requests.get("https://example.com")
-    >>> r.request
-    <PreparedRequest [GET]>
+    >>> r.status_code
+    200
+    >>> r.ok
+    True
+    >>> if r.ok:
+    ...     print(1)
+    ...
+    1
     >>>
-    >>> r.request.copy
-    <bound method PreparedRequest.copy of <PreparedRequest [GET]>>
-    >>> r.request.copy()
-    <PreparedRequest [GET]>
-    >>> r.request.method
-    'GET'
-    >>> r_copy = r.request.copy()
-    >>> r_copy
-    <PreparedRequest [GET]>
-    >>> r_copy.method
-    'GET'
+    >>> r = requests.get("https://example.com/not-found/")
+    >>> r.status_code
+    404
+    >>> r.ok
+    False
+    >>> if r.ok:
+    ...     print(1)
+    ...
+    >>>
     ```
 
-+ #### 추가 request 작성중..
+    ---
 
----
++ ### ``r.reason``
 
-### ``r.raw``
-
-서버에서 원시 소켓 응답을 받기 위해 ``r.raw.*``를 사용하기 위해서는 요청 시 ``stream=True``를 추가해줘야 합니다.
-
-> Example Code
-
-```py
->>> r = requests.get("https://example.com", stream=True)
->>> r.raw
-<urllib3.response.HTTPResponse object at 0x7f53bba651f0>
->>> dir(r.raw)
-['CONTENT_DECODERS', 'DECODER_ERROR_CLASSES', 'REDIRECT_STATUSES', '__abstractmethods__', '__class__', '__del__', '__delattr__', '__dict__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__next__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_abc_impl', '_body', '_checkClosed', '_checkReadable', '_checkSeekable', '_checkWritable', '_connection', '_decode', '_decoder', '_error_catcher', '_flush_decoder', '_fp', '_fp_bytes_read', '_handle_chunk', '_init_decoder', '_init_length', '_original_response', '_pool', '_request_url', '_update_chunk_length', 'auto_close', 'chunk_left', 'chunked', 'close', 'closed', 'connection', 'data', 'decode_content', 'enforce_content_length', 'fileno', 'flush', 'from_httplib', 'get_redirect_location', 'getheader', 'getheaders', 'geturl', 'headers', 'info', 'isatty', 'isclosed', 'length_remaining', 'msg', 'read', 'read_chunked', 'readable', 'readinto', 'readline', 'readlines', 'reason', 'release_conn', 'retries', 'seek', 'seekable', 'status', 'stream', 'strict', 'supports_chunked_reads', 'tell', 'truncate', 'version', 'writable', 'writelines']
-```
-
----
-
-+ #### ``r.raw.read()``
-
-
-    > ``read(self, amt=None, decode_content=None, cache_content=False)``
-
-    ``r.raw.read()``함수를 이용하여 응답 본문 컨텐츠를 원하는 만큼 인코딩된 값을 출력할 수 있습니다.
-
-    해당 기능은 open.read 함수와 유사합니다.
+    ``reason``는 요청/응답 http 상태 코드의 텍스트를 출력합니다.
 
     > Example Code
 
     ```py
-    >>> r = requests.get("https://example.com" ,stream = True)
-    >>> r.raw
-    <urllib3.response.HTTPResponse object at 0x7f8f692dc8b0>
-    >>> r.raw.read()
-    b'\x1f\x8b\x08\x00\xc2\x15\xa8]\x00\x03}TMs\xdb \x10\xbd\xfbWl\xd5K2#$\'i\x1a\x8f-i\xfa\x99i\x0fi\x0fi\x0f=\x12\xb1\xb2\x98\x08P\x01\xc9\xf6t\xf2\xdf\xbbB\x8e#7\x99\x9a\x91[ ... ]d0x\x11\x10\xb34\x88\x93\xa5{\xa9\xd2\xf1A\xfb\x0b(\xeb|o\xe8\x04\x00\x00'
-    >>> r.raw.read(10)
-    b''
-    >>> r = requests.get("https://example.com", stream=True)
+    >>> r = requests.get("https://example.com")
+    >>> r.ok
+    True
+    >>> r.status_code
+    200
+    >>> r.reason
+    'OK'
     >>>
-    >>> r.raw.read(10)
-    b'\x1f\x8b\x08\x00\xc2\x15\xa8]\x00\x03'
-    >>> r.raw.read(10)
-    b'}TMs\xdb \x10\xbd\xfbW'
+    >>> r = requests.get("https://example.com/a/")
+    >>> r.ok
+    False
+    >>> r.status_code
+    404
+    >>> r.reason
+    'Not Found'
     ```
 
-# 현재 작성중...
+    ---
+
++ ### ``r.raise_for_status()``
+
+    ``raise_for_status()``는 요청/응답 코드가 200이 아니면 예외를 발생시킵니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.put("https://google.com")
+    >>> r.raise_for_status()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "/usr/lib/python3/dist-packages/requests/models.py", line 940, in raise_for_status
+        raise HTTPError(http_error_msg, response=self)
+    requests.exceptions.HTTPError: 405 Client Error: Method Not Allowed for url: https://google.com/
+    >>> r = requests.get("https://example.com")
+    >>> r.raise_for_status()
+    >>> type(r.raise_for_status())
+    <class 'NoneType'>
+    >>> r = requests.get("https://example.com/a")
+    >>>
+    >>> r.raise_for_status()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "/usr/lib/python3/dist-packages/requests/models.py", line 940, in raise_for_status
+        raise HTTPError(http_error_msg, response=self)
+    requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://example.com/a
+    ```
+
+    ---
+
++ ### ``r.encoding``
+
+    ``encoding``는 요청/응답 헤더를 이용하여 데이터의 인코딩 방식을 추측하여 반환합니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com")
+    >>> r.encoding
+    'UTF-8'
+    >>> r.headers
+    { [ ... ] 'Content-Type': 'text/html; charset=UTF-8', 'Date': 'Thu, 29 Apr 2021 14:21 [ ... ] IT', 'Content-Length': '648'}
+    ```
+
+    ---
+
++ ### ``r.apparent_encoding``
+
+    ``apparent_encoding``는 ``chardet.detect``를 이용하여 자동으로 인코딩을 인식하고 반환합니다.
+
+    > apparent_encoding Function Code
+
+    ```py
+    @property
+        def apparent_encoding(self):
+            """The apparent encoding, provided by the chardet library."""
+            return chardet.detect(self.content)['encoding']
+    ```
+
+    ---
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com")
+    >>> r.apparent_encoding
+    'ascii'
+    ```
+
+    ---
+
++ ### ``r.iter_content()``
+
+    > ``iter_content(self, chunk_size=1, decode_unicode=False)``
+
+    ``iter_content()``는 요청/응답 데이터를 반복하여 대용량 응답을 위해 콘텐츠를 한 번에 메모리로 읽는 것을 방지하며 byte 타입으로 반환합니다.
+
+    chunk_size는 메모리로 읽어햐하는 바이트 수 입니다.
+
+    또한 decode_unicode가 True면 콘텐츠가 디코딩됩니다.
+
+    > Example Code
+
+    ```py
+    >>> import requests
+    >>> r = requests.get("https://example.com", stream=True)
+    >>>
+    >>> r.iter_content()
+    <generator object Response.iter_content.<locals>.generate at 0x7fee03824890>
+    >>> content = r.iter_content()
+    >>> for i in content:
+    ...     print(i)
+    ...
+    b'<'
+    b'!d'
+    b'o'
+    b'ct'
+    [ ... ]
+    b'</'
+    b'body>\n</'
+    b'html>\n'
+    >>> r = requests.get("https://example.com", stream=True)
+    >>> for i in r.iter_content(chunk_size=128):
+    ...     print(i)
+    ...
+    b'<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>\n\n    <meta charset="utf-8" />\n    <meta http-'
+    b'equiv="Content-type" content="text/html; charset=utf-8" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <style type="text/css">\n    body {\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -ap'
+    b'ple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;\n        \n    }\n    div {\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px '
+    b'3px 7px 2px rgba(0,0,0,0.02);\n    }\n    a:link, a:visited {\n        color: #38488f;\n        text-decoration: none;\n    }\n    @media (max-width: 700px) {\n        div {\n            margin: 0 auto;\n            width: auto;\n        }\n    }\n    </style>    \n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is for use '
+    b'in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.</p>\n    <p><a href="https://www.iana.org/domains/example">More information...</a></p>\n</div>\n</body>\n</html>\n'
+    >>> r = requests.get("https://example.com", stream=True)
+    >>> content = r.iter_content(chunk_size=128, decode_unicode=True)
+    >>> for i in content:
+    ...     print(i)
+    ...
+    <!doctype html>
+    <html>
+    <head>
+        <title>Example Domain</title>
+
+        [ ... ]
+    in illustrative examples in documents. You may use this
+        domain in literature without prior coordination or asking for permission.</p>
+        <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+    </div>
+    </body>
+    </html>
+    ```
+
+    ---
+
++ ### ``r.iter_lines()``
+
+    > ``ITER_CHUNK_SIZE = 512``
+
+    > ``iter_lines(self, chunk_size=ITER_CHUNK_SIZE, decode_unicode=False, delimiter=None)``
+
+    ``iter_lines()``는 ``iter_content()``를 이용하여 응답 데이터를 한 번에 한 줄씩 반복하면서 대용량 응답을 위해 콘텐츠를 한 번에 메모리로 읽는 것을 방지합니다.
+
+    > iter_lines() Function Code
+
+    ```py
+    def iter_lines(self, chunk_size=ITER_CHUNK_SIZE, decode_unicode=False, delimiter=None):
+        ...
+        for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+            ...
+            if delimiter:
+                    lines = chunk.split(delimiter)
+                else:
+                    lines = chunk.splitlines()
+            ...
+    ```
+
+    ---
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com", stream=True)
+    >>> lines = r.iter_lines()
+    >>> for i in lines:
+    ...     print(i)
+    ...
+    b'<!doctype html>'
+    b'<html>'
+    b'<head>'
+    b'    <title>Example Domain</title>'
+    b''
+    b'    <meta charset="utf-8" />'
+    [ ... ]
+    b'<div>'
+    b'    <h1>Example Domain</h1>'
+    b'    <p>This domain is for use in illustrative examples in documents. You may use this'
+    b'    domain in literature without prior coordination or asking for permission.</p>'
+    b'    <p><a href="https://www.iana.org/domains/example">More information...</a></p>'
+    b'</div>'
+    b'</body>'
+    b'</html>'
+    >>> r = requests.get("https://example.com", stream=True)
+    >>> lines = r.iter_lines(delimiter = b'<')
+    >>> for i in lines:
+    ...     print(i)
+    ...
+    b''
+    b'!doctype html>\n'
+    b'html>\n'
+    b'head>\n    '
+    b'title>Example Domain'
+    [ ... ]
+    b'/div>\n'
+    b'/body>\n'
+    b'/html>\n'
+    ```
+
+    ---
+
++ ### ``r.close()``
+
+    ``close()``는 서버와의 연결을 닫습니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com")
+    >>> r
+    <Response [200]>
+    >>> r.close
+    >>> r.close()
+    ```
+
+    ---
+
++ ### ``r.request``
+
+    ``request``는 PreparedRequest클래스를 반환하며 요청시에 사용했던 정보들을 확인할 수 있습니다.
+    
+    > Example Code
+    
+    ```py
+    >>> r = requests.get("https://example.com")
+    >>> r.request
+    <PreparedRequest [GET]>
+    >>> dir(r.request)
+    ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_body_position', '_cookies', '_encode_files', '_encode_params', '_get_idna_encoded_host', 'body', 'copy', 'deregister_hook', 'headers', 'hooks', 'method', 'path_url', 'prepare', 'prepare_auth', 'prepare_body', 'prepare_content_length', 'prepare_cookies', 'prepare_headers', 'prepare_hooks', 'prepare_method', 'prepare_url', 'register_hook', 'url']
+    ```
+
+    + #### ``r.request.headers``
+
+        ``request.headers``는 요청할때 사용된 헤더를 dict 타입으로 반환합니다.
+
+
+        > Example Code
+
+        ```py
+        >>> r = requests.get("https://example.com")
+        >>> r.request
+        <PreparedRequest [GET]>
+        >>>
+        >>> r.request.headers
+        {'User-Agent': 'python-requests/2.22.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+        >>> r.request.headers['User-Agent']
+        'python-requests/2.22.0'
+        ```
+
+    + #### ``r.request._cookies``
+
+        ``request._cookies``는 요청할때 사용된 쿠키 내용을 dict 타입으로 반환됩니다.
+
+
+        > Example Code
+
+        ```py
+        >>> r = requests.get("https://example.com", cookies={'cookie1':'cookie_value'})
+        >>> r.request
+        <PreparedRequest [GET]>
+        >>>
+        >>> r.request._cookies
+        >>> r.request._cookies['cookie1']
+        'cookie_value'
+        >>> r.request._cookies.get_dict()
+        {'cookie1': 'cookie_value'}
+        ```
+
+    + #### ``r.request.copy()``
+
+        ``request.copy()``는 PreparedRequest의 카피본을 반환합니다.
+
+        > request.copy Source Code
+
+        ```py
+        def copy(self):
+            p = PreparedRequest()
+            p.method = self.method
+            p.url = self.url
+            p.headers = self.headers.copy() if self.headers is not None else None
+            p._cookies = _copy_cookie_jar(self._cookies)
+            p.body = self.body
+            p.hooks = self.hooks
+            p._body_position = self._body_position
+            return p
+        ```
+
+        ---
+
+        > Example Code
+
+        ```py
+        >>> r = requests.get("https://example.com")
+        >>> r.request
+        <PreparedRequest [GET]>
+        >>>
+        >>> r.request.copy
+        <bound method PreparedRequest.copy of <PreparedRequest [GET]>>
+        >>> r.request.copy()
+        <PreparedRequest [GET]>
+        >>> r.request.method
+        'GET'
+        >>> r_copy = r.request.copy()
+        >>> r_copy
+        <PreparedRequest [GET]>
+        >>> r_copy.method
+        'GET'
+        ```
+
+    + #### 추가 request 작성중..
+
+---
+
++ ### ``r.raw``
+
+    서버에서 원시 소켓 응답을 받기 위해 ``r.raw.*``를 사용하기 위해서는 요청 시 ``stream=True``를 추가해줘야 합니다.
+
+    > Example Code
+
+    ```py
+    >>> r = requests.get("https://example.com", stream=True)
+    >>> r.raw
+    <urllib3.response.HTTPResponse object at 0x7f53bba651f0>
+    >>> dir(r.raw)
+    ['CONTENT_DECODERS', 'DECODER_ERROR_CLASSES', 'REDIRECT_STATUSES', '__abstractmethods__', '__class__', '__del__', '__delattr__', '__dict__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__next__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_abc_impl', '_body', '_checkClosed', '_checkReadable', '_checkSeekable', '_checkWritable', '_connection', '_decode', '_decoder', '_error_catcher', '_flush_decoder', '_fp', '_fp_bytes_read', '_handle_chunk', '_init_decoder', '_init_length', '_original_response', '_pool', '_request_url', '_update_chunk_length', 'auto_close', 'chunk_left', 'chunked', 'close', 'closed', 'connection', 'data', 'decode_content', 'enforce_content_length', 'fileno', 'flush', 'from_httplib', 'get_redirect_location', 'getheader', 'getheaders', 'geturl', 'headers', 'info', 'isatty', 'isclosed', 'length_remaining', 'msg', 'read', 'read_chunked', 'readable', 'readinto', 'readline', 'readlines', 'reason', 'release_conn', 'retries', 'seek', 'seekable', 'status', 'stream', 'strict', 'supports_chunked_reads', 'tell', 'truncate', 'version', 'writable', 'writelines']
+    ```
+
+    ---
+
+    + #### ``r.raw.read()``
+
+
+        > ``read(self, amt=None, decode_content=None, cache_content=False)``
+
+        ``r.raw.read()``함수를 이용하여 응답 본문 컨텐츠를 원하는 만큼 인코딩된 값을 출력할 수 있습니다.
+
+        해당 기능은 open.read 함수와 유사합니다.
+
+        > Example Code
+
+        ```py
+        >>> r = requests.get("https://example.com" ,stream = True)
+        >>> r.raw
+        <urllib3.response.HTTPResponse object at 0x7f8f692dc8b0>
+        >>> r.raw.read()
+        b'\x1f\x8b\x08\x00\xc2\x15\xa8]\x00\x03}TMs\xdb \x10\xbd\xfbWl\xd5K2#$\'i\x1a\x8f-i\xfa\x99i\x0fi\x0fi\x0f=\x12\xb1\xb2\x98\x08P\x01\xc9\xf6t\xf2\xdf\xbbB\x8e#7\x99\x9a\x91[ ... ]d0x\x11\x10\xb34\x88\x93\xa5{\xa9\xd2\xf1A\xfb\x0b(\xeb|o\xe8\x04\x00\x00'
+        >>> r.raw.read(10)
+        b''
+        >>> r = requests.get("https://example.com", stream=True)
+        >>>
+        >>> r.raw.read(10)
+        b'\x1f\x8b\x08\x00\xc2\x15\xa8]\x00\x03'
+        >>> r.raw.read(10)
+        b'}TMs\xdb \x10\xbd\xfbW'
+        ```
+
+# 추가 작성 예정...
