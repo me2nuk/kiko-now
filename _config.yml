@@ -109,5 +109,4 @@ exclude:
   - README.ko
   - CNAME
   - "404"
-  - "google8c9ed60a5f4e6f5a.html"
   - hidden
