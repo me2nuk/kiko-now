@@ -214,7 +214,7 @@ def get(url, params=None, **kwargs):
 
     + ##### url( 필수 )
 
-        url 매개 변수는  ``requests.request`` 객체에 사용되기 위한 URL 입니다.
+        url 매개변수는  ``requests.request`` 객체에 사용되기 위한 URL 입니다.
 
 
         > https://google.com
@@ -235,7 +235,7 @@ def get(url, params=None, **kwargs):
 
     + ##### json(선택 사항)
 
-        JSON 매개 변수를 이용하여 요청 본문에 json 형식으로 추가됩니다.
+        JSON 매개변수를 이용하여 요청 본문에 json 형식으로 추가됩니다.
 
 
         > ``{ 'key':'value', 'key1':'value1' }``
@@ -364,7 +364,7 @@ def options(url, **kwargs):
 
 > ``requests.put(url, data=None, **kwargs)``
 
-put 메소드는 요청 시 PUT 방식으로 요청되며 data 매개 변수를 지원합니다.
+put 메소드는 요청 시 PUT 방식으로 요청되며 data 매개변수를 지원합니다.
 
 > Example Code
 
@@ -382,7 +382,7 @@ put 메소드는 요청 시 PUT 방식으로 요청되며 data 매개 변수를 
 
 > ``requests.get(url, params=None, **kwargs)``
 
-get 메소드는 요청 시 GET 방식으로 요청되며 ``params`` 매개 변수를 지원합니다.
+get 메소드는 요청 시 GET 방식으로 요청되며 ``params`` 매개변수를 지원합니다.
 
 > Example Code
 
@@ -404,7 +404,7 @@ get 메소드는 요청 시 GET 방식으로 요청되며 ``params`` 매개 변�
 
 > ``requests.post(url, data=None, json=None, **kwargs)``
 
-post 메소드는 요청 시 POST 방식으로 요청되며 ``data``, ``json`` 매개 변수가 존재합니다.
+post 메소드는 요청 시 POST 방식으로 요청되며 ``data``, ``json`` 매개변수가 존재합니다.
 
 data, json 두 개의 매개변수는 비슷해 보이지만 요청할 때 헤더의 Content-Type이 달라집니다.
 
@@ -520,13 +520,13 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ---
 
-### **kwargs 매개 변수 종류
+### **kwargs 매개변수 종류
 
 > ``request(self, method, url, params=None, data=None, headers=None, cookies=None, files=None, auth=None, timeout=None, allow_redirects=True, proxies=None, hooks=None, stream=None, verify=None, cert=None, json=None)``
 
 + method
 
-  method 매개 변수는 요청 시 사용될 http 메소드 입니다.
+  method 매개변수는 요청 시 사용될 http 메소드 입니다.
 
   GET 또는 POST등을 넣으면 됩니다.
 
@@ -545,7 +545,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + url
 
-    url 매개 변수는 요청하고 싶은 URL을 넣으면 됩니다.
+    url 매개변수는 요청하고 싶은 URL을 넣으면 됩니다.
 
     > Example Code
 
@@ -559,7 +559,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + params
 
-    params 매개 변수는 요청하는 URL뒤에 GET방식으로 파라미터가 붙습니다.
+    params 매개변수는 요청하는 URL뒤에 GET방식으로 파라미터가 붙습니다.
 
     > Example Code
 
@@ -575,7 +575,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + data
 
-    data 매개 변수는 요청될때 본문에 포함되어 서버로 데이터를 전송합니다.
+    data 매개변수는 요청될때 본문에 포함되어 서버로 데이터를 전송합니다.
 
     > Example Code
 
@@ -592,7 +592,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + headers
 
-    headers 매개 변수는 요청할때 기본적인 헤더에 추가/수정/편집하여 서버에 전송합니다.
+    headers 매개변수는 요청할때 기본적인 헤더에 추가/수정/편집하여 서버에 전송합니다.
 
     > Example Code
 
@@ -608,7 +608,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + cookies( dict )
 
-    cookies 매개 변수는 요청할때 헤더에 쿠키에 대한 정보를 포함시킵니다.
+    cookies 매개변수는 요청할때 헤더에 쿠키에 대한 정보를 포함시킵니다.
 
     ```py
     >>> r = requests.request('GET', url='https://example.com', cookies={'cookies1':'value1'})
@@ -622,9 +622,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + files( dict, List, tpule )
 
-    files 매개 변수는 요청할 때 본문에 파일 내용을 포함시켜 파일 업로드하는 기능으로 사용할 수 있습니다.
+    files 매개변수는 요청할 때 본문에 파일 내용을 포함시켜 파일 업로드하는 기능으로 사용할 수 있습니다.
 
-    requests를 이용하여 파일 업로드를 하기 위해 로컬에서 환경 구축한 다음 files매개 변수를 이용하여 업로드를 했습니다.
+    requests를 이용하여 파일 업로드를 하기 위해 로컬에서 환경 구축한 다음 files매개변수를 이용하여 업로드를 했습니다.
 
     > 127.0.0.1:8080/uploads Code
 
@@ -669,7 +669,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + auth( tuple )
 
-    auth 매개 변수는 [Authorization 헤더](https://tools.ietf.org/html/rfc7235#section-4.2)를 생성시켜 사용자 에이전트임을 증명할 수 있습니다.
+    auth 매개변수는 [Authorization 헤더](https://tools.ietf.org/html/rfc7235#section-4.2)를 생성시켜 사용자 에이전트임을 증명할 수 있습니다.
 
     필수는 아니지만 만약 인증을 해야되는 경우 auth를 이용합니다.
 
@@ -722,7 +722,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + timeout( float, tuple, int )
 
-    timeout 매개 변수는 요청 시간을 제한 시킵니다.
+    timeout 매개변수는 요청 시간을 제한 시킵니다.
 
     만약 응답을 받아오는데 10초 걸리는 사이트의 경우 timeout으로 빠르게 예외시킬 수 있습니다.
 
@@ -778,7 +778,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + allow_redirects( bool )
 
-    allow_redirects 매개 변수는 요청하고 응답을 받는 과정에 리다이렉션을 허용하지않게 할 수 있습니다.
+    allow_redirects 매개변수는 요청하고 응답을 받는 과정에 리다이렉션을 허용하지않게 할 수 있습니다.
 
     만약 False로 설정하면 리다이렉션이 되지 않습니다.
 
@@ -825,9 +825,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + proxies ( dict )
 
-    proxies 매개 변수는 proxy 기능을 사용할 수 있습니다.
+    proxies 매개변수는 proxy 기능을 사용할 수 있습니다.
 
-    만약 requests 모듈로 요청하는걸 proxy로 잡고싶은 경우 porixes 매개 변수를 사용하면 됩니다.
+    만약 requests 모듈로 요청하는걸 proxy로 잡고싶은 경우 porixes 매개변수를 사용하면 됩니다.
 
     > Example Code 1
 
@@ -845,7 +845,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     print(r.text)
     ```
 
-    해당 소스코드를 이용하여 ``http://127.0.0.1:8080``으로 프록시를 잡은 다음 proxies 매개 변수에 dict 타입으로 호출하면
+    해당 소스코드를 이용하여 ``http://127.0.0.1:8080``으로 프록시를 잡은 다음 proxies 매개변수에 dict 타입으로 호출하면
 
     테스트 하기 위해 Burp Suite툴을 이용하여 프록시 잡은 헤더를 살펴보면
 
@@ -897,15 +897,138 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     ~$ export HTTPS_PROXY = 'http://127.0.0.1:8080'
     ```
 
-+ hooks
++ hooks ( Function, List )
+
+    hooks는 요청을 한 뒤 `{'reponse':value}`의 response Key와 매칭하는 value 부분의 함수 또는 여러 함수가 들어있는 리스트를 실행시킵니다.
+
+    hooks 매개변수를 이용하여 응답 처리를 저작할 수 있습니다.
+
+    hooks 매개변수의 경우 요청한 뒤 응답이 올 때 마다 default_hooks 실행된 다음 dispatch_hook 함수가 실행이 됩니다.
+
+    > hooks 관련 코드 [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/sessions.py#L337-L699)
+
+    ```py
+    class Session(SessionRedirectMixin):
+    
+    [ ... ]
+
+    def __init__(self):
+
+        [ ... ]
+
+        self.hooks = default_hooks()
+
+    def send(self, request, **kwargs):
+        
+        [ ... ]
+
+        r = dispatch_hook('response', hooks, r, **kwargs)
+
+        [ ... ]
+        
+        return r
+    ```
+
+    > hooks.py [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/hooks.py#L14-L34)
+
+    ```py
+    HOOKS = ['response']
+
+
+    def default_hooks():
+        a = {event: [] for event in HOOKS}
+        print(a)
+        return a
+
+    # TODO: response is the only one
+
+
+    def dispatch_hook(key, hooks, hook_data, **kwargs):
+        """Dispatches a hook dictionary on a given piece of data."""
+        hooks = hooks or {}
+        hooks = hooks.get(key)
+        if hooks:
+            if hasattr(hooks, '__call__'):
+                hooks = [hooks]
+            for hook in hooks:
+                _hook_data = hook(hook_data, **kwargs)
+                if _hook_data is not None:
+                    hook_data = _hook_data
+        return hook_data
+    ```
+
+    hooks 매개변수를 사용하기 위해서는 기본적으로 함수 또는 여러 함수 정보들이 들어있는 리스트 요소를 response 키에 매치되는 Dict 타입으로 삽입해야됩니다.
+
+    > Example Code ( def, lambda / function )
+
+    ```py
+    >>> import requests
+    >>> def response_class(res, **kwargs):
+    ...     print(f"kwargs : {kwargs}")
+    ...     print(f"res : {res}")
+    ...     print(f"res.status_code : {res.status_code")
+    ...     print(f"res type : {type(res)}")
+    ...     print(f"res dir : {dir(res)}")
+    ...
+    >>> r = requests.get("https://www.google.com", hooks={'response':response_class})
+    kwargs : {'timeout': None, 'verify': True, 'proxies': OrderedDict(), 'stream': False, 'cert': None}
+    res : <Response [200]>
+    res.status_code : 200
+    res type : <class 'requests.models.Response'>
+    res dir : ['__attrs__', '__bool__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__nonzero__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_content', '_content_consumed', '_next', 'apparent_encoding', 'close', 'connection', 'content', 'cookies', 'elapsed', 'encoding', 'headers', 'history', 'is_permanent_redirect', 'is_redirect', 'iter_content', 'iter_lines', 'json', 'links', 'next', 'ok', 'raise_for_status', 'raw', 'reason', 'request', 'status_code', 'text', 'url']
+    >>>
+    >>> r = requests.get("https://www.google.com", hooks={'response':(lambda res, **kwargs: print(res.status_code))})
+    200
+    ```
+
+    여러 기능을 세분화하기 위해 여러 함수가 들어있는 리스트를 매개변수에 넘겨주게 되면 모든 함수가 requests 모듈 내부에서 for문으로 인해 실행이 됩니다.
+
+    > Example Code ( List )
+
+    ```py
+    >>> import requests
+    >>> def res1(res, **kwargs):
+    ...     print(f"res1 : {res}")
+    ...
+    >>> def res2(res, **kwargs):
+    ...     print(f"res2 : {res}")
+    ...
+    >>> def res3(res, **kwargs):
+    ...     print(f"res3 : {res}")
+    ...
+    >>> r = requests.get("https://www.google.com", hooks={'response':[res1, res2, res3]})
+    res1 : <Response [200]>
+    res2 : <Response [200]>
+    res3 : <Response [200]>
+    ```
+
+    해당 hooks 매개변수를 이용하여 앞서 언급했던것 처럼 response를 조작할 수 있습니다.
+
+    > Example Code ( set response )
+
+    ```py
+    >>> import requests
+    >>> def res_set_status_code(res, **kwargs):
+    ...     print(f"hooks in {res}")
+    ...     print(f"hooks in {res.status_code}")
+    ...     res.status_code = 404
+    ...     return res
+    ...
+    >>> r = requests.get("https://www.google.com", hooks={'response':res_set_status_code})
+    hooks in <Response [200]>
+    hooks in 200
+    >>> r.status_code
+    404
+    ```
+
 + stream
 + verify
 + cert
 + json
 
-    json 매개변수는 서버에 content-type을 application/json 타입으로 JSON 데이터를 요청할 때 유용하게 사용될 수 있습니다.
+    json 매개변수는 어떠한 서버에 json 데이터를 전송해야되는 경우 유용하게 쓰일 수 있습니다.
 
-    json 매개 변수를 사용하면 요청 헤더에 기본적으로 Content-Type이 application/json 으로 지정이 된 상태로 요청이 됩니다.
+    json 매개변수를 사용하면 요청 헤더에 기본적으로 Content-Type이 `application/json` 으로 지정이 된 상태로 요청이 됩니다.
 
     > Example Code
 
