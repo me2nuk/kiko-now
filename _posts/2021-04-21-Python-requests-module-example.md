@@ -1032,7 +1032,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     > Example Code
 
-    ```
+    ```py
     >>> import requests
     >>> r = requests.get("https://example.com", json={'test1':'jsondata2'})
     >>> r.request.headers

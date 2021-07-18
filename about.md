@@ -20,6 +20,7 @@ permalink: /about/
   * 현) TeamH4C 팀원
   * 현) TeamH4C CTF 팀장
   * 현) 2021학년도 서울여자대학교 정보보호영재교육원 고등전문 B
+  * 현) STEALIEN SSL 2기
 
 * * *
 
