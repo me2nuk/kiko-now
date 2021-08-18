@@ -15,18 +15,19 @@ permalink: /about/
 
 * * *
 
-## 소속
+## Profile
 
   * 현) TeamH4C 팀원
   * 현) TeamH4C CTF 팀장
   * 현) 2021학년도 서울여자대학교 정보보호영재교육원 고등전문 B
   * 현) STEALIEN SSL 2기
+  * [제23회 하계 HackingCamp](http://hackingcamp.org/) 발표자 - webhacking.kr 웹에킹의 접근법(장종민, 김민욱)
 
 * * *
 
 ## 수상 & CTF top
 
-  + [Hacking Camp CTF 2th](/files/HackingCamp/CTF-2th.png)
+  + [Hacking Camp 22회 CTF 2th](/files/HackingCamp/CTF-2th.png)
   + [The Hacking Championship Junior 2020 CTF 10th](http://www.kukinews.com/newsView/kuk202011260227)
   + [Shakti CTF 6th](/files/ShaktiCTF/ShaktiCTF-6th-TeamH4C.png) / (비공식)
 
@@ -35,10 +36,10 @@ permalink: /about/
 ## CTF 참여 경험
 
   + #### 2021
-    + [Zh3r0 CTF V2](https://ctftime.org/event/128) / [Writeup 작성중]()
-    + [S.H.E.L.L. CTF](https://ctftime.org/event/1362/) / [Wirteup 작성중]()
-    + [wtfctf](https://ctftime.org/event/1373/) / [Writeup 작성중]()
-    + [DCTF](https://ctftime.org/event/1361/) / [Writeup 작성중]()
+    + [Zh3r0 CTF V2](https://ctftime.org/event/128) / [Writeup](https://me2nuk.com/zh3r0CTF-2021-Writeup/)
+    + [S.H.E.L.L. CTF](https://ctftime.org/event/1362/) / [Writeup 쓸려다가 깜빡해서 못씀]()
+    + [wtfctf](https://ctftime.org/event/1373/) / [Writeup 쓸려다가 깜빡해서 못씀]()
+    + [DCTF](https://ctftime.org/event/1361/) / [Writeup 쓸려다가 깜빡해서 못씀]()
     + [HeroCTF v3](https://ctftime.org/event/1284/) / [Writeup 쓸려다가 깜빡해서 못씀]()
     + [Shakti CTF](https://ctftime.org/event/1251/) / [Writeup](https://me2nuk.com/ShaktiCTF-2021-Writeup/)
     + [UMassCTF 2021](https://ctftime.org/event/1282/) / [Writeup](https://me2nuk.com/UMassCTF-2021-Writeup/)
