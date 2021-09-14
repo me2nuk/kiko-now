@@ -86,6 +86,8 @@ session_start();
 
 이렇게 ``O:7:"exploit":1:{s:7:"command";s:30:"include('/var/www/html/flag');";}`` exploit 클래스를 직렬화한 데이터가 출력되는것을 볼 수 있습니다.
 
+---
+
 ## PHP session.upload_progress를 이용한 SESSION Upload
 
 하지만 exploit 데이터를 가지고 있다고 해도 서버에다가 해당 정보를 전송 할 방법을 없기 때문에 
@@ -144,6 +146,8 @@ print(result)
 ![_request python](\post-images\PHP\SESSION\session.serialize_handler\_request.py.png)
 
 그러면 이렇게 요청한 결과 ``FLAG{phP_sEssi0n_s2rla1ize_haNd12R_pHp_s2ria1ize}``가 나오는걸 볼 수 있습니다.
+
+---
 
 ## 후기
 
