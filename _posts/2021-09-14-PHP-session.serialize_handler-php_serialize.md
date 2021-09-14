@@ -143,7 +143,7 @@ print(result)
 
 만약 \| 파이프를 넣지 않으면 세션 정보로 구별되어 exploit 클래스에 전혀 영향을 끼치지 않으므로 filename 첫번째에 \| 파이프를 넣어준 다음 직렬화된 exploit 클래스 정보를 넣어주면 됩니다.
 
-![_request python](\post-images\PHP\SESSION\session.serialize_handler\_request.png)
+![request python](\post-images\PHP\SESSION\session.serialize_handler\request.png)
 
 그러면 이렇게 요청한 결과 ``FLAG{phP_sEssi0n_s2rla1ize_haNd12R_pHp_s2ria1ize}``가 나오는걸 볼 수 있습니다.
 
