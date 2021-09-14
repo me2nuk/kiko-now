@@ -82,7 +82,7 @@ session_start();
 
 위의 config.php 파일의 class exploit 부분을 똑같이 로컬에서 구축하여 serialize 함수를 이용해 데이터를 직렬화 해보면
 
-[local test class exploit serialize](\post-images\PHP\SESSION\session.serialize_handler\local_test_exploit_class_serialize.png)
+![local test class exploit serialize](\post-images\PHP\SESSION\session.serialize_handler\local_test_exploit_class_serialize.png)
 
 이렇게 ``O:7:"exploit":1:{s:7:"command";s:30:"include('/var/www/html/flag');";}`` exploit 클래스를 직렬화한 데이터가 출력되는것을 볼 수 있습니다.
 
@@ -143,7 +143,7 @@ print(result)
 
 만약 \| 파이프를 넣지 않으면 세션 정보로 구별되어 exploit 클래스에 전혀 영향을 끼치지 않으므로 filename 첫번째에 \| 파이프를 넣어준 다음 직렬화된 exploit 클래스 정보를 넣어주면 됩니다.
 
-![_request python](\post-images\PHP\SESSION\session.serialize_handler\_request.py.png)
+![_request python](\post-images\PHP\SESSION\session.serialize_handler\_request.png)
 
 그러면 이렇게 요청한 결과 ``FLAG{phP_sEssi0n_s2rla1ize_haNd12R_pHp_s2ria1ize}``가 나오는걸 볼 수 있습니다.
 
