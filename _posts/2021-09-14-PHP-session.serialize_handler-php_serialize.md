@@ -123,7 +123,7 @@ Content-Type: text/plain
 
 url = "http://127.0.0.1/"
 headers = {
-    "Content-Type": "multipart/form-data; boundary=Me2nukPHPSessionUploadProgress",
+    "Content-Type": "multipart/form-data; boundary=----Me2nukPHPSessionUploadProgress",
     "Cookie": "PHPSESSID=me2nuk"
 }
 r = requests.post(url, headers=headers, data=contents)
