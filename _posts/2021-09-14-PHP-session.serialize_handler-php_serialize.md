@@ -151,6 +151,6 @@ print(result)
 
 ## 후기
 
-이 블로그에서 다룬 내용은 간단하게 ``session.upload_progress.clenup``, ``session.upload_progress.enabled``, ``session.serialize_handler`` 설정을 이용하여 클래스를 조작할 수 있는 주제에 대해 다뤘는데 
+이 블로그에서 다룬 내용은 간단하게 ``session.upload_progress.clenup``, ``session.upload_progress.enabled``, ``session.serialize_handler`` 설정을 이용하여 역직렬화 취약점을 발생할 수 있는 주제에 대해 다뤘는데 
 
 처음에는 잘 몰라서 삽질했지만 이 기회에 재밌는 취약점을 공부하여 좋았습니다.
