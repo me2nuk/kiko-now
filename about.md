@@ -34,7 +34,7 @@ permalink: /about/
   + [Shakti CTF 6th](/files/ShaktiCTF/ShaktiCTF-6th-TeamH4C.png) / (비공식)
   + The Hacking Championship Junior 2021 CTF 예선 3등
   + WhiteHat Contest 청소년부 본선 4위[( 2등 3등 4등 동점 )](https://www.facebook.com/whitehatcontest/photos/pcb.1747420522110088/1747419815443492)
-  + 제 7회 정보보호영재교육원 정보보안 경진대회 단체전 1위 (대상 교육부 장관상)
+  + [제 7회 정보보호영재교육원 정보보안 경진대회 단체전 1위 (대상 교육부 장관상)](https://www.facebook.com/teamh4c/photos/a.180951688666243/4475199182574784/)
 
 * * *
 
