@@ -8,7 +8,7 @@ permalink: /about/
 
 ## Contact
 
-  * GitHub：[kimminwyk](https://github.com/kimminwyk)
+  * GitHub：[me2nuk](https://github.com/me2nuk)
   * email：kimtong6451@gmail.com
   * [Facebook](https://www.facebook.com/me2nuk)
   * nickname : me2nuk
@@ -40,7 +40,7 @@ permalink: /about/
 
 ## Bug Bounty
 
-  + [gnuboard5 /bbs/member_confirm.php Open Redirect 취약점 제보](https://github.com/gnuboard/gnuboard5/issues/126)
+  + [gnuboard5 /bbs/member_confirm.php Open Redirect 취약점 제보(kimminwyk)](https://github.com/gnuboard/gnuboard5/issues/126)
 
 
 {% include comments.html %}
