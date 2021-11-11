@@ -29,18 +29,25 @@ permalink: /about/
 
 ## 수상 & CTF top
 
-  + [Hacking Camp 22회 CTF 2th](/files/HackingCamp/CTF-2th.png)
-  + [The Hacking Championship Junior 2020 CTF 10th](http://www.kukinews.com/newsView/kuk202011260227)
-  + [Shakti CTF 6th](/files/ShaktiCTF/ShaktiCTF-6th-TeamH4C.png) / (비공식)
-  + The Hacking Championship Junior 2021 CTF 예선 3등
-  + WhiteHat Contest 청소년부 본선 4위[( 2등 3등 4등 동점 )](https://www.facebook.com/whitehatcontest/photos/pcb.1747420522110088/1747419815443492)
-  + [제 7회 정보보호영재교육원 정보보안 경진대회 단체전 1위 (대상 교육부 장관상)](https://www.facebook.com/teamh4c/photos/a.180951688666243/4475199182574784/)
+  + 2020
+
+    + [The Hacking Championship Junior 2020 CTF 10th](http://www.kukinews.com/newsView/kuk202011260227)
+
+  + 2021
+  
+    + [Hacking Camp 22회 CTF 2th](/files/HackingCamp/CTF-2th.png)
+    + [Shakti CTF 6th](/files/ShaktiCTF/ShaktiCTF-6th-TeamH4C.png) / (비공식)
+    + WhiteHat Contest 청소년부 본선 4위[( 2등 3등 4등 동점 )](https://www.facebook.com/whitehatcontest/photos/pcb.1747420522110088/1747419815443492)
+    + [The Hacking Championship Junior 2021 CTF 예선 3등]()
+    + [2021 사이버가디언즈 CTF 예선 3등](https://www.facebook.com/dreamhack.io/photos/a.124467269979127/125957156496805/)
+    + [제 7회 정보보호영재교육원 정보보안 경진대회 단체전 1위 (대상 교육부 장관상)](https://www.facebook.com/teamh4c/photos/a.180951688666243/4475199182574784/)
+    + [The Hacking Championshi Junior 2021 CTF 본선 4등 ( 장려상/보안전문기업상/장학금 30만원 )](https://www.facebook.com/photo?fbid=1432603427133909&set=pcb.1432603830467202)
+    + [2021 사이버가디언즈 CTF 본선 3등](https://www.facebook.com/dreamhack.io/photos/a.124467269979127/127564286336092)
 
 * * *
 
 ## Bug Bounty
 
   + [gnuboard5 /bbs/member_confirm.php Open Redirect 취약점 제보(kimminwyk)](https://github.com/gnuboard/gnuboard5/issues/126)
-
 
 {% include comments.html %}
