@@ -59,9 +59,9 @@ a:1:{s:4:"test";s:4:"test";}
 
 먼저 session.serialize_handler을 이용하여 역직렬화 취약점을 발생시킬 수 있는 사이트를 구축해볼려면
 
-[php session.serialize_handler 취약점 발생할 수 있는 환경을 만들어야되는데](https://github.com/kimminwyk/web_vuln_site_code/tree/main/php_session.serialize_handler_php_serialize) 먼저 php.ini 파일 위치를 찾아 session.serialize_handler값을 php_serialize으로 바꾼 다음
+[php session.serialize_handler 취약점 발생할 수 있는 환경을 만들어야되는데](https://github.com/me2nuk/web_vuln_site_code/tree/main/php_session.serialize_handler_php_serialize) 먼저 php.ini 파일 위치를 찾아 session.serialize_handler값을 php_serialize으로 바꾼 다음
 
-+ [https://github.com/kimminwyk/web_vuln_site_code/tree/main/php_session.serialize_handler_php_serialize](https://github.com/kimminwyk/web_vuln_site_code/tree/main/php_session.serialize_handler_php_serialize)
++ [https://github.com/me2nuk/web_vuln_site_code/tree/main/php_session.serialize_handler_php_serialize](https://github.com/me2nuk/web_vuln_site_code/tree/main/php_session.serialize_handler_php_serialize)
 
 위의 Github 코드와 똑같이 구축한 다음 소스코드를 분석해보면 config.php 파일에서 session.serialize_handler 값을 php으로 변경해주면 세션에 php_serialize으로 직렬화되어 저장되어 있던 데이터가 php으로 변경되면서 역직렬화되는 과정을 거치게 됩니다.
 
