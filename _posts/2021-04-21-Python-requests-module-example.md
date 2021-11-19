@@ -216,13 +216,11 @@ def get(url, params=None, **kwargs):
 
         url 매개변수는  ``requests.request`` 객체에 사용되기 위한 URL 입니다.
 
-
         > https://google.com
 
     + ##### params(선택 사항)
 
         튜플(tuple), 딕셔너리(dict)형식으로 매개변수에 넣으면 양식이 URL 인코딩이 되어 URL에 추가됩니다.
-
 
         > ``URL?key=value&key1=value1``
 
@@ -230,13 +228,11 @@ def get(url, params=None, **kwargs):
 
         튜플(tuple), 딕셔너리(dict)형식으로 매개변수에 넣으면 양식이 인코딩되어 요청 본문에 추가됩니다.
 
-
         > ``key=value&key1=value1``
 
     + ##### json(선택 사항)
 
         JSON 매개변수를 이용하여 요청 본문에 json 형식으로 추가됩니다.
-
 
         > ``{ 'key':'value', 'key1':'value1' }``
 
@@ -253,7 +249,7 @@ def get(url, params=None, **kwargs):
       
     + return
 
-        ``[PUT, GET, POST, HEEAD, PATCH, DELETE, OPTIONS]``는 기본적으로 [requests.Response](https://docs.python-requests.org/en/master/api/#requests.Response) 객체를 반환합니다.
+        ``[PUT, GET, POST, HEEAD, PATCH, DELETE, OPTIONS]``는 기본적으로 [requests.modules.Response](https://docs.python-requests.org/en/master/api/#requests.Response) 객체를 반환합니다.
 
 ---
 
@@ -510,6 +506,20 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 200
 ```
 
+만약 method를 문자열로 받아 자유롭게 요청해야되는 경우 아래와 같이 변수에 원하는 메서드를 넣은 다음 자유롭게 요청할 수 있습니다.
+
+```py
+>>> methods = ['GET','POST']
+>>> r = requests.request(methods[0], 'http://httpbin.org/get', params={'test':'GET'})
+>>> r
+<Response [200]>
+>>>
+>>> r = requests.request(methods[1], 'http://httpbin.org/post', data={'test':'POST'})
+>>> r
+<Response [200]>
+>>>
+```
+
 ---
 
 ## Request **kwargs
@@ -581,7 +591,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 
     ```py
-    >>> r = requests.request('GET', url='http://httpbin.org/post', data={'post1':'value1', 'post2':'value2'})
+    >>> r = requests.request('POST', url='http://httpbin.org/post', data={'post1':'value1', 'post2':'value2'})
     >>> r
     <Response [200]>
     >>> r.request.body
@@ -664,6 +674,37 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     >>>
     ```
+
+    또한 Content-Type까지 지정해줄 수 있습니다. ``(Filename, File Content, File Content type)``
+
+    ```py
+    >>> import requests
+    >>> files = {'files':('filename', 'file content', 'content-type')}
+    >>> r = requests.post("http://httpbin.org/post", files=files)
+    >>> print(r.json())
+    {'args': {}, 'data': '', 'files': {'files': 'file content'}, 'form': {}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Content-Length': '185', 'Content-Type': 'multipart/form-data;    boundary=2dddfaca24abc6196d17482a29880613', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.22.0', 'X-Amzn-Trace-Id': 'Root=1-6197c5ce-14e0abef60bf13d62a2d9f36'}, 'json': None, 'origin': '112.154.52.33',    'url': 'http://httpbin.org/post'}
+    >>> print(r.request.body.decode())
+    --2dddfaca24abc6196d17482a29880613
+    Content-Disposition: form-data; name="files"; filename="filename"
+    Content-Type: content-type
+
+    file content
+    --2dddfaca24abc6196d17482a29880613--
+    >>>
+    >>> files = {'files':('test.html', open('test.html', 'rb'), 'text/html')}
+    >>> r = requests.post("http://httpbin.org/post", files=files)
+    >>> print(r.request.body.decode())
+    --3cc6772156f774d6c834d9751d35ef44
+    Content-Disposition: form-data; name="files"; filename="test.html"
+    Content-Type: text/html
+
+    <h1>html</h1>
+
+    --3cc6772156f774d6c834d9751d35ef44--
+
+    >>>
+    ```
+
 
 ---
 
@@ -1049,9 +1090,11 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 # Response
 
-> ``Class requests.Response``
+> ``Class requests.modules.Response``
 
 ``Response``는 HTTP 요청에 대한 서버의 응답을 포함한 객체 입니다.
+
+requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과들이 사용자가 좀 더 편하게 볼 수 있도록 ``request.modules.Response`` 클래스를 이용하여 좀 더 편하게 정리해주게 됩니다.
 
 대부분의 예시는 하단의 코드로 대체됩니다.
 
@@ -1354,13 +1397,13 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     ```py
     @property
-        def ok(self):
-            [ ... ]
-            try:
-                self.raise_for_status()
-            except HTTPError:
-                return False
-            return True
+    def ok(self):
+        [ ... ]
+        try:
+            self.raise_for_status()
+        except HTTPError:
+            return False
+        return True
     ```
 
     ---
@@ -1471,9 +1514,9 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     ```py
     @property
-        def apparent_encoding(self):
-            """The apparent encoding, provided by the chardet library."""
-            return chardet.detect(self.content)['encoding']
+    def apparent_encoding(self):
+        """The apparent encoding, provided by the chardet library."""
+        return chardet.detect(self.content)['encoding']
     ```
 
     ---
@@ -1554,7 +1597,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     > ``iter_lines(self, chunk_size=ITER_CHUNK_SIZE, decode_unicode=False, delimiter=None)``
 
-    ``iter_lines()``는 ``iter_content()``를 이용하여 응답 데이터를 한 번에 한 줄씩 반복하면서 대용량 응답을 위해 콘텐츠를 한 번에 메모리로 읽는 것을 방지합니다.
+    ``iter_lines()``는 ``iter_content()``를 이용하여 응답 데이터를 한 번에 한 줄씩 반복하면서 대용량 응답으로 인해 콘텐츠를 한 번에 메모리로 읽는 것을 방지합니다.
 
     > iter_lines() Function Code
 
@@ -1615,7 +1658,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + ### ``r.close()``
 
-    ``close()``는 서버와의 연결을 닫습니다.
+    ``close()``는 서버와의 연결을 닫습니다. 
 
     > Example Code
 
@@ -1682,7 +1725,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     + #### ``r.request.copy()``
 
-        ``request.copy()``는 PreparedRequest의 카피본을 반환합니다.
+        ``request.copy()``는 PreparedRequest의 카피본을 반환합니다. 즉 r.request 결과를 카피한다고 생각하면 됩니다.
 
         > request.copy Source Code
 
@@ -1767,5 +1810,113 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
         >>> r.raw.read(10)
         b'}TMs\xdb \x10\xbd\xfbW'
         ```
+
+## 번외..
+
+한번 재미로 시작한 requests 모듈 분석으로 인해서 이렇게 블로그를 작성하게 될 줄 몰랐지만 
+
+이번 기회에 한번 requests.get 를 목적으로 단순히 요청하는걸 목적으로 하여 아래와 같은 소스코드를 작성했습니다.
+
+requests 모듈을 분석해보면 알겠지만 requests 모듈에서는 기본적으로 사용자가 좀 더 편하게 사용할 수 있도록 불필요한 부분은 없애주고 
+
+headers 부분에는 기본적인 값을 넣어 준 다음 그 외에도 다양한 기능들을 조합하여 urllib3 모듈을 가지고 요청을 해주게 됩니다.
+
+즉 requests 모듈에서는 cookies, headers, data, query string, fragment 등 다양한 요청 정보를 가지고 default를 넣어주거나 URL 조합 하여 그대로 넣어준 다음 
+
+``urllib3.pollmanager.PoolManager(num_pools=,maxsize=,block=,**dict).connection_from_url(URL).urlopen(method=,url=,...)`` 다음과 비슷한 형태를 이용해
+
+요청한 다음 requests.modules.Response 클래스를 이용하여 사용자가 r.text, r.reason 등 쉽게 사용할 수 있도록 정보들을 정리하여 반환 해해줍니다.
+
+### request_short_code.py
+
+```py
+from urllib3.util.timeout import Timeout as TimeoutSauce
+from urllib3.poolmanager import PoolManager
+from timeit import default_timer as dt
+from urllib3.util.retry import Retry
+
+CONST_CONNECTIONS = 10
+CONST_MAXSIZE = 10
+CONST_BLOCK = False
+CONST_POOL_KWARGS = {}
+CONST_REQUEST_INFO_TIMEOUT = None
+
+REQUEST_URL = 'http://127.0.0.1:5000/'
+
+RETRY_TOTAL = 0
+RETRY_READ = False
+
+class request:
+    def __init__(self) -> None:
+        poolmanager = PoolManager(
+            num_pools=CONST_CONNECTIONS,
+            maxsize=CONST_MAXSIZE,
+            block=CONST_BLOCK,
+            **CONST_POOL_KWARGS,
+        )
+        conn = poolmanager.connection_from_url(REQUEST_URL) # URL Connection
+        self.resp = conn.urlopen(
+            method = 'GET',
+            url = '/',
+            body = None,
+            headers = {'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'},
+            redirect = False,
+            assert_same_host = False,
+            preload_content=False,
+            decode_content=False,
+            retries=Retry(
+                RETRY_TOTAL,
+                read=RETRY_READ,
+            ),
+            timeout=TimeoutSauce(
+                connect=CONST_REQUEST_INFO_TIMEOUT,
+                read=CONST_REQUEST_INFO_TIMEOUT
+            )
+        ) # REQUEST
+    @property
+    def content(self):
+        return b''.join(self.read())
+
+    def read(self):
+        content = b''
+        while True:
+            chunk = self.resp.read(10 * 1024)
+            if not chunk:
+                break
+            yield chunk
+
+time = dt()
+for i in range(1,10000):
+    request().content
+print(dt() - time)
+```
+
+### requests_module_code.py
+
+```py
+from timeit import default_timer as dt
+from requests import get
+
+time = dt()
+
+for i in range(1,10000):
+    get('http://127.0.0.1:5000/').content
+
+print(dt()-time)
+```
+
+위의 소스코드를 가지고 실행해보면 아래의 결과 처럼 request_short_code(requests 소스코드 줄인 코드), requests_module_code(requests 모듈 코드)마다 약 5초 씩 차이나는걸 볼 수 있습니다.
+
+```
+~$ python3 request_short_code.py
+11.000992600000004
+~$ python3 requests_module_code.py
+16.258784799999994
+```
+
+이처럼 requests 모듈을 분석 한 다음 코드를 줄이기는 했지만 아무래도 단순히 요청 한 다음 결과를 가져오는것이기 때문에 다양한 코드를 작성하기 위해서는 조금 더 많은 코드가 들어가므로 
+
+결론은 귀찮으면 requests 모듈을 사용하는게 제일 무난하다
+
 
 # 추가 작성 예정...
