@@ -51,4 +51,10 @@ permalink: /about/
 
   + [gnuboard5 /bbs/member_confirm.php Open Redirect 취약점 제보(kimminwyk)](https://github.com/gnuboard/gnuboard5/issues/126)
 
+## Project
+
+  + Web Application Vulnerability Fuzzer 개발 / SSL(Stealien Security Leader 2th)
+  + [키움증권 OpenApi 기본 사용법 가이드 작성](https://github.com/me2nuk/stockOpenAPI)
+  + [Python requests 모듈 분석 및 가이드 작성](https://me2nuk.com/Python-requests-module-example/)
+
 {% include comments.html %}
