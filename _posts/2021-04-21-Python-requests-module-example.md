@@ -1009,7 +1009,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     >>> def response_class(res, **kwargs):
     ...     print(f"kwargs : {kwargs}")
     ...     print(f"res : {res}")
-    ...     print(f"res.status_code : {res.status_code")
+    ...     print(f"res.status_code : {res.status_code}")
     ...     print(f"res type : {type(res)}")
     ...     print(f"res dir : {dir(res)}")
     ...
@@ -1386,6 +1386,24 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.is_redirect``
+
+    ```py
+    >>> import requests
+    >>> r = requests.get("https://google.com", allow_redirects=False)
+    >>> r.status_code
+    301
+    >>> r.url
+    'https://google.com/'
+    >>> r.is_redirect
+    True
+    >>> r = requests.get("https://google.com")
+    >>> r.status_code
+    200
+    >>> r.url
+    'https://www.google.com/'
+    >>> r.is_redirect
+    False
+    ```
 
     ---
 
@@ -1815,15 +1833,11 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 ## 번외..
 
-한번 재미로 시작한 requests 모듈 분석으로 인해서 이렇게 블로그를 작성하게 될 줄 몰랐지만 
+해당 블로그 작성을 해보면서 requests 모듈을 직접 분석하고
 
-이번 기회에 한번 requests.get 를 목적으로 단순히 요청하는걸 목적으로 하여 아래와 같은 소스코드를 작성했습니다.
+r.history, r.is_redirect, r.request. 등 다양한 기능을 제외하여 요청하고 응답 메세지를 출력하는 짧은 코드를 만들었습니다
 
-requests 모듈을 분석해보면 알겠지만 requests 모듈에서는 기본적으로 사용자가 좀 더 편하게 사용할 수 있도록 불필요한 부분은 없애주고 
-
-headers 부분에는 기본적인 값을 넣어 준 다음 그 외에도 다양한 기능들을 조합하여 urllib3 모듈을 가지고 요청을 해주게 됩니다.
-
-즉 requests 모듈에서는 cookies, headers, data, query string, fragment 등 다양한 요청 정보를 가지고 default를 넣어주거나 URL 조합 하여 그대로 넣어준 다음 
+requests 모듈에서는 cookies, headers, data, query string, fragment 등 다양한 요청 정보를 가지고 default를 넣어주거나 URL 조합 하여 그대로 넣어준 다음 
 
 ``urllib3.pollmanager.PoolManager(num_pools=,maxsize=,block=,**dict).connection_from_url(URL).urlopen(method=,url=,...)`` 다음과 비슷한 형태를 이용해
 
@@ -1888,8 +1902,10 @@ class request:
             yield chunk
 
 time = dt()
+
 for i in range(1,10000):
     request().content
+
 print(dt() - time)
 ```
 
@@ -1907,7 +1923,7 @@ for i in range(1,10000):
 print(dt()-time)
 ```
 
-위의 소스코드를 가지고 실행해보면 아래의 결과 처럼 request_short_code(requests 소스코드 줄인 코드), requests_module_code(requests 모듈 코드)마다 약 5초 씩 차이나는걸 볼 수 있습니다.
+위의 소스코드를 가지고 실행해보면 아래의 결과 처럼 request_short_code(requests 소스코드 줄인 코드), requests_module_code(requests 모듈 코드)마다 약 5초 씩 차이납니다.
 
 ```
 ~$ python3 request_short_code.py
