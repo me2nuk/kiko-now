@@ -437,7 +437,7 @@ head 메소드는 요청 시 HEAD 방식으로 요청됩니다.
 > Example Code
 
 ```py
->>> r = requests.put("https://www.google.com")
+>>> r = requests.head("https://www.google.com")
 >>> r.request.method
 'HEAD'
 ```
