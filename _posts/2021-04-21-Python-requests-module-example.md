@@ -98,7 +98,7 @@ excerpt: "Python requests 모듈(module) 사용법"
         + [r.request.copy()](#rrequestcopy)
 
     + [r.raw](#rraw)
-        + [r.raw.read()](#rrawread)#
+        + [r.raw.read()](#rrawread)
 
 + [번외...](#번외)
     + [request_short_code.py](#request_short_codepy)
