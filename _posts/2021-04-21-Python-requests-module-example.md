@@ -54,7 +54,7 @@ requests
 
 ### requests module install
 
-pip 명령어를 이용하여 requests 모듈을 다운로드 하면 import 또는 from 으로 사용 가능합니다.
+pip 명령어를 이용하여 requests 모듈을 다운로드 하면 import 또는 from 으로 사용할 수 있습니다
 
 ```py
 ~$ pip install requests
@@ -82,7 +82,7 @@ pip 명령어를 이용하여 requests 모듈을 다운로드 하면 import 또�
 
 ## HTTP 요청 메서드(HTTP request method)
 
-http 메서드는 클라이언트가 서버에게 요청하는 목적 및 그 종류를 알리는 수단 입니다.
+http 메서드는 클라이언트가 서버에게 요청하는 목적 및 그 종류를 알리는 수단입니다.
 
 또한 요청 메서드냐에 따라 요청/응답하는 방식 또한 다르며 다양한 메서드가 존재합니다.
 
@@ -100,7 +100,7 @@ HTTP 메소드마다 사용되는 함수와 매개변수가 각각 조금씩 다
 
 그리고 요청의 모든 기능은 하단의 코드 예시와 같이 7가지 방법으로 액세스할 수 있습니다.
 
-모두 Response 개체의 인스턴스를 반환 합니다.
+모두 Response 개체의 인스턴스를 반환합니다.
 
 ---
 
@@ -135,7 +135,7 @@ requests는 from 또는 import로 모듈 불러오면 사용할 수 있습니다
 
 > ``requests.request(method, url, **kwargs)``
 
-요청의 모든 기능은 7가지 방법으로 액세스 할 수 있습니다.
+요청의 모든 기능은 7가지 방법으로 액세스할 수 있습니다.
 
 > request.request Function Code
 
@@ -150,7 +150,7 @@ def request(method, url, **kwargs):
 
 ### Request Headers
 
-requests 모듈은 [requests.utils.default_headers](https://github.com/psf/requests/blob/master/requests/utils.py#L808-L826) 함수에 의해 새로운 요청 시 기본값으로 Header 4개가 포함됩니다.
+requests 모듈은 [requests.utils.default_headers](https://github.com/psf/requests/blob/main/requests/utils.py#L808-L826) 함수에 의해 새로운 요청 시 기본값으로 Header 4개가 포함됩니다.
 
 > default_headers Function Code
 
@@ -191,7 +191,7 @@ def default_headers():
 
 requests 클래스에서 지원하는 요청 메서드를 쉽게 사용하기 위해선 총 7가지의 메소드를 이용하여 활용할 수 있습니다.
 
-``HTTP/1.1`` 버전의 경우 여러가지의 메소드가 존재하는데
+``HTTP/1.1`` 버전의 경우 여러 가지의 메소드가 존재하는데
 
 requests 모듈은 ``[PUT, GET, POST, HEAD, PATCH, DELETE, OPTIONS]`` 메서드가 존재합니다.
 
@@ -216,7 +216,7 @@ def get(url, params=None, **kwargs):
 
     + ##### url( 필수 )
 
-        url 매개변수는  ``requests.request`` 객체에 사용되기 위한 URL 입니다.
+        url 매개변수는  ``requests.request`` 객체에 사용되기 위한 URL입니다.
 
         > https://google.com
 
@@ -257,7 +257,7 @@ def get(url, params=None, **kwargs):
 
 + PUT
 
-> ``requests.put(url, data=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L120-L132)
+> ``requests.put(url, data=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L120-L132)
 
 > requests.put Function Code
 
@@ -271,7 +271,7 @@ def put(url, data=None, **kwargs):
 
 + GET
 
-> ``requests.get(url, params=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L64-L75)
+> ``requests.get(url, params=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L64-L75)
 
 > requests.get Function Code
 
@@ -286,7 +286,7 @@ def get(url, params=None, **kwargs):
 
 + POST
 
-> ``requests.post(url, data=None, json=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L105-L117)
+> ``requests.post(url, data=None, json=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L105-L117)
 
 > request.post Function Code
 
@@ -300,7 +300,7 @@ def post(url, data=None, json=None, **kwargs):
 
 + HEAD
 
-> ``requests.head(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L90-L102)
+> ``requests.head(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L90-L102)
 
 > requests.head Function Code
 
@@ -315,7 +315,7 @@ def head(url, **kwargs):
 
 + PATCH
 
-> ``requests.patch(url, data=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L135-L147)
+> ``requests.patch(url, data=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L135-L147)
 
 > requests.patch Function Code
 
@@ -329,7 +329,7 @@ def patch(url, data=None, **kwargs):
 
 + DELETE
 
-> ``requests.delete(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L150-L159)
+> ``requests.delete(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L150-L159)
 
 > requests.delete Function Code
 
@@ -343,7 +343,7 @@ def delete(url, **kwargs):
 
 + OPTIONS
 
-> ``requests.options(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/api.py#L78-L87)
+> ``requests.options(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L78-L87)
 
 ```py
 def options(url, **kwargs):
@@ -496,6 +496,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ## ``requests.request``
 
++ [Core Code](https://github.com/psf/requests/blob/main/requests/api.py#L16-L61)
+
 ``requests.request``는 요청하기 위해 사용되는 메소드이며 Response 개체를 반환합니다.
 
 자주 사용되는 메소드중 ``requests.get``, ``requests.post`` 또한 requests.request를 호출합니다.
@@ -544,7 +546,6 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
   > Example Code
 
-
   ```py
   >>> r = requests.request(method = 'GET', url = 'https://example.com')
   >>> r
@@ -556,6 +557,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 ---
 
 + url
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L366-L450)
 
     url 매개변수는 요청하고 싶은 URL을 넣으면 됩니다.
 
@@ -570,6 +573,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 ---
 
 + params
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L439-L447)
 
     params 매개변수는 요청하는 URL뒤에 GET방식으로 파라미터가 붙습니다.
 
@@ -587,10 +592,11 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + data
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L522-L527)
+
     data 매개변수는 요청될때 본문에 포함되어 서버로 데이터를 전송합니다.
 
     > Example Code
-
 
     ```py
     >>> r = requests.request('POST', url='http://httpbin.org/post', data={'post1':'value1', 'post2':'value2'})
@@ -603,6 +609,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 ---
 
 + headers
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L452-L461)
 
     headers 매개변수는 요청할때 기본적인 헤더에 추가/수정/편집하여 서버에 전송합니다.
 
@@ -620,6 +628,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + cookies( dict )
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L572-L590)
+
     cookies 매개변수는 요청할때 헤더에 쿠키에 대한 정보를 포함시킵니다.
 
     ```py
@@ -633,6 +643,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 ---
 
 + files( dict, List, tpule )
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L118-L179)
 
     files 매개변수는 요청할 때 본문에 파일 내용을 포함시켜 파일 업로드하는 기능으로 사용할 수 있습니다.
 
@@ -707,17 +719,36 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     >>>
     ```
 
+    다중 파일 업로드를 아는 경우 아래와 같은 코드를 실행하면 됩니다
+
+    ```py
+    >>> files = {'files1':open("test1.txt", "rb"), 'files2':open("test2.txt", "rb")}
+    >>> r = requests.post("http://httpbin.org/post", files=files)
+    >>> print(r.request.body.decode())
+    --fdd0472fb8974f00fd2f21306e5711b9
+    Content-Disposition: form-data; name="files1"; filename="files1"
+
+    asdasd first file upload
+    --fdd0472fb8974f00fd2f21306e5711b9
+    Content-Disposition: form-data; name="files2"; filename="files2"
+
+    asdasd second file upload
+    --fdd0472fb8974f00fd2f21306e5711b9--
+
+    ```
+
 
 ---
 
-+ auth( tuple )
++ auth( tuple, list )
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/auth.py#L28-L69)
 
     auth 매개변수는 [Authorization 헤더](https://tools.ietf.org/html/rfc7235#section-4.2)를 생성시켜 사용자 에이전트임을 증명할 수 있습니다.
 
-    필수는 아니지만 만약 인증을 해야되는 경우 auth를 이용합니다.
+    만약 authorization 헤더가 필요한 웹 사이트의 경우 auth를 이용하여 ``Basic <base64>`` 형식으로 변환시켜 요청이 됩니다
 
     > auth Code
-
 
     ```py
     class HTTPBasicAuth(AuthBase):
@@ -763,13 +794,15 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ---
 
-+ timeout( float, tuple, int )
++ timeout( float, int )
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L423-L451)
 
     timeout 매개변수는 요청 시간을 제한 시킵니다.
 
     만약 응답을 받아오는데 10초 걸리는 사이트의 경우 timeout으로 빠르게 예외시킬 수 있습니다.
 
-    요청하고 응답 받는데 timeout에서 설정한 시간을 초과하면 에러가 발생합니다.
+    요청하고 응답 받는데 timeout에서 설정한 시간을 초과하면 ``requests.exceptions.ReadTimeout`` 에러가 발생합니다.
 
     > 127.0.0.1:8080/time Code
 
@@ -821,6 +854,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 + allow_redirects( bool )
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/sessions.py#L680-L684)
+
     allow_redirects 매개변수는 요청하고 응답을 받는 과정에 리다이렉션을 허용하지않게 할 수 있습니다.
 
     만약 False로 설정하면 리다이렉션이 되지 않습니다.
@@ -867,6 +902,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 ---
 
 + proxies ( dict )
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/utils.py#L811-L834)
 
     proxies 매개변수는 proxy 기능을 사용할 수 있습니다.
 
@@ -939,44 +976,22 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     ~$ export HTTP_PROXY = 'http://127.0.0.1:8080'
     ~$ export HTTPS_PROXY = 'http://127.0.0.1:8080'
     ```
+    
+---
 
 + hooks ( Function, List )
 
-    hooks는 요청을 한 뒤 `{'reponse':value}`의 response Key와 매칭하는 value 부분의 함수 또는 여러 함수가 들어있는 리스트를 실행시킵니다.
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/hooks.py#L14-L34)
+
+    hooks는 요청을 한 뒤 ``{'reponse':value}``의 response Key와 매칭하는 value 부분의 함수 또는 여러 함수가 들어있는 리스트를 실행시킵니다.
 
     hooks 매개변수를 이용하여 응답 처리를 저작할 수 있습니다.
 
     hooks 매개변수의 경우 요청한 뒤 응답이 올 때 마다 default_hooks 실행된 다음 dispatch_hook 함수가 실행이 됩니다.
 
-    > hooks 관련 코드 [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/sessions.py#L337-L699)
-
     ```py
-    class Session(SessionRedirectMixin):
-    
-    [ ... ]
-
-    def __init__(self):
-
-        [ ... ]
-
-        self.hooks = default_hooks()
-
-    def send(self, request, **kwargs):
-        
-        [ ... ]
-
-        r = dispatch_hook('response', hooks, r, **kwargs)
-
-        [ ... ]
-        
-        return r
-    ```
-
-    > hooks.py [[_Source Code_]](https://github.com/psf/requests/blob/master/requests/hooks.py#L14-L34)
-
-    ```py
+    # requests/hooks.py
     HOOKS = ['response']
-
 
     def default_hooks():
         a = {event: [] for event in HOOKS}
@@ -984,7 +999,6 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
         return a
 
     # TODO: response is the only one
-
 
     def dispatch_hook(key, hooks, hook_data, **kwargs):
         """Dispatches a hook dictionary on a given piece of data."""
@@ -1063,11 +1077,92 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     >>> r.status_code
     404
     ```
+    
+---
 
 + stream
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/sessions.py#L686-L687)
+
+    stream=True가 설정되면 대용량 응답을 한번에 읽는 것을 방지하여 메모리 사용을 조절할 수 있습니다
+
+    만약 stream=False의 경우 자동으로 r.content를 실행하여( 대용량 응답 한번에 처리 ) ``r.raw.``, ``r.iter_content``와 비슷한 기능을 사용하지 못합니다
+
+    + ``stream=False``
+
+        ```py
+        # https://github.com/psf/requests/blob/main/requests/sessions.py#L686-L687
+        if not stream:
+            r.content
+        ```
+
+    > Example Code
+
+    ```py
+    >>> import requests
+    >>> r = requests.get("https://www.google.com", stream=False)
+    >>> r.raw.read()
+    b''
+    >>> import requests
+    >>> r = requests.get("https://www.google.com", stream=True)
+    >>> r.raw.read(10)
+    b'\x1f\x8b\x08\x00\x00\x00\x00\x00\x02\xff'
+    ```
+    
+---
+
 + verify
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L216-L240)
+
+    verify는 서버 TLS 인증서 확인 여부를 제어하기 위해 사용이 되며 True, False 또는 certificate의 경로를 넣어주어 사용도 가능합니다
+
+    > Example Code
+
+    ```py
+    >>> import requests
+    >>> r = requests.get("<SSL 만료된 URL>")
+    Traceback (most recent call last):
+      [ ... ]
+      File "/home/me2nuk/.local/lib/python3.8/site-packages/requests/adapters.py", line 517, in send
+        raise SSLError(e, request=request)
+    requests.exceptions.SSLError: HTTPSConnectionPool(host='<SSL 만료된 URL>', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1131)')))
+    >>>
+    >>> r = requests.get("<SSL 만료된 URL>", verify=False)
+    /home/me2nuk/.local/lib/python3.8/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host '<SSL 만료된 URL>'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+    warnings.warn(
+    >>> r
+    <Response [200]>
+    >>>
+    >>> import certifi
+    >>> r = requests.get("https://www.google.com", verify=certifi.where())
+    >>> r
+    <Response [200]>
+    ```
+    
+---
+
 + cert
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L242-L254)
+
+    cert는 클라이언트 측 인증서, 단일 파일 ( 개인 키, 인증서 포함 ) 또는 두 파일 경로의 튜플로 인증서를 지정할 수 있습니다.
+
+    ```py
+    >>> import requests
+    >>> r = requests.get("https://www.google.com", cert=('/path/client.cert', '/path/client.key'))
+    >>> r
+    <Response [200]>
+    >>> r = requests.get("https://www.google.com", cert='/path/client.cert')
+    >>> r
+    <Response [200]>
+    ```
+    
+---
+
 + json
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L479)
 
     json 매개변수는 어떠한 서버에 json 데이터를 전송해야되는 경우 유용하게 쓰일 수 있습니다.
 
@@ -1085,6 +1180,8 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     >>> r.request.body.decode()
     '{"test1": "jsondata2"}'
     ```
+    
+---
 
 <br>
 
@@ -1110,6 +1207,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 ---
 
 + ### ``r.text``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L853-L889)
 
     text는 요청/응답 본문을 자동으로 디코드시킨 값을 str 타입으로 반환합니다.
 
@@ -1140,6 +1239,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.content``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L833-L851)
 
     content는 요청/응답 본문을 byte 타입으로 반환됩니다.
 
@@ -1179,6 +1280,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.json()``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L891-L925)
+
     > ``json(self, **kwargs)``
 
     json() 는 요청/응답 본문을 json 형식으로 디코딩하여 반환합니다.
@@ -1206,6 +1309,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.status_code``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L269)
+
     ``status_code``는 [http 응답 코드](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 나타냅니다. 요청에 성공한 경우 일반적으로 200을 반환 합니다.
 
     > Example Code
@@ -1219,6 +1324,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.url``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L279-L282)
 
     ``url``은 요청한 뒤 응답의 최종 URL을 반환합니다.
 
@@ -1241,6 +1348,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.history``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/sessions.py#L665-L687)
 
     ``history``는 모든 리다이렉션 응답은 가장 오래된 요청에서 최근 요청 순으로 Response 개체 목록을 반환 합니다.
 
@@ -1295,6 +1404,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.links``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L927-L943)
+
     ``links``는 요청/응답 [헤더의 link](https://tools.ietf.org/html/rfc8288#section-3)를 파싱한 결과를 반환합니다.
 
     만약 존재하지 않는 경우 ``{}`` 빈 딕셔너리를 반환합니다.
@@ -1324,6 +1435,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.headers``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L272)
+
     ``headers``는 요청한 뒤 응답 헤더를 반환 합니다.
 
     > Example Code
@@ -1337,6 +1450,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.cookies``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L285)
 
     ``cookies``는 요청한 뒤 응답 헤더에 있는 쿠키를 편하게 보여줍니다.
 
@@ -1361,9 +1476,36 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.connection``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L289)
+
+    ``connection``은 requests 모듈 내부에서 요청을 한 다음 response을 처리하는 과정인 context가 들어있습니다
+
+    ```py
+    >>> import requests
+    >>> r = requests.get("Https://www.google.com")
+    >>> r.connection
+    <requests.adapters.HTTPAdapter object at 0x7f8dea56f6d0>
+    >>> type(r.connection)
+    <class 'requests.adapters.HTTPAdapter'>
+    >>> r.connection.config
+    {}
+    >>> r.connection.proxy_manager
+    {}
+    >>> r.connection.max_retries
+    Retry(total=0, connect=None, read=False, redirect=None, status=None)
+    >>> r.connection._pool_connections
+    10
+    >>> r.connection._pool_maxsize
+    10
+    >>> r.connection._pool_block
+    False
+    ```
+
     ---
 
 + ### ``r.elapsed``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/sessions.py#L648-L649)
 
     ``elapsed``는 요청을 보낸 후 응답이 도착할 때까지의 경과한 시간을 datetime.timedelta 객체로 반환합니다.
 
@@ -1383,9 +1525,56 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.is_permanent_redirect``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L730-L733)
+
+    ``is_permanent_redirect``는 r.is_redirect와 유사하게 response header에 location헤더가 있고 status_code코드가 301 또는 308인 경우 True를 반환합니다.
+
+    + 조건 코드
+
+        ```py
+        return ('location' in self.headers and self.status_code in (codes.moved_permanently, codes.permanent_redirect)) # location header and 301 or 308
+        ```
+
+    ```py
+    >>> r = requests.get("https://google.com", allow_redirects=False)
+    >>> r.status_code
+    301
+    >>> r.url
+    'https://google.com/'
+    >>> r.is_permanent_redirect
+    True
+    >>> r = requests.get("https://www.google.com")
+    >>> r.status_code
+    200
+    >>> r.url
+    'https://www.google.com/'
+    >>> r.is_permanent_redirect
+    False
+    ```
+
     ---
 
 + ### ``r.is_redirect``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L723-L728)
+
+    ``is_redirect``는 ``is_permanent_redirect``와 유사하지만 True를 반환하는 조건이 넓습니다
+
+    is_redirect의 경우 http 상태코드가 301, 302, 303, 307, 308 중 하나라도 만족하고 response header에 location 헤더가 있는 경우에 True를 반환 합니다
+
+    + 조건 코드
+
+        ```py
+        REDIRECT_STATI = (
+            codes.moved,               # 301
+            codes.found,               # 302
+            codes.other,               # 303
+            codes.temporary_redirect,  # 307
+            codes.permanent_redirect,  # 308
+        )
+        [ ... ]
+        return ('location' in self.headers and self.status_code in REDIRECT_STATI) # location header and 301 or 302 or 303 or 307 or 308
+        ```
 
     ```py
     >>> import requests
@@ -1408,6 +1597,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.ok``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L708-L721)
 
     ``ok``는 요청/응답 코드가 200이면 True 아니면 False를 반환합니다.
 
@@ -1456,6 +1647,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.reason``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L277)
+
     ``reason``는 요청/응답 http 상태 코드의 텍스트를 출력합니다.
 
     > Example Code
@@ -1481,6 +1674,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.raise_for_status()``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L945-L968)
 
     ``raise_for_status()``는 요청/응답 코드가 200이 아니면 예외를 발생시킵니다.
 
@@ -1512,6 +1707,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.encoding``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L275)
+
     ``encoding``는 요청/응답 헤더를 이용하여 데이터의 인코딩 방식을 추측하여 반환합니다.
 
     > Example Code
@@ -1527,6 +1724,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.apparent_encoding``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L740-L743)
 
     ``apparent_encoding``는 ``chardet.detect``를 이용하여 자동으로 인코딩을 인식하고 반환합니다.
 
@@ -1552,6 +1751,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.iter_content()``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L745-L800)
 
     > ``iter_content(self, chunk_size=1, decode_unicode=False)``
 
@@ -1612,6 +1813,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ---
 
 + ### ``r.iter_lines()``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L802-L831)
 
     > ``ITER_CHUNK_SIZE = 512``
 
@@ -1678,6 +1881,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.close()``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L970-L981)
+
     ``close()``는 서버와의 연결을 닫습니다. 
 
     > Example Code
@@ -1694,6 +1899,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
 + ### ``r.request``
 
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L280-L599)
+
     ``request``는 PreparedRequest클래스를 반환하며 요청시에 사용했던 정보들을 확인할 수 있습니다.
     
     > Example Code
@@ -1706,10 +1913,64 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
     ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_body_position', '_cookies', '_encode_files', '_encode_params', '_get_idna_encoded_host', 'body', 'copy', 'deregister_hook', 'headers', 'hooks', 'method', 'path_url', 'prepare', 'prepare_auth', 'prepare_body', 'prepare_content_length', 'prepare_cookies', 'prepare_headers', 'prepare_hooks', 'prepare_method', 'prepare_url', 'register_hook', 'url']
     ```
 
+    + #### ``r.request.method``
+
+        + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L350-L354)
+
+        HTTP/HTTPS 요청 메서드를 나타냅니다
+
+        > Example Code
+
+        ```py
+        >>> import requests
+        >>> r = requests.get("https://www.google.com")
+        >>> r.request.method
+        'GET'
+        >>> r = requests.post("https://www.google.com")
+        >>> r.request.method
+        'POST'
+        ```
+
+    + #### ``r.request.path_url``
+
+        + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L69-L88)
+
+        요청한 url의 경로를 나타냅니다
+
+        > Example Code
+
+        ```PY
+        >>> import requests
+        >>> r = requests.get("https://www.google.com")
+        >>> r.request.path_url
+        '/'
+        >>> r = requests.get("https://www.google.com/test/path")
+        >>> r.request.path_url
+        '/test/path'
+        ```
+
+    + #### ``r.request.url``
+
+        + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L366-L450)
+
+        요청한 URL 전체를 나타냅니다
+    
+        > Example Code    
+
+        ```py
+        >>> import requests
+        >>> r = requests.get("https://www.google.com")
+        >>> r.request.url
+        'https://www.google.com'
+        >>> r = requests.get("https://www.google.com/test/aps/ds/fasfas")
+        'https://www.google.com/test/aps/ds/fasfas'
+        ```
+
     + #### ``r.request.headers``
 
-        ``request.headers``는 요청할때 사용된 헤더를 dict 타입으로 반환합니다.
+        + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L452-L461)
 
+        ``request.headers``는 요청할때 사용된 헤더를 dict 타입으로 반환합니다.
 
         > Example Code
 
@@ -1726,8 +1987,9 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
 
     + #### ``r.request._cookies``
 
-        ``request._cookies``는 요청할때 사용된 쿠키 내용을 dict 타입으로 반환됩니다.
+        + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L572-L599)
 
+        ``request._cookies``는 요청할때 사용된 쿠키 내용을 dict 타입으로 반환됩니다.
 
         > Example Code
 
@@ -1744,6 +2006,8 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
         ```
 
     + #### ``r.request.copy()``
+
+        + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L339-L348)
 
         ``request.copy()``는 PreparedRequest의 카피본을 반환합니다. 즉 r.request 결과를 카피한다고 생각하면 됩니다.
 
@@ -1784,11 +2048,11 @@ requests 모듈을 이용하여 요청 한 다음 그에 대한 Response 결과�
         'GET'
         ```
 
-    + #### 추가 request 작성중..
-
 ---
 
 + ### ``r.raw``
+
+    + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L276)
 
     서버에서 원시 소켓 응답을 받기 위해 ``r.raw.*``를 사용하기 위해서는 요청 시 ``stream=True``를 추가해줘야 합니다.
 
@@ -1870,7 +2134,7 @@ class request:
             block=CONST_BLOCK,
             **CONST_POOL_KWARGS,
         )
-        conn = poolmanager.connection_from_url(REQUEST_URL) # URL Connection
+        conn = poolmanager.connection_from_url(REQUEST_URL)
         self.resp = conn.urlopen(
             method = 'GET',
             url = '/',
@@ -1888,7 +2152,8 @@ class request:
                 connect=CONST_REQUEST_INFO_TIMEOUT,
                 read=CONST_REQUEST_INFO_TIMEOUT
             )
-        ) # REQUEST
+        )
+
     @property
     def content(self):
         return b''.join(self.read())
@@ -1925,7 +2190,7 @@ print(dt()-time)
 
 위의 소스코드를 가지고 실행해보면 아래의 결과 처럼 request_short_code(requests 소스코드 줄인 코드), requests_module_code(requests 모듈 코드)마다 약 5초 씩 차이납니다.
 
-```
+```bash
 ~$ python3 request_short_code.py
 11.000992600000004
 ~$ python3 requests_module_code.py
@@ -1937,4 +2202,12 @@ print(dt()-time)
 결론은 귀찮으면 requests 모듈을 사용하는게 제일 무난하다
 
 
-# 추가 작성 예정...
+## 작성 후기
+
+해당 글이 2000줄이 넘어버렸는데 처음엔 requests 모듈을 한번 까보고 싶다 이 생각뿐이였지만 생각보다 흥미로웠고 배워가는점이 많았습니다.
+
+그래서 이러한 지식들을, 매번 사용법을 까먹고 또 까먹어서 하나하나 찾아보면서 맞는 코드를 찾는 것 보단 내가 직접
+
+requests 모듈 코드 전체를 분석해서 블로그에 기능을 적어놓는게 내 입장에서도 사용자들 입장에서도 편할 것 같아 시작하게 된 글입니다.
+
+이 글이 중간중간 귀찮아서 쓰는 시간이 길어졌지만 그래도 이 글을 보고 배워가시는 분들이 있어서 오히려 뿌듯합니다.
