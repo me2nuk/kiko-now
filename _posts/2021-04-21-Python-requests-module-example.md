@@ -8,98 +8,102 @@ excerpt: "Python requests 모듈(module) 사용법"
 
 # Contents
 
-+ [requests 모듈이란?]()
-    + [이 글을 작성한 이유]()
-    + [References]()
-+ [requests module FILE 구조]()
-+ [requests module install]()
-+ [requests Example Code]()
-+ [HTTP 요청 메서드(HTTP request method)]()
-+ [requests 모듈 사용법]()
-    + [Request]()
-        + [Request Header]()
-        + [Request method]()
-            + [간단히]()
-                + [parameter]()
-                    + [url]()
-                    + [params]()
-                    + [data]()
-                    + [json]()
-                    + [**kwargs]()
-                    + [**kwargs 매개변수 종류]()
-                    + [return]()
-                + [PUT]()
-                + [GET]()
-                + [POST]()
-                + [HEAD]()
-                + [PATCH]()
-                + [DELETE]()
-                + [OPTIONS]()
-            + [자세히]()
-                + [PUT]()
-                + [GET]()
-                + [POST]()
-                + [HEAD]()
-                + [PATCH]()
-                + [DELETE]()
-                + [OPTIONS]()
-        + [request.request]()
-        + [Request **kwargs]()
-            + [Request **kwargs 종류]()
-                + [method( str )]()
-                + [url( str )]()
-                + [params( str, dict )]()
-                + [data( str, dict )]()
-                + [headers( dict )]()
-                + [cookies( dict )]()
-                + [files( dict, list, tuple )]()
-                + [auth( tuple, list )]()
-                + [timeout( float, int )]()
-                + [allow_redirects( bool )]()
-                + [proxies( dict )]()
-                + [hooks( Function, list )]()
-                + [stream( bool )]()
-                + [verify( bool, str )]()
-                + [cert( str, tuple )]()
-                + [json( dict )]()
+---
 
-    + [Response]()
-    + [r.text]()
-    + [r.content]()
-    + [r.json()]()
-    + [r.status_code]()
-    + [r.url]()
-    + [r.history]()
-    + [r.links]()
-    + [r.headers]()
-    + [r.cookies]()
-    + [r.connection]()
-    + [r.elapsed]()
-    + [r.is_permanent_redirect]()
-    + [r.is_redirect]()
-    + [r.ok]()
-    + [r.reason]()
-    + [r.raise_for_status()]()
-    + [r.encoding]()
-    + [r.apparent_encoding]()
-    + [r.iter_content()]()
-    + [r.iter_lines()]()
-    + [r.close()]()
-    + [r.request]()
-        + [r.request.method]()
-        + [r.request.path_url]()
-        + [r.request.url]()
-        + [r.request.headers]()
-        + [r.request._cookies]()
-        + [r.request.copy()]()
++ [Contents](#contents)
++ [requests 모듈이란?](#requests-모듈이란)
+    + [이 글을 작성한 이유](#이-글을-작성한-이유)
+    + [References](#references)
++ [requests module FILE 구조](#requests-module-file-구조)
++ [requests module install](#requests-module-install)
++ [requests Example Code](#requests-example-code)
++ [HTTP 요청 메서드(HTTP request method)](#http-요청-메서드http-request-method)
++ [requests GET, POST, PUT , DELETE, HEAD, OPTIONS](#requests-get-post-put--delete-head-options)
++ [requests 모듈 사용법](#requests-모듈-사용법)
+    + [Request](#request)
+        + [Request Header](#request-header)
+        + [Request method](#request-method)
+            + [간단히](#간단히)
+                + [parameter](#parameter)
+                    + [url](#url-필수-)
+                    + [params](#params선택-사항)
+                    + [data](#data선택-사항)
+                    + [json](#json선택-사항)
+                    + [**kwargs](#kwargs-선택-사항-)
+                    + [**kwargs 매개변수 종류](#kwargs-매개변수-종류)
+                    + [return](#return)
+                + [PUT](#put)
+                + [GET](#get)
+                + [POST](#post)
+                + [HEAD](#head)
+                + [PATCH](#patch)
+                + [DELETE](#delete)
+                + [OPTIONS](#options)
+            + [자세히](#자세히)
+                + [PUT](#)
+                + [GET](#)
+                + [POST](#)
+                + [HEAD](#)
+                + [PATCH](#)
+                + [DELETE](#)
+                + [OPTIONS](#)
+        + [request.request](#)
+        + [Request **kwargs](#)
+            + [Request **kwargs 종류](#)
+                + [method( str )](#)
+                + [url( str )](#)
+                + [params( str, dict )](#)
+                + [data( str, dict )](#)
+                + [headers( dict )](#)
+                + [cookies( dict )](#)
+                + [files( dict, list, tuple )](#)
+                + [auth( tuple, list )](#)
+                + [timeout( float, int )](#)
+                + [allow_redirects( bool )](#)
+                + [proxies( dict )](#)
+                + [hooks( Function, list )](#)
+                + [stream( bool )](#)
+                + [verify( bool, str )](#)
+                + [cert( str, tuple )](#)
+                + [json( dict )](#)#
 
-    + [r.raw]()
-        + [r.raw.read()]()
+    + [Response](#)
+    + [r.text](#)
+    + [r.content](#)
+    + [r.json()](#)
+    + [r.status_code](#)
+    + [r.url](#)
+    + [r.history](#)
+    + [r.links](#)
+    + [r.headers](#)
+    + [r.cookies](#)
+    + [r.connection](#)
+    + [r.elapsed](#)
+    + [r.is_permanent_redirect](#)
+    + [r.is_redirect](#)
+    + [r.ok](#)
+    + [r.reason](#)
+    + [r.raise_for_status()](#)
+    + [r.encoding](#)
+    + [r.apparent_encoding](#)
+    + [r.iter_content()](#)
+    + [r.iter_lines()](#)
+    + [r.close()](#)
+    + [r.request](#)
+        + [r.request.method](#)
+        + [r.request.path_url](#)
+        + [r.request.url](#)
+        + [r.request.headers](#)
+        + [r.request._cookies](#)
+        + [r.request.copy()](#)#
 
-+ [번외...]()
-    + [request_short_code.py]()
-    + [requests_module_code]()
-+ [작성 후기]()
+    + [r.raw](#)
+        + [r.raw.read()](#)#
+
++ [번외...](#)
+    + [request_short_code.py](#)
+    + [requests_module_code](#)
++ [작성 후기](#)
 
 ---
 
@@ -344,17 +348,17 @@ def get(url, params=None, **kwargs):
         [자세한 **kwargs 매개변수 사용법은 여기를 참고하면 됩니다.](#request-kwargs)
 
 
-    + **kwargs 매개변수 종류
+    + ##### **kwargs 매개변수 종류
 
         > ``request(self, method, url, params=None, data=None, headers=None, cookies=None, files=None, auth=None, timeout=None, allow_redirects=True, proxies=None, hooks=None, stream=None, verify=None, cert=None, json=None)``
       
-    + return
+    + ##### return
 
         ``[PUT, GET, POST, HEEAD, PATCH, DELETE, OPTIONS]``는 기본적으로 [requests.modules.Response](https://docs.python-requests.org/en/master/api/#requests.Response) 객체를 반환합니다.
 
 ---
 
-+ PUT
++ ##### PUT
 
 > ``requests.put(url, data=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L120-L132)
 
@@ -368,7 +372,7 @@ def put(url, data=None, **kwargs):
 
 ---
 
-+ GET
++ ##### GET
 
 > ``requests.get(url, params=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L64-L75)
 
@@ -383,7 +387,7 @@ def get(url, params=None, **kwargs):
 
 ---
 
-+ POST
++ ##### POST
 
 > ``requests.post(url, data=None, json=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L105-L117)
 
@@ -397,7 +401,7 @@ def post(url, data=None, json=None, **kwargs):
 
 ---
 
-+ HEAD
++ ##### HEAD
 
 > ``requests.head(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L90-L102)
 
@@ -412,7 +416,7 @@ def head(url, **kwargs):
 
 ---
 
-+ PATCH
++ ##### PATCH
 
 > ``requests.patch(url, data=None, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L135-L147)
 
@@ -426,7 +430,7 @@ def patch(url, data=None, **kwargs):
 
 ---
 
-+ DELETE
++ ##### DELETE
 
 > ``requests.delete(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L150-L159)
 
@@ -440,7 +444,7 @@ def delete(url, **kwargs):
 
 ---
 
-+ OPTIONS
++ ##### OPTIONS
 
 > ``requests.options(url, **kwargs)`` [[_Source Code_]](https://github.com/psf/requests/blob/main/requests/api.py#L78-L87)
 
