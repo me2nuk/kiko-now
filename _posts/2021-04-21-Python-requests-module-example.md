@@ -6,6 +6,105 @@ excerpt: "Python requests 모듈(module) 사용법"
 ---
 ---
 
+# Contents
+
++ [requests 모듈이란?]()
+    + [이 글을 작성한 이유]()
+    + [References]()
++ [requests module FILE 구조]()
++ [requests module install]()
++ [requests Example Code]()
++ [HTTP 요청 메서드(HTTP request method)]()
++ [requests 모듈 사용법]()
+    + [Request]()
+        + [Request Header]()
+        + [Request method]()
+            + [간단히]()
+                + [parameter]()
+                    + [url]()
+                    + [params]()
+                    + [data]()
+                    + [json]()
+                    + [**kwargs]()
+                    + [**kwargs 매개변수 종류]()
+                    + [return]()
+                + [PUT]()
+                + [GET]()
+                + [POST]()
+                + [HEAD]()
+                + [PATCH]()
+                + [DELETE]()
+                + [OPTIONS]()
+            + [자세히]()
+                + [PUT]()
+                + [GET]()
+                + [POST]()
+                + [HEAD]()
+                + [PATCH]()
+                + [DELETE]()
+                + [OPTIONS]()
+        + [request.request]()
+        + [Request **kwargs]()
+            + [Request **kwargs 종류]()
+                + [method( str )]()
+                + [url( str )]()
+                + [params( str, dict )]()
+                + [data( str, dict )]()
+                + [headers( dict )]()
+                + [cookies( dict )]()
+                + [files( dict, list, tuple )]()
+                + [auth( tuple, list )]()
+                + [timeout( float, int )]()
+                + [allow_redirects( bool )]()
+                + [proxies( dict )]()
+                + [hooks( Function, list )]()
+                + [stream( bool )]()
+                + [verify( bool, str )]()
+                + [cert( str, tuple )]()
+                + [json( dict )]()
+
+    + [Response]()
+    + [r.text]()
+    + [r.content]()
+    + [r.json()]()
+    + [r.status_code]()
+    + [r.url]()
+    + [r.history]()
+    + [r.links]()
+    + [r.headers]()
+    + [r.cookies]()
+    + [r.connection]()
+    + [r.elapsed]()
+    + [r.is_permanent_redirect]()
+    + [r.is_redirect]()
+    + [r.ok]()
+    + [r.reason]()
+    + [r.raise_for_status()]()
+    + [r.encoding]()
+    + [r.apparent_encoding]()
+    + [r.iter_content()]()
+    + [r.iter_lines()]()
+    + [r.close()]()
+    + [r.request]()
+        + [r.request.method]()
+        + [r.request.path_url]()
+        + [r.request.url]()
+        + [r.request.headers]()
+        + [r.request._cookies]()
+        + [r.request.copy()]()
+
+    + [r.raw]()
+        + [r.raw.read()]()
+
++ [번외...]()
+    + [request_short_code.py]()
+    + [requests_module_code]()
++ [작성 후기]()
+
+---
+
+<br>
+
 # requests 모듈이란?
 
 requests는 python사용자들을 위해 만들어진 간단한 Python용 HTTP 라이브러리이며, 간단하게는 HTTP, HTTPS 웹 사이트에 요청하기 위해 자주 사용되는 모듈 중 하나이고
@@ -538,7 +637,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 > ``request(self, method, url, params=None, data=None, headers=None, cookies=None, files=None, auth=None, timeout=None, allow_redirects=True, proxies=None, hooks=None, stream=None, verify=None, cert=None, json=None)``
 
-+ method
++ #### method( str )
 
   method 매개변수는 요청 시 사용될 http 메소드 입니다.
 
@@ -556,14 +655,13 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ---
 
-+ url
++ #### url( str )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L366-L450)
 
     url 매개변수는 요청하고 싶은 URL을 넣으면 됩니다.
 
     > Example Code
-
 
     ```py
     >>> r = requests.request('GET', url='https://example.com')
@@ -572,7 +670,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ---
 
-+ params
++ #### params( str, dict )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L439-L447)
 
@@ -580,21 +678,25 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
     > Example Code
 
-
     ```py
     >>> r = requests.request('GET', url='https://example.com', params={'get1':'value1',   'get2','value2'})
     <Response [200]>
     >>> r.url
     'https://example.com?get=value1&get2=value2'
+    >>> r = requests.get("https://www.google.com", params="helloworld")
+    >>> r.url
+    'https://www.google.com/?helloworld'
     ```
 
 ---
 
-+ data
++ #### data( str, dict )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L522-L527)
 
     data 매개변수는 요청될때 본문에 포함되어 서버로 데이터를 전송합니다.
+
+    data 매개변수에 dict 또는 문자열 그대로 담아 요청을 할 수 있습니다.
 
     > Example Code
 
@@ -604,11 +706,14 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     <Response [200]>
     >>> r.request.body
     'post1=value1&post2=value2'
+    >>> r = requests.post('http://httpbin.org/post', data="hello post data")
+    >>> r.request.body
+    'hello post data'
     ```
 
 ---
 
-+ headers
++ #### headers( dict )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L452-L461)
 
@@ -626,7 +731,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ---
 
-+ cookies( dict )
++ #### cookies( dict )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L572-L590)
 
@@ -642,7 +747,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ---
 
-+ files( dict, List, tpule )
++ #### files( dict, List, tuple )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L118-L179)
 
@@ -740,7 +845,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ---
 
-+ auth( tuple, list )
++ #### auth( tuple, list )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/auth.py#L28-L69)
 
@@ -794,7 +899,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ---
 
-+ timeout( float, int )
++ #### timeout( float, int )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L423-L451)
 
@@ -852,7 +957,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
 
 ---
 
-+ allow_redirects( bool )
++ #### allow_redirects( bool )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/sessions.py#L680-L684)
 
@@ -901,7 +1006,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     
 ---
 
-+ proxies ( dict )
++ #### proxies( dict )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/utils.py#L811-L834)
 
@@ -979,7 +1084,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     
 ---
 
-+ hooks ( Function, List )
++ #### hooks( Function, list )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/hooks.py#L14-L34)
 
@@ -1080,7 +1185,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     
 ---
 
-+ stream
++ #### stream( bool )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/sessions.py#L686-L687)
 
@@ -1111,7 +1216,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     
 ---
 
-+ verify
++ #### verify( bool, str )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L216-L240)
 
@@ -1142,7 +1247,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     
 ---
 
-+ cert
++ #### cert( str, tuple )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/adapters.py#L242-L254)
 
@@ -1160,7 +1265,7 @@ options 메소드는 요청 시 OPTIONS 방식으로 요청됩니다.
     
 ---
 
-+ json
++ #### json( dict )
 
     + [Core Code](https://github.com/psf/requests/blob/main/requests/models.py#L479)
 
