@@ -6,6 +6,11 @@ permalink: /about/
 
 * * *
 
+## 자기소개
+
+저는 현재 세명컴퓨터고등학교 재학중인 웹 해킹에 관심이 있는 김민욱입니다.
+웹 개발 언어는 대부분 다루며, 그 외에도 보조 분야로 리버싱을 공부하고 있습니다.
+
 ## Contact
 
   * GitHub：[me2nuk](https://github.com/me2nuk)
@@ -17,7 +22,7 @@ permalink: /about/
 
 ## Profile
 
-  * TeamH4C 팀원
+  * [해킹 팀 TeamH4C 팀원 (팀 소개)](https://team.h4c)
   * TeamH4C CTF 팀장
   * 2021학년도 서울여자대학교 정보보호영재교육원 고등전문 B
   * STEALIEN SSL 2기
