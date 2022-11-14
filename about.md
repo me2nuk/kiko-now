@@ -19,9 +19,10 @@ permalink: /about/
 
 ## Profile
 
+ * 세명컴퓨터고등학교 스마트보안솔루션과 7기 ( 2020년 입학 )
+ * 세명컴퓨터고등학교 스마트보안솔루션과 SCA 사이버보안 동아리 **前부장**
  * [화이트해킹 팀 TeamH4C 팀원](https://teamh4c.com) ( 2021.03 ~ )
  * TeamH4C CTF 팀 C4C 팀장 ( 2021.03 ~ )
- * 세명컴퓨터고등학교 스마트보안솔루션과 SCA 사이버보안 동아리 **前부장**
 
 ---
 
@@ -30,7 +31,7 @@ permalink: /about/
  * 2021 - 서울여자대학교 정보보호영재교육원 고등전문 B ( 2021 )
  * 2021 - STEALIEN SSL(Stealien Security Leader) 2기 ( 2021 )
  * 2022 - KITRI Best Of the Best 11th 취약점 분석 트랙 교육생 ( 2022 )
-
+ㅋ
 ---
 
 ## Presentation
@@ -72,7 +73,7 @@ permalink: /about/
     + [KEPCO 한국전력공사 전력분야 실전형 사이버공격 방어훈련 청소년부 1등 및 종합 2등 - "한국전력공사 사장 상"](https://biz.newdaily.co.kr/site/data/html/2022/10/25/2022102500219.html)
     + [중부대학교 JBU CTF 해킹 대회 장려상 - "중부대학교 총장상"]()
     + [사이버가디언즈 경진대회 3등 우수상 - "한국정보기술연구원장상"]()
-    + [영남이공대학교 The Hacking ChampionShip Junior 우수상 - "?"]()
+    + [영남이공대학교 The Hacking ChampionShip Junior 우수상 - "대구디지털혁신진흥원장상"]()
 
 ## CTF Finalist
 
