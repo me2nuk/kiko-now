@@ -111,8 +111,6 @@ excerpt: "Python requests 모듈(module) 사용법"
 
 {% endcomment %}
 
-<br>
-
 # requests 모듈이란?
 
 requests는 python사용자들을 위해 만들어진 간단한 Python용 HTTP 라이브러리이며, 간단하게는 HTTP, HTTPS 웹 사이트에 요청하기 위해 자주 사용되는 모듈 중 하나이고
