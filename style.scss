@@ -34,9 +34,101 @@
   font-weight: normal;
   font-style: normal;
 }
+.toc {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+// .toc::-webkit-scrollbar {
+//   display: none; /* Chrome, Safari, Opera*/
+// }
+
+.toc::-webkit-scrollbar{
+  border-radius: 1px;
+  width: 2px;
+}
+
+.toc::-webkit-scrollbar-thumb{
+  z-index: 100;
+  background: rgba(50, 56, 62, 0.4);
+  border-radius: 500px;
+  max-height: 60%;
+}
+.toc:hover{
+  overflow-y: scroll;
+  transition: 2s;
+}
+.toc-child{
+  max-height: 600px;
+}
+.toc {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 200px;
+  top:100px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding-left: 0.75rem;
+  padding-right: 0rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-right: 3rem;
+  float: right;
+  font-size: 13px;
+  border-left: 2px solid rgba(224, 217, 231, .3);
+  list-style: none;
+  word-wrap: break-word;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", 나눔고딕, "Nanum Gothic", "Noto Sans KR", "Noto Sans CJK KR", arial, 돋움, Dotum, Tahoma, Geneva, sans-serif;
+
+  display: none;
+  @media (min-width: 75em){
+    width: 240px;
+    display: block;
+  }
+  @media (min-width: 85em){
+    width: 300px;
+    display: block;
+  }
+  @media (min-width: 95em){
+    width: 360px;
+    display: block;
+  }
+
+  a.toc-active {
+    font-weight: bold; 
+    transition: all 0.125s ease-in 0s; 
+    color: #9075aa;
+  }
+  ul>li:before{
+    content: "";
+  }
+  ul>li:after{
+    content: "";
+  }
+  ul {
+    // list-style-type: none;
+    margin-bottom: 0.1rem;
+    list-style: none;
+    padding-left: 0rem;
+    li {
+      // padding-left: .5rem;
+      list-style: none;
+    }
+  }
+
+  a {
+      color: $default;
+      text-decoration: none;
+  }
+ 
+  a:hover {
+     opacity: 0.7;
+  }
+}
 
 html {
   font-size: $base-font-size;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -47,7 +139,7 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1000px;
   padding: 0 10px;
   width: 100%;
 }
