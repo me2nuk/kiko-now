@@ -3,7 +3,15 @@
   {% include head.html %}
   <body>
     {% include nav.html %}
-
+    {% if page.title %}
+    <div class="toc">
+      <a href="#" style="position: relative; top: -5px;"><i class="xi-arrow-up"></i> TOP</a>
+      <div class="toc-child">
+        {% include toc.html html=content %}
+        <a href="#disqus_thread" style="position: relative; bottom: -5px;"><i class="xi-arrow-down"></i> DOWN(Comment)</a>
+      </div>
+    </div>
+    {% endif %}
     <div id="main" role="main" class="container">
       {{ content }}
     </div>
