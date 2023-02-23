@@ -9,7 +9,7 @@ excerpt: "Python requests 모듈(module) 사용법"
 # Contents
 
 ---
-
+{% comment %}
 + [Contents](#contents)
 + [requests 모듈이란?](#requests-모듈이란)
     + [이 글을 작성한 이유](#이-글을-작성한-이유)
@@ -106,6 +106,8 @@ excerpt: "Python requests 모듈(module) 사용법"
 + [작성 후기](#작성-후기)
 
 ---
+
+{% endcomment %}
 
 <br>
 
