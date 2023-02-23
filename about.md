@@ -49,6 +49,7 @@ permalink: /about/
  * [2021 - TeamH4C 학생용 해킹노트 온라인 컨퍼런스 발표자 - "메이플에 진심일뻔한 웹쟁이가 알려주는 웹해킹 입문 스토리 발표 영상 링크"](https://youtu.be/FXrE4cI_oW8)
  * [2022 - TeamH4C 2022 해킹하는 부엉이 발표자 - "웹_퍼저_찍먹한_썰.ssul"](https://www.youtube.com/watch?v=RgidYMxFfkw)
  * [2022 - Stony Brook University Decompiler 정보보안 동아리 웹해킹 입문 방법 초청 특강 - "웹 해킹 공부하는 방법"]()
+ * [2023 - 제 26회 상계 HackingCamp 발표자 - "웹 버그바운티 감옥 일지"](https://www.facebook.com/h4ckingc4mp/posts/613701180565092)
 
 ---
 
