@@ -42,6 +42,10 @@
 //   display: none; /* Chrome, Safari, Opera*/
 // }
 
+*{
+  word-wrap: break-word;
+}
+
 .toc::-webkit-scrollbar{
   border-radius: 1px;
   width: 2px;
