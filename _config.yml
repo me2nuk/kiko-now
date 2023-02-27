@@ -41,17 +41,17 @@ footer-links:
   flickr:
   github: me2nuk
   googleplus: # anything in your profile username that comes after plus.google.com/
-  instagram:
-  linkedin:
+  instagram: kimtong6451
+  linkedin: minuk-kim-b570a91ba
   pinterest:
   rss: # just type anything here for a working RSS icon
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   tumblr: # https://<username>.tumblr.com
-  twitter: # twitter
+  twitter: me2nuk # twitter
   youtube: # channel/<your_long_string> or user/<user-name>
 
 # Text under the icons in footer
-footer-text: © 2021 me2nuk
+footer-text: © 2021 me2nuk(kimtong6451@gmail.com)
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
