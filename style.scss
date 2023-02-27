@@ -164,7 +164,7 @@ h1, h2, h3, h5 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 1.6675rem;
   a {
     color: inherit;
   }
@@ -185,6 +185,10 @@ h4 {
 
 h6 {
   color: $base-lighten-color;
+}
+
+@media (max-width: 990px) {
+  html { font-size: 14px; }
 }
 
 p {
