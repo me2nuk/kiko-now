@@ -30,7 +30,7 @@ permalink: /about/
  * 세명컴퓨터고등학교 스마트보안솔루션과 SCA( Security Client Access ) Team
  * [화이트해킹 팀 TeamH4C ( 2021.03 ~ infinite )](https://teamh4c.com)
  * TeamH4C CTF 팀 C4C 팀장 ( 2021.03 ~ infinite )
- * Incognit0 - Conference Staff ( 2021 )
+ * [Incognito Conference Staff ( 2021 )](https://incognito.kr/)
  * KITRI BOB 11th 프로젝트 팀 - "전자상거래플랫폼 취약점 분석"
 
 ---
