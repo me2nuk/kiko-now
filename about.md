@@ -50,6 +50,7 @@ permalink: /about/
  * [2022 - TeamH4C 2022 해킹하는 부엉이 발표자 - "웹_퍼저_찍먹한_썰.ssul"](https://www.youtube.com/watch?v=RgidYMxFfkw)
  * [2022 - Stony Brook University Decompiler 정보보안 동아리 웹해킹 입문 방법 초청 특강 - "웹 해킹 공부하는 방법"]()
  * [2023 - 제 26회 상계 HackingCamp 발표자 - "웹 버그바운티 감옥 일지"](https://www.facebook.com/h4ckingc4mp/posts/613701180565092)
+ * [2023 - 대구대학교 HACTOR 정보보안동아리 "What is Web Hacking?" 특강]()
 
 ---
 
