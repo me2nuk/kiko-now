@@ -144,3 +144,21 @@ excerpt: "도커를 이용하여 nc 서버 구축하기"
 ## 마무리
 
 만약 구축에 어려움이 있다면 미리 적어놓은 파일 [다운로드](/files/Server-Build/nc-server/nc-server.zip)한 다음 위에서 입력한 명령어들과 동일하게 실행하면 된다.
+
+## 도커 컨테이너 각티슈 케이스
+
+도커 컨테이너 모양의 각티슈 케이스를 이번에 좋은 기회로 얻게 되었습니다.
+
+솔직히 각티슈 케이스에는 별 신경을 안썻는데 이런 템도 있다는게 좀 신기해서 써보고 있는데
+
+같이 전공 하시는 분들은 이쁘다고 좋아하시는 반응입니다 ㅋㅋ 
+
+[https://incatos.shop/surl/P/11](https://incatos.shop/surl/P/11)
+
+해당 링크에 들어가, 구매가 가능하고 만약 도커에 관심이 있으신 분들이라면 계속 두고두고 써먹을 수 있으니 한번 추천 드립니다 :)
+
+![docekr image1](/files/docker/docker_image1.jpg)
+
+![docker image2](/files/docker/docker_image2.jpg)
+
+<br>
