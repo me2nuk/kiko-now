@@ -51,6 +51,12 @@ permalink: /about/
  * [2022 - Stony Brook University Decompiler 정보보안 동아리 웹해킹 입문 방법 초청 특강 - "웹 해킹 공부하는 방법"]()
  * [2023 - 제 26회 상계 HackingCamp 발표자 - "웹 버그바운티 감옥 일지"](https://www.facebook.com/h4ckingc4mp/posts/613701180565092)
  * [2023 - 대구대학교 HACTOR 정보보안동아리 "What is Web Hacking?" 특강]()
+ * [2023 - 전남 지역 대학교 연합 동아리 HYPERS - "Web Development & Hacking Guide"]()
+ {# 
+ * [2023 - 경기대학교 knock.knock 보안 동아리 웹 해킹 특강]()
+ * [2023 - 성신여자대학교 정보보안 동아리 웹 해킹 특강]()
+ * [2023 - 대덕소프트웨어마이스터고등학교 정보보안 동아리 웹 해킹 특강]()
+ * [2023 - BISC ( Bob Information Seucrity Conference ) 컨퍼런스 "<To be Updatae..>" 발표]() #}
 
 ---
 
