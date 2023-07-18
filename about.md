@@ -15,6 +15,7 @@ permalink: /about/
   * [Facebook](https://www.facebook.com/me2nuk)
   * [Twitter](https://twitter.com/@me2nuk)
   * [Instagram](https://instagram.com/kimtong6451)
+  * [Threads](https://threads.net/@kimtong6451)
 
 * * *
 
@@ -24,6 +25,7 @@ permalink: /about/
  * 세명컴퓨터고등학교 스마트보안솔루션과 7기 ( 2020년 입학 )
  * 세명컴퓨터고등학교 스마트보안솔루션과 SCA 사이버보안 동아리 **前부장**
  * TeamH4C 운영 초보자용 기수제 지옥 훈련 서바이벌 스터디그룹 빡공팟 4기, 5기 웹해킹 트랙 멘토
+ * Best Of the Best 9대 총동문회
 
 ## Teams
 
@@ -52,6 +54,7 @@ permalink: /about/
  * [2023 - 제 26회 상계 HackingCamp 발표자 - "웹 버그바운티 감옥 일지"](https://www.facebook.com/h4ckingc4mp/posts/613701180565092)
  * [2023 - 대구대학교 HACTOR 정보보안동아리 "What is Web Hacking?" 특강]()
  * [2023 - 전남 지역 대학교 연합 동아리 HYPERS - "Web Development & Hacking Guide"]()
+ * [2023 - 경기대학교 보안 동아리 K.Knock - "웹, 웹 해킹 늪에 발 찍어보기"]()
 
 ---
 
