@@ -52,9 +52,11 @@ permalink: /about/
  * [2022 - TeamH4C 2022 해킹하는 부엉이 발표자 - "웹_퍼저_찍먹한_썰.ssul"](https://www.youtube.com/watch?v=RgidYMxFfkw)
  * [2022 - Stony Brook University Decompiler 정보보안 동아리 웹해킹 입문 방법 초청 특강 - "웹 해킹 공부하는 방법"]()
  * [2023 - 제 26회 상계 HackingCamp 발표자 - "웹 버그바운티 감옥 일지"](https://www.facebook.com/h4ckingc4mp/posts/613701180565092)
- * [2023 - 대구대학교 HACTOR 정보보안동아리 "What is Web Hacking?" 특강]()
+ * [2023 - 대전학교 HACTOR 정보보안동아리 "What is Web Hacking?" 특강]()
  * [2023 - 전남 지역 대학교 연합 동아리 HYPERS - "Web Development & Hacking Guide"]()
  * [2023 - 경기대학교 보안 동아리 K.Knock - "웹, 웹 해킹 늪에 발 찍어보기"]()
+ * [2023 - 사이버사령부 군 사이버 최고 전문가 교육 과정 교육 진행 - "웹 해킹 기초 ~ 심화"]()
+ * [2023 - 세명컴퓨터고등학교 보안 동아리 웹 해킹 기법 강의]()
 
 ---
 
@@ -90,6 +92,11 @@ permalink: /about/
     + [사이버가디언즈 경진대회 3등 우수상 - "한국정보기술연구원장상"](https://www.dailysecu.com/news/articleView.html?idxno=135418)
     + [영남이공대학교 The Hacking ChampionShip Junior 우수상 - "대구디지털혁신진흥원장상"](https://www.boannews.com/media/view.asp?idx=111519)
     + [한국청소년활동진흥원주최 청소년방과후아카데미 활동수기 공모전 우수상 - "한국청소년활동진흥원장상"](http://www.ggpyeonghwa.com/news/articleView.html?idxno=174846)
+     
+  + 2023
+
+    + [KOSPO & 교육부 정보보호 영재교육원 웹 서비스 정보보안 경진대회 최우수상 - "한국남부발전주식회사 사장 상"]()
+    + [CCUNICTF 충청권 정보보안 경진대회 2등 최우수상 - "한국보건산업진흥원장상"]()  
 
 * * *
 
