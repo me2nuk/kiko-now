@@ -3,6 +3,7 @@ layout: post
 title:  "PHP session.serialize_handler가 php_serialize로 되어 있는 경우 역직렬화 취약점 발생"
 tags: [WEB-Vuln,WEB-Study]
 excerpt: "PHP session.serialize_handler이 php_serialize에서 php으로 변경될 경우 세션이 역직렬화 되는 과정에서 발생하는 역직렬화 취약점"
+toc: true
 ---
 ---
 
