@@ -68,7 +68,7 @@ url: https://me2nuk.com
 # (http://yourusername.github.io/repository-name)
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
-baseurl: /
+baseurl: 
 
 #
 # !! You don't need to change any of the configuration flags below !!
@@ -111,4 +111,4 @@ exclude:
   - hidden
 
 defaults:
-  toc: true
+  - toc: true

@@ -5,5 +5,5 @@ source "https://rubygems.org"
 gem "jekyll-sitemap"
 gem "jekyll-feed"
 gem "jekyll-paginate"
-gem "jekyll-toc"
+gem 'jekyll-toc'
 gem "webrick", "~> 1.8"
