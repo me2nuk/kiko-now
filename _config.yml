@@ -111,7 +111,4 @@ exclude:
   - hidden
 
 defaults:
-- scope:
-  path: ""
-  values:
   toc: true
