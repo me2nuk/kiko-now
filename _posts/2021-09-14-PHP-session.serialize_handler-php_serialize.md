@@ -7,8 +7,6 @@ toc: true
 ---
 ---
 
-{{ content | toc_only }}
-
 # PHP session.serialize_handler이란?
 
 PHP 설정 세팅 중 [session.serialize_handler](https://www.php.net/manual/en/session.configuration.php#ini.session.serialize-handler)는 세션의 데이터를 모두 직렬화/역직렬화할 때 사용되는 핸들러입니다.
