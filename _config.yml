@@ -111,4 +111,4 @@ exclude:
   - hidden
 
 defaults:
-  - toc: true
+  toc: true
