@@ -21,7 +21,7 @@ layout: default
     </div>
     <div class="entry">
         <br>
-        <details open><summary>Table Of Contents</summary><br><figure>{{ content | toc }}</figure></details>
+        <details open><summary>Table Of Contents</summary><br><figure>{% include toc.html html=content %}</figure></details>
         {{ content }}
     </div>
 
