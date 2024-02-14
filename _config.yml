@@ -109,3 +109,9 @@ exclude:
   - CNAME
   - "404"
   - hidden
+
+defaults:
+- scope:
+  path: ""
+  values:
+  toc: true
