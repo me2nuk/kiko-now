@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ShaktiCTF 2021 Writeup"
-tags: [ShaktiCTF,CTF-2021,CTF]
+tags: [CTF]
 excerpt: "ShaktiCTF 2021 Writeup"
 ---
 

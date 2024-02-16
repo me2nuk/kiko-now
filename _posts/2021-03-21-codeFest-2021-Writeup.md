@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "codeFest CTF 2021 Writeup"
-tags: [codeFest-CTF,CTF-2021,CTF]
+tags: [CTF]
 excerpt: "UTCTF 2021 Writeup"
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Bluehens CTF 2021 Writeup"
-tags: [BluehensCTF,CTF-2021,CTF]
+tags: [CTF]
 excerpt: "Bluehens CTF 2021 Writeup"
 ---
 

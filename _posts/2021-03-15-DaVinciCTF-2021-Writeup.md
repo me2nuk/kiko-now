@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "DaVinci CTF 2021 Writeup"
-tags: [DaVinciCTF,CTF-2021,CTF]
+tags: [CTF]
 excerpt: "DaVinciCTF 2021 Writeup"
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "UMassCTF 2021 Writeup"
-tags: [UMassCTF,CTF-2021,CTF]
+tags: [CTF]
 excerpt: "UMassCTF 2021 Writeup"
 ---
 
