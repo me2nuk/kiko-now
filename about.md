@@ -25,6 +25,7 @@ permalink: /about/
  * 세명컴퓨터고등학교 스마트보안솔루션과 7기 ( 2020년 입학 )
  * 세명컴퓨터고등학교 스마트보안솔루션과 SCA 사이버보안 동아리 **前부장**
  * TeamH4C 운영 초보자용 기수제 지옥 훈련 서바이벌 스터디그룹 빡공팟 4기, 5기 웹해킹 트랙 멘토
+ * White Hat School 1,2기 Project Leader
  * Best Of the Best 9대 총동문회
 
 ## Teams
@@ -66,6 +67,8 @@ permalink: /about/
   * 2021 - [H4CKING GAME 워게임 문제 출제자(WEB,MISC)](https://h4ckingga.me/challenges)
   * 2021 - Power Of XX(여성해킹대회) WEB 문제 출제자 ([public-connect](/files/pox/public-connect.png), [handling](/files/pox/handling.png))
   * 2022 - BISC( Bob Information Security Conference ) CTF 문제 출제자 ( [narrow data](https://dreamhack.io/wargame/challenges/640/writeups?writeup_id=8768), [not feeling well](https://dreamhack.io/wargame/challenges/653) ) * 드림핵 워게임에 출제 됨
+  * 2024 - 싱가포르 국방과학기술원(DSTA)주최 해킹 대회 BrainHack CDDC2024 웹 해킹 문제 출제
+  * 2024 - WhiteHat School 반대항전 웹 해킹 문제 출제 ( findfindfind, html-viewer )
 
 ---
 
