@@ -57,6 +57,7 @@ permalink: /about/
  * [2023 - 경기대학교 보안 동아리 K.Knock - "웹, 웹 해킹 늪에 발 찍어보기"]()
  * [2023 - 세명컴퓨터고등학교 스마트보안솔루션과 웹 해킹 기초 강의]()
  * [2023 - 사이버사령부 군 사이버 최고 전문가 교육 과정 교육 진행 - "웹 해킹 기초 ~ 심화 강의"]()
+ * [2024 - 고려대학교 세종캠퍼스 Kuality 보안 동아리 1학기 Python 기초 강의]()
 
 
 ---
@@ -65,7 +66,10 @@ permalink: /about/
 
   * 2021 - [H4CKING GAME 워게임 문제 출제자(WEB,MISC)](https://h4ckingga.me/challenges)
   * 2021 - Power Of XX(여성해킹대회) WEB 문제 출제자 ([public-connect](/files/pox/public-connect.png), [handling](/files/pox/handling.png))
-  * 2022 - BISC( Bob Information Security Conference ) CTF 문제 출제자 ( [narrow data](https://dreamhack.io/wargame/challenges/640/writeups?writeup_id=8768), [not feeling well](https://dreamhack.io/wargame/challenges/653) ) * 드림핵 워게임에 출제 됨
+  * 2022 - BISC( Bob Information Security Conference ) CTF 문제 출제자 ( [narrow data](https://dreamhack.io/wargame/challenges/640), [not feeling well](https://dreamhack.io/wargame/challenges/653) ) * 드림핵 워게임에 출제 됨
+  * 2024 - Korea University Sejong Capmus Kuality Security Club 웹 해킹 문제 출제
+  * 2024 - 싱가포르 국방과학기술원(DSTA)주최 해킹 대회 BrainHack CDDC2024 웹 해킹 문제 출제
+  * 2024 - 화이트햇 스쿨 ( WhiteHat School ) 2기 반대항전 CTF 웹 해킹 문제 출제 ( findfindfind, html-viewer )
 
 ---
 
@@ -98,6 +102,7 @@ permalink: /about/
 
     + [KOSPO & 교육부 정보보호 영재교육원 웹 서비스 정보보안 경진대회 최우수상 - "한국남부발전주식회사 사장 상"]()
     + [충청권 정보보안 경진대회 2등 최우수상 - "한국보건산업 진흥원 원장상"]()
+    + [2023 TS 보안 허점을 찾아라! 장려상 - "한국안전교통도로공단 이사장"]()
 
 * * *
 
