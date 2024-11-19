@@ -53,10 +53,65 @@ permalink: /about/
  * [2022 - Stony Brook University Decompiler 정보보안 동아리 웹해킹 입문 방법 초청 특강 - "웹 해킹 공부하는 방법"]()
  * [2023 - 제 26회 상계 HackingCamp 발표자 - "웹 버그바운티 감옥 일지"](https://www.facebook.com/h4ckingc4mp/posts/613701180565092)
  * [2023 - 대전대학교 HACTOR 정보보안동아리 "What is Web Hacking?" 특강]()
- * [2023 - 전남 지역 대학교 연상"]()
+ * [2023 - 전남 지역 대학교 연합 동아리 HYPERS - "Web Development & Hacking Guide"]()
+ * [2023 - 경기대학교 보안 동아리 K.Knock - "웹, 웹 해킹 늪에 발 찍어보기"]()
+ * [2023 - 세명컴퓨터고등학교 스마트보안솔루션과 웹 해킹 기초 강의]()
+ * [2023 - 사이버사령부 군 사이버 최고 전문가 교육 과정 교육 진행 - "웹 해킹 기초 ~ 심화 강의"]()
+ * [2024 - 고려대학교 세종캠퍼스 Kuality 보안 동아리 1학기 Python 기초 강의]()
+
+
+---
+
+## Organized
+
+  * 2021 - [H4CKING GAME 워게임 문제 출제자(WEB,MISC)](https://h4ckingga.me/challenges)
+  * 2021 - Power Of XX(여성해킹대회) WEB 문제 출제자 ([public-connect](/files/pox/public-connect.png), [handling](/files/pox/handling.png))
+  * 2022 - BISC( Bob Information Security Conference ) CTF 문제 출제자 ( [narrow data](https://dreamhack.io/wargame/challenges/640), [not feeling well](https://dreamhack.io/wargame/challenges/653) ) * 드림핵 워게임에 출제 됨
+  * 2024 - Korea University Sejong Capmus Kuality Security Club 웹 해킹 문제 출제
+  * 2024 - 싱가포르 국방과학기술원(DSTA)주최 해킹 대회 BrainHack CDDC2024 웹 해킹 문제 출제
+  * 2024 - 화이트햇 스쿨 ( WhiteHat School ) 2기 반대항전 CTF 웹 해킹 문제 출제 ( findfindfind, html-viewer )
+
+---
+
+## 수상
+
+  + 2020
+
+    + [The Hacking Championship Junior 2020 CTF 10th - "(주)이글루시큐리티 대표이사 상"](http://www.kukinews.com/newsView/kuk202011260227)
+    + [세명컴퓨터고등학교 스마트보안솔루션과 사이버가디언즈 내부 해킹 대회 1th]()
+
+  + 2021
+
+    + [세명컴퓨터고등학교 스마트보안솔루션과 기능경기대회 2th - "세명컴퓨터고등학교장 상"]()
+    + [세명컴퓨터고등학교 스마트보안솔루션과 SMC CTF 1th - "세명컴퓨터고등학교장 상"]()
+    + [Hacking Camp 22회 CTF 2th](/files/HackingCamp/CTF-2th.png)
+    + [제 7회 정보보호영재교육원 정보보안 경진대회 단체전 1위 - "부총리 겸 교육부 장관상" ]()
+    + [영남이공대학교 The Hacking Championship Junior CTF 4th - "스틸리언 대표 이사 상"](http://news.unn.net/news/articleView.html?idxno=517151)
+    + [사이버가디언즈 경진대회 CTF 4th - "한국정보기술연구원장상"](https://www.facebook.com/dreamhack.io/photos/a.124467269979127/127564286336092)
+
+  + 2022
+  
+    + [KOSPO & 교육부 정보보호 영재교육원 웹 서비스 정보보안 경진대회 최우수상 - "한국남부발전주식회사 사장 상"](https://www.kospo.co.kr/sites/kospo/popup/web_service_pop5.html)
+    + [KEPCO 한국전력공사 전력분야 실전형 사이버공격 방어훈련 청소년부 1등 및 종합 2등 - "한국전력공사 사장 상"](https://biz.newdaily.co.kr/site/data/html/2022/10/25/2022102500219.html)
+    + [중부대학교 JBU CTF 해킹 대회 장려상 - "중부대학교 총장상"]()
+    + [사이버가디언즈 경진대회 3등 우수상 - "한국정보기술연구원장상"](https://www.dailysecu.com/news/articleView.html?idxno=135418)
+    + [영남이공대학교 The Hacking ChampionShip Junior 우수상 - "대구디지털혁신진흥원장상"](https://www.boannews.com/media/view.asp?idx=111519)
+    + [한국청소년활동진흥원주최 청소년방과후아카데미 활동수기 공모전 우수상 - "한국청소년활동진흥원장상"](http://www.ggpyeonghwa.com/news/articleView.html?idxno=174846)
+
+  + 2023
+
+    + [KOSPO & 교육부 정보보호 영재교육원 웹 서비스 정보보안 경진대회 최우수상 - "한국남부발전주식회사 사장 상"]()
+    + [충청권 정보보안 경진대회 2등 최우수상 - "한국보건산업 진흥원 원장상"]()
+    + [2023 TS 보안 허점을 찾아라! 장려상 - "한국안전교통도로공단 이사장"]()
+
+  + 2024
+
+    + [2024년 한국융합보안학회 제2회 전라남도 웹취약점 경진대회 장려상 - "한국융합보안학회장 상"]()
+    + [2024년도 한국연구재단 사이버 모의해킹 경진대회 최우수상 - "한국연구재단 이사장"]()
+    + [2024년도 한국남부발전 정보보안 경진대회 우수상 - "한국남부발전주식회사장 상"]()
     + [2024년도 호남사이버보안 웹 취약점 경진대회 최우수상 - "전력거래소 이사장 상"]()
-    + [2024년도 전남 웹 취약점 경진대회 장려상 - "한국융합보안학회 회장상"]()
-    + [2024년도 충청권 사이버보안 경진대회 우수상 - "한국보건산업 진흥원장상"]()
+    + [2024년도 전남 웹 취약점 경진대회 장려상 - "한국융합보안학회장 상"]()
+    + [2024년도 충청권 사이버보안 경진대회 우수상 - "한국보건산업 진흥원장 상"]()
 
 * * *
 
