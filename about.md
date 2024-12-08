@@ -57,7 +57,10 @@ permalink: /about/
  * [2023 - 경기대학교 보안 동아리 K.Knock - "웹, 웹 해킹 늪에 발 찍어보기"]()
  * [2023 - 세명컴퓨터고등학교 스마트보안솔루션과 웹 해킹 기초 강의]()
  * [2023 - 사이버사령부 군 사이버 최고 전문가 교육 과정 교육 진행 - "웹 해킹 기초 ~ 심화 강의"]()
+ * [2024 - WordCamp Asia 2024,Taiwan TICC - "【Ctrl+Hack+Delete】 Uncover the dark side of WordPress from a hacker’s perspective"](https://asia.wordcamp.org/2024/speaker/minuk-kim/)
  * [2024 - 고려대학교 세종캠퍼스 Kuality 보안 동아리 1학기 Python 기초 강의]()
+ * [2024 - 육군본수 화이트해커 양성과정 강의 - "OWASP TOP 10 웹 해킴 강의"]()
+ * [2024 - 육군본부 화이트해커 양성과정 강의 - "CTF 및 워게임 문제 풀이"]()
 
 
 ---
@@ -111,6 +114,7 @@ permalink: /about/
     + [2024년도 한국남부발전 정보보안 경진대회 우수상 - "한국남부발전주식회사장 상"]()
     + [2024년도 호남사이버보안 웹 취약점 경진대회 최우수상 - "전력거래소 이사장 상"]()
     + [2024년도 충청권 사이버보안 경진대회 우수상 - "한국보건산업진흥원장 상"]()
+    + [2024년도 LG U+ Security HACKATHON Growth Security 2024 우수상 - "?"]()
 
 * * *
 
