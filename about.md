@@ -15,8 +15,7 @@ permalink: /about/
   * [Facebook](https://www.facebook.com/me2nuk)
   * [Twitter](https://twitter.com/@me2nuk)
   * [Instagram](https://instagram.com/kimtong6451)
-  * [Threads](https://threads.net/@kimtong6451)
-
+    
 * * *
 
 ## Profile
