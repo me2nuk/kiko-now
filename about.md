@@ -24,15 +24,14 @@ permalink: /about/
  * 고려대학교 세종캠퍼스 인공지능사이버보안학과 23학번 ( 수석합격 )
  * 세명컴퓨터고등학교 스마트보안솔루션과 7기 ( 2020년 입학 )
  * 세명컴퓨터고등학교 스마트보안솔루션과 SCA 사이버보안 동아리 **前부장**
- * TeamH4C 운영 초보자용 기수제 지옥 훈련 서바이벌 스터디그룹 빡공팟 4기, 5기 웹해킹 트랙 멘토
- * Best Of the Best 9대 총동문회
+ * TeamH4C/BusinessH4C 운영 초보자용 기수제 지옥 훈련 서바이벌 스터디그룹 빡공팟 웹해킹 트랙 멘토
 
 ## Teams
 
+ * 고려대학교 세종캠퍼스 인공지능사이버보안학과 KUality 정보보안 동아리 운영진진
  * 세명컴퓨터고등학교 스마트보안솔루션과 SCA( Security Client Access ) Team
  * [화이트해킹 팀 TeamH4C ( 2021.03 ~ infinite )](https://teamh4c.com)
  * TeamH4C CTF 팀 C4C 팀장 ( 2021.03 ~ infinite )
- * [Incognito Conference Staff ( 2021 )](https://incognito.kr/)
  * KITRI BOB 11th 프로젝트 팀 - "전자상거래플랫폼 취약점 분석"
 
 ---
@@ -122,7 +121,6 @@ permalink: /about/
 
 ## Bug Bounty
 
-  + [gnuboard5 /bbs/member_confirm.php Open Redirect 취약점 제보](https://github.com/gnuboard/gnuboard5/issues/126)
   + Wordpress Plugins 취약점 제보
     + CVE-2022-47435, CVE-2022-47441, CVE-2022-46843 CVE-2022-47445, CVE-2022-46858, CVE-2022-46864, CVE-2022-47145, CVE-2022-47140, CVE-2022-47173, CVE-2022-47158, CVE-2022-47449, CVE-2022-46864, CVE-2022-47589, CVE-2023-27429, CVE-2023-30746, CVE-2023-32236 ( of KITRI BOB 전자상거래플랫폼 취약점 분석 Team )
 
