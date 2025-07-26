@@ -78,43 +78,43 @@ permalink: /about/
 
   + 2020
 
-    + [The Hacking Championship Junior 2020 CTF 10th Place - "이글루시큐리티 대표이사 상" (CEO Award from Igloo Security, a leading Korean cybersecurity company)](http://www.kukinews.com/newsView/kuk202011260227)
-    + [1st Place in Semyung Computer High School Smart Security Solution Department Cyber Guardians Internal Hacking Competition]()
+    + 🏆 [The Hacking Championship Junior 2020 CTF 10th Place - "이글루시큐리티 대표이사 상" (CEO Award from Igloo Security, a leading Korean cybersecurity company)](http://www.kukinews.com/newsView/kuk202011260227)
+    + 🥇 [Semyung Computer High School Smart Security Solution Department Cyber Guardians Internal Hacking Competition - "세명컴퓨터고등학교장상" (Principal's Award)]()
 
   + 2021
 
-    + [2nd Place in Semyung Computer High School Smart Security Solution Department Skills Competition - "세명컴퓨터고등학교장상" (Principal's Award)]()
-    + [1st Place in Semyung Computer High School Smart Security Solution Department SMC CTF - "세명컴퓨터고등학교장상" (Principal's Award)]()
-    + [2nd Place in HackingCamp 22nd CTF](/files/HackingCamp/CTF-2th.png)
-    + [1st Place Team Award in 7th Information Security Gifted Education Center Information Security Competition - "부총리 겸 교육부 장관상" (Deputy Prime Minister and Minister of Education Award - highest government education award in Korea)]()
-    + [4th Place in Yeungnam University of Science & Technology The Hacking Championship Junior CTF - "스틸리언 대표 이사상" (CEO Award from Stealien, cybersecurity company)](http://news.unn.net/news/articleView.html?idxno=517151)
-    + [4th Place in Cyber Guardians Competition CTF - "한국정보기술연구원장상" (KITRI Director Award - Korea's national IT research institute)](https://www.facebook.com/dreamhack.io/photos/a.124467269979127/127564286336092)
+    + 🥈 [Semyung Computer High School Smart Security Solution Department Skills Competition - "세명컴퓨터고등학교장상" (Principal's Award)]()
+    + 🥇 [Semyung Computer High School Smart Security Solution Department SMC CTF - "세명컴퓨터고등학교장상" (Principal's Award)]()
+    + 🥈 [HackingCamp 2nd CTF](/files/HackingCamp/CTF-2th.png)
+    + 🥇 [7th Information Security Gifted Education Center Information Security Competition Team Award - "부총리 겸 교육부 장관상" (Deputy Prime Minister and Minister of Education Award - highest government education award in Korea)]()
+    + 🏆 [Yeungnam University of Science & Technology The Hacking Championship Junior CTF 4th Place - "스틸리언 대표 이사상" (CEO Award from Stealien, cybersecurity company)](http://news.unn.net/news/articleView.html?idxno=517151)
+    + 🏆 [Cyber Guardians Competition CTF 4th Place - "한국정보기술연구원장상" (KITRI Director Award - Korea's national IT research institute)](https://www.facebook.com/dreamhack.io/photos/a.124467269979127/127564286336092)
 
   + 2022
   
-    + [Excellence Award in KOSPO & Ministry of Education Information Security Gifted Education Center Web Service Information Security Competition - "한국남부발전주식회사장 상" (Korea Southern Power CEO Award - major Korean power generation company)](https://www.kospo.co.kr/sites/kospo/popup/web_service_pop5.html)
-    + [1st Place Youth Division & 2nd Place Overall in KEPCO Korea Electric Power Corporation Power Sector Cyber Attack Defense Training - "한국전력공사장 상" (KEPCO CEO Award - Korea's national electric utility company)](https://biz.newdaily.co.kr/site/data/html/2022/10/25/2022102500219.html)
-    + [Encouragement Award in Joongbu University JBU CTF Hacking Competition - "중부대학교 총장상" (University President Award)]()
-    + [3rd Place Excellence Award in Cyber Guardians Competition - "한국정보기술연구원장상" (KITRI Director Award)](https://www.dailysecu.com/news/articleView.html?idxno=135418)
-    + [Excellence Award in Yeungnam University of Science & Technology The Hacking Championship Junior - "대구디지털혁신진흥원장상" (Daegu Digital Innovation Promotion Agency Director Award)](https://www.boannews.com/media/view.asp?idx=111519)
-    + [Excellence Award in Korea Youth Activity Promotion Institute Youth After-school Academy Activity Essay Contest - "한국청소년활동진흥원장상" (National Youth Development Institute Director Award)](http://www.ggpyeonghwa.com/news/articleView.html?idxno=174846)
+    + 🏆 [KOSPO & Ministry of Education Information Security Gifted Education Center Web Service Information Security Competition - "한국남부발전주식회사장 상" (Korea Southern Power CEO Award - major Korean power generation company)](https://www.kospo.co.kr/sites/kospo/popup/web_service_pop5.html)
+    + 🥇🥈 [KEPCO Korea Electric Power Corporation Power Sector Cyber Attack Defense Training 1st Place Youth Division & 2nd Place Overall - "한국전력공사장 상" (KEPCO CEO Award - Korea's national electric utility company)](https://biz.newdaily.co.kr/site/data/html/2022/10/25/2022102500219.html)
+    + 🏆 [Joongbu University JBU CTF Hacking Competition - "중부대학교 총장상" (University President Award)]()
+    + 🥉 [Cyber Guardians Competition - "한국정보기술연구원장상" (KITRI Director Award)](https://www.dailysecu.com/news/articleView.html?idxno=135418)
+    + 🏆 [Yeungnam University of Science & Technology The Hacking Championship Junior - "대구디지털혁신진흥원장상" (Daegu Digital Innovation Promotion Agency Director Award)](https://www.boannews.com/media/view.asp?idx=111519)
+    + 🏆 [Korea Youth Activity Promotion Institute Youth After-school Academy Activity Essay Contest - "한국청소년활동진흥원장상" (National Youth Development Institute Director Award)](http://www.ggpyeonghwa.com/news/articleView.html?idxno=174846)
 
   + 2023
 
-    + [Excellence Award in KOSPO & Ministry of Education Information Security Gifted Education Center Web Service Information Security Competition - "한국남부발전주식회사장 상" (Korea Southern Power CEO Award)]()
-    + [2nd Place Excellence Award in Chungcheong Region Information Security Competition - "한국보건산업진흥원장상" (Korea Health Industry Development Institute Director Award)]()
-    + [Encouragement Award in 2023 TS Security Find the Vulnerability! - "한국안전교통도로공단 이사장" (Korea Transportation Safety Authority Chairman Award)]()
+    + 🏆 [KOSPO & Ministry of Education Information Security Gifted Education Center Web Service Information Security Competition - "한국남부발전주식회사장 상" (Korea Southern Power CEO Award)]()
+    + 🥈 [Chungcheong Region Information Security Competition - "한국보건산업진흥원장상" (Korea Health Industry Development Institute Director Award)]()
+    + 🏆 [TS Security Find the Vulnerability! - "한국안전교통도로공단 이사장" (Korea Transportation Safety Authority Chairman Award)]()
 
   + 2024
 
-    + [Best Of the Best Alumni Project Competition Re-BOB (Anti-Virus Bug Hunt) - "한국정보기술연구원장상" (KITRI Director Award)]()
-    + [Encouragement Award in 2024 Korea Association of Information Security 2nd Jeollanam-do Web Vulnerability Competition - "한국융합보안학회장상" (Korea Association of Information Security President Award)]()
-    + [Excellence Award in 2024 National Research Foundation Cyber Mock Hacking Competition - "한국연구재단이사장상" (National Research Foundation Chairman Award - Korea's national research funding agency)]()
-    + [Excellence Award in 2024 Korea Southern Power Information Security Competition - "한국남부발전주식회사장상" (Korea Southern Power CEO Award)]()
-    + [Excellence Award in 2024 Honam Cybersecurity Web Vulnerability Competition - "전력거래소이사장상" (Korea Power Exchange Chairman Award - national electricity trading organization)]()
-    + [Excellence Award in 2024 Chungcheong Region Cybersecurity Competition - "한국보건산업진흥원장상" (Korea Health Industry Development Institute Director Award)]()
-    + [Excellence Award in 2024 TS Security Find the Vulnerability! - "한국안전교통도로공단이사장상" (Korea Transportation Safety Authority Chairman Award)]()
-    + [Excellence Award in 2024 LG U+ Security HACKATHON Growth Security 2024 - "?" (Major Korean telecom company award)]()
+    + 🏆 [Best Of the Best Alumni Project Competition Re-BOB (Anti-Virus Bug Hunt) - "한국정보기술연구원장상" (KITRI Director Award)]()
+    + 🏆 [Korea Association of Information Security 2nd Jeollanam-do Web Vulnerability Competition - "한국융합보안학회장상" (Korea Association of Information Security President Award)]()
+    + 🏆 [National Research Foundation Cyber Mock Hacking Competition - "한국연구재단이사장상" (National Research Foundation Chairman Award - Korea's national research funding agency)]()
+    + 🏆 [Korea Southern Power Information Security Competition - "한국남부발전주식회사장상" (Korea Southern Power CEO Award)]()
+    + 🏆 [Honam Cybersecurity Web Vulnerability Competition - "전력거래소이사장상" (Korea Power Exchange Chairman Award - national electricity trading organization)]()
+    + 🏆 [Chungcheong Region Cybersecurity Competition - "한국보건산업진흥원장상" (Korea Health Industry Development Institute Director Award)]()
+    + 🏆 [TS Security Find the Vulnerability! - "한국안전교통도로공단이사장상" (Korea Transportation Safety Authority Chairman Award)]()
+    + 🏆 [LG U+ Security HACKATHON Growth Security 2024 - "?" (Major Korean telecom company award)]()
 
 * * *
 
