@@ -8,8 +8,8 @@ permalink: /about/
 
 ## Contact
 
-  * Name : 김민욱(MinUk Kim) / me2nuk
-  * Email：kimtong6451@gmail.com
+  * Name: MinUk Kim (김민욱) / me2nuk
+  * Email: kimtong6451@gmail.com
   * [Linkedin](https://www.linkedin.com/in/minuk-kim-b570a91ba/)
   * [GitHub](https://github.com/me2nuk)
   * [Facebook](https://www.facebook.com/me2nuk)
@@ -20,113 +20,113 @@ permalink: /about/
 
 ## Profile
 
- * 고려대학교 세종캠퍼스 인공지능사이버보안학과 23학번 ( 수석합격 )
- * 세명컴퓨터고등학교 스마트보안솔루션과 7기 ( 2020년 입학 )
- * 세명컴퓨터고등학교 스마트보안솔루션과 SCA 사이버보안 동아리 **前부장**
- * TeamH4C/BusinessH4C 운영 초보자용 기수제 지옥 훈련 서바이벌 스터디그룹 빡공팟 웹해킹 트랙 멘토
+ * Korea University Sejong Campus, AI Cybersecurity Department, Class of 2023 (Valedictorian)
+ * Semyung Computer High School, Smart Security Solution Department, 7th Class (Enrolled 2020)
+ * Former President of SCA (Security Client Access) Cybersecurity Club at Semyung Computer High School
+ * Mentor for TeamH4C/BusinessH4C Beginner-level Intensive Training Survival Study Group Web Hacking Track
 
 ## Teams
 
- * 고려대학교 세종캠퍼스 인공지능사이버보안학과 KUality 정보보안 동아리 운영진진
- * 세명컴퓨터고등학교 스마트보안솔루션과 SCA( Security Client Access ) Team
- * [화이트해킹 팀 TeamH4C ( 2021.03 ~ infinite )](https://teamh4c.com)
- * TeamH4C CTF 팀 C4C 팀장 ( 2021.03 ~ infinite )
- * KITRI BOB 11th 프로젝트 팀 - "전자상거래플랫폼 취약점 분석"
+ * Executive Member of KUality Information Security Club, AI Cybersecurity Department, Korea University Sejong Campus
+ * Member of SCA (Security Client Access) Team, Smart Security Solution Department, Semyung Computer High School
+ * [White Hat Team TeamH4C (2021.03 ~ ongoing)](https://teamh4c.com)
+ * Team Leader of C4C, TeamH4C CTF Team (2021.03 ~ ongoing)
+ * KITRI BOB 11th Project Team - "E-commerce Platform Vulnerability Analysis"
 
 ---
 
 ## Education
 
- * 2021 - 서울여자대학교 정보보호영재교육원 고등전문 B ( 2021 )
- * 2021 - STEALIEN SSL(Stealien Security Leader) 2기 ( 2021 )
- * 2022 - KITRI Best Of the Best 11th 취약점 분석 트랙 교육생 ( 2022 )
+ * 2021 - Seoul Women's University Information Security Gifted Education Center, Advanced High School Course B (2021)
+ * 2021 - STEALIEN SSL (Stealien Security Leader) 2nd Generation (2021)
+ * 2022 - KITRI Best Of the Best 11th Vulnerability Analysis Track Trainee (2022)
 
 ---
 
-## Presentation
+## Presentations
 
- * [2021 - 제23회 하계 HackingCamp 발표자 - "webhacking.kr 웹에킹의 접근법(장종민, 김민욱)"](http://hackingcamp.org/)
- * [2021 - TeamH4C 학생용 해킹노트 온라인 컨퍼런스 발표자 - "메이플에 진심일뻔한 웹쟁이가 알려주는 웹해킹 입문 스토리 발표 영상 링크"](https://youtu.be/FXrE4cI_oW8)
- * [2022 - TeamH4C 2022 해킹하는 부엉이 발표자 - "웹_퍼저_찍먹한_썰.ssul"](https://www.youtube.com/watch?v=RgidYMxFfkw)
- * [2022 - Stony Brook University Decompiler 정보보안 동아리 웹해킹 입문 방법 초청 특강 - "웹 해킹 공부하는 방법"]()
- * [2023 - 제 26회 상계 HackingCamp 발표자 - "웹 버그바운티 감옥 일지"](https://www.facebook.com/h4ckingc4mp/posts/613701180565092)
- * [2023 - 대전대학교 HACTOR 정보보안동아리 "What is Web Hacking?" 특강]()
- * [2023 - 전남 지역 대학교 연합 동아리 HYPERS - "Web Development & Hacking Guide"]()
- * [2023 - 경기대학교 보안 동아리 K.Knock - "웹, 웹 해킹 늪에 발 찍어보기"]()
- * [2023 - 세명컴퓨터고등학교 스마트보안솔루션과 웹 해킹 기초 강의]()
- * [2023 - 사이버사령부 군 사이버 최고 전문가 교육 과정 교육 진행 - "웹 해킹 기초 ~ 심화 강의"]()
- * [2024 - WordCamp Asia 2024,Taiwan TICC - "【Ctrl+Hack+Delete】 Uncover the dark side of WordPress from a hacker’s perspective"](https://asia.wordcamp.org/2024/speaker/minuk-kim/)
- * [2024 - 고려대학교 세종캠퍼스 Kuality 보안 동아리 1학기 Python 기초 강의]()
- * [2024 - 육군본부 화이트해커 양성과정 강의 - "OWASP TOP 10 웹 해킴 강의"]()
- * [2024 - 육군본부 화이트해커 양성과정 강의 - "CTF 및 워게임 문제 풀이"]()
- * [2024 - 중앙대학교 산업보안과 시큐리어스 연합동아리 웹해킹 강의 - "웹해킹 입문 및 기초"]()
-
----
-
-## Organized
-
-  * 2021 - [H4CKING GAME 워게임 문제 출제자(WEB,MISC)](https://h4ckingga.me/challenges)
-  * 2021 - Power Of XX(여성해킹대회) WEB 문제 출제자 ([public-connect](/files/pox/public-connect.png), [handling](/files/pox/handling.png))
-  * 2022 - BISC( Bob Information Security Conference ) CTF 문제 출제자 ( [narrow data](https://dreamhack.io/wargame/challenges/640), [not feeling well](https://dreamhack.io/wargame/challenges/653) ) * 드림핵 워게임에 출제 됨
-  * 2024 - Korea University Sejong Capmus Kuality Security Club 웹 해킹 문제 출제
-  * 2024 - 싱가포르 국방과학기술원(DSTA)주최 해킹 대회 BrainHack CDDC2024 웹 해킹 문제 출제
-  * 2024 - 화이트햇 스쿨 ( WhiteHat School ) 2기 반대항전 CTF 웹 해킹 문제 출제 ( findfindfind, html-viewer )
+ * [2021 - 23rd Summer HackingCamp Presenter - "Approach to Web Hacking with webhacking.kr (Jong-min Jang, Min-uk Kim)"](http://hackingcamp.org/)
+ * [2021 - TeamH4C Student Hacking Notes Online Conference Presenter - "Web Hacking Introduction Story by a Web Enthusiast Who Almost Got Serious About MapleStory - Presentation Video Link"](https://youtu.be/FXrE4cI_oW8)
+ * [2022 - TeamH4C 2022 Hacking Owl Presenter - "Web_Fuzzer_Trial_Experience.ssul"](https://www.youtube.com/watch?v=RgidYMxFfkw)
+ * [2022 - Stony Brook University Decompiler Information Security Club Invited Special Lecture - "How to Study Web Hacking"]()
+ * [2023 - 26th Winter HackingCamp Presenter - "Web Bug Bounty Prison Diary"](https://www.facebook.com/h4ckingc4mp/posts/613701180565092)
+ * [2023 - Daejeon University HACTOR Information Security Club "What is Web Hacking?" Special Lecture]()
+ * [2023 - Jeonnam Regional University Alliance Club HYPERS - "Web Development & Hacking Guide"]()
+ * [2023 - Kyonggi University Security Club K.Knock - "Web, Stepping into the Web Hacking Swamp"]()
+ * [2023 - Semyung Computer High School Smart Security Solution Department Web Hacking Basics Lecture]()
+ * [2023 - Cyber Operations Command Military Cyber Expert Training Course - "Web Hacking Basics to Advanced Lecture"]()
+ * [2024 - WordCamp Asia 2024, Taiwan TICC - "【Ctrl+Hack+Delete】 Uncover the dark side of WordPress from a hacker's perspective"](https://asia.wordcamp.org/2024/speaker/minuk-kim/)
+ * [2024 - Korea University Sejong Campus Kuality Security Club 1st Semester Python Basics Lecture]()
+ * [2024 - Army Headquarters White Hacker Training Course Lecture - "OWASP TOP 10 Web Hacking Lecture"]()
+ * [2024 - Army Headquarters White Hacker Training Course Lecture - "CTF and War Game Problem Solving"]()
+ * [2024 - Chung-Ang University Industrial Security Department Securious Alliance Club Web Hacking Lecture - "Web Hacking Introduction and Basics"]()
 
 ---
 
-## 수상
+## Organized Events
+
+  * 2021 - [H4CKING GAME War Game Problem Setter (WEB, MISC)](https://h4ckingga.me/challenges)
+  * 2021 - Power Of XX (Women's Hacking Competition) WEB Problem Setter ([public-connect](/files/pox/public-connect.png), [handling](/files/pox/handling.png))
+  * 2022 - BISC (Bob Information Security Conference) CTF Problem Setter ([narrow data](https://dreamhack.io/wargame/challenges/640), [not feeling well](https://dreamhack.io/wargame/challenges/653)) * Published on DreamHack War Game
+  * 2024 - Korea University Sejong Campus Kuality Security Club Web Hacking Problem Setter
+  * 2024 - Singapore Defence Science and Technology Agency (DSTA) BrainHack CDDC2024 Web Hacking Problem Setter
+  * 2024 - WhiteHat School 2nd Generation Inter-Class CTF Web Hacking Problem Setter (findfindfind, html-viewer)
+
+---
+
+## Awards
 
   + 2020
 
-    + [The Hacking Championship Junior 2020 CTF 10th - "(주)이글루시큐리티 대표이사 상"](http://www.kukinews.com/newsView/kuk202011260227)
-    + [세명컴퓨터고등학교 스마트보안솔루션과 사이버가디언즈 내부 해킹 대회 1th]()
+    + [The Hacking Championship Junior 2020 CTF 10th Place - "이글루시큐리티 대표이사 상" (CEO Award from Igloo Security, a leading Korean cybersecurity company)](http://www.kukinews.com/newsView/kuk202011260227)
+    + [1st Place in Semyung Computer High School Smart Security Solution Department Cyber Guardians Internal Hacking Competition]()
 
   + 2021
 
-    + [세명컴퓨터고등학교 스마트보안솔루션과 기능경기대회 2th - "세명컴퓨터고등학교장상"]()
-    + [세명컴퓨터고등학교 스마트보안솔루션과 SMC CTF 1th - "세명컴퓨터고등학교장상"]()
-    + [Hacking Camp 22회 CTF 2th](/files/HackingCamp/CTF-2th.png)
-    + [제 7회 정보보호영재교육원 정보보안 경진대회 단체전 1위 - "부총리 겸 교육부 장관상" ]()
-    + [영남이공대학교 The Hacking Championship Junior CTF 4th - "스틸리언 대표 이사상"](http://news.unn.net/news/articleView.html?idxno=517151)
-    + [사이버가디언즈 경진대회 CTF 4th - "한국정보기술연구원장상"](https://www.facebook.com/dreamhack.io/photos/a.124467269979127/127564286336092)
+    + [2nd Place in Semyung Computer High School Smart Security Solution Department Skills Competition - "세명컴퓨터고등학교장상" (Principal's Award)]()
+    + [1st Place in Semyung Computer High School Smart Security Solution Department SMC CTF - "세명컴퓨터고등학교장상" (Principal's Award)]()
+    + [2nd Place in HackingCamp 22nd CTF](/files/HackingCamp/CTF-2th.png)
+    + [1st Place Team Award in 7th Information Security Gifted Education Center Information Security Competition - "부총리 겸 교육부 장관상" (Deputy Prime Minister and Minister of Education Award - highest government education award in Korea)]()
+    + [4th Place in Yeungnam University of Science & Technology The Hacking Championship Junior CTF - "스틸리언 대표 이사상" (CEO Award from Stealien, cybersecurity company)](http://news.unn.net/news/articleView.html?idxno=517151)
+    + [4th Place in Cyber Guardians Competition CTF - "한국정보기술연구원장상" (KITRI Director Award - Korea's national IT research institute)](https://www.facebook.com/dreamhack.io/photos/a.124467269979127/127564286336092)
 
   + 2022
   
-    + [KOSPO & 교육부 정보보호 영재교육원 웹 서비스 정보보안 경진대회 최우수상 - "한국남부발전주식회사장 상"](https://www.kospo.co.kr/sites/kospo/popup/web_service_pop5.html)
-    + [KEPCO 한국전력공사 전력분야 실전형 사이버공격 방어훈련 청소년부 1등 및 종합 2등 - "한국전력공사장 상"](https://biz.newdaily.co.kr/site/data/html/2022/10/25/2022102500219.html)
-    + [중부대학교 JBU CTF 해킹 대회 장려상 - "중부대학교 총장상"]()
-    + [사이버가디언즈 경진대회 3등 우수상 - "한국정보기술연구원장상"](https://www.dailysecu.com/news/articleView.html?idxno=135418)
-    + [영남이공대학교 The Hacking ChampionShip Junior 우수상 - "대구디지털혁신진흥원장상"](https://www.boannews.com/media/view.asp?idx=111519)
-    + [한국청소년활동진흥원주최 청소년방과후아카데미 활동수기 공모전 우수상 - "한국청소년활동진흥원장상"](http://www.ggpyeonghwa.com/news/articleView.html?idxno=174846)
+    + [Excellence Award in KOSPO & Ministry of Education Information Security Gifted Education Center Web Service Information Security Competition - "한국남부발전주식회사장 상" (Korea Southern Power CEO Award - major Korean power generation company)](https://www.kospo.co.kr/sites/kospo/popup/web_service_pop5.html)
+    + [1st Place Youth Division & 2nd Place Overall in KEPCO Korea Electric Power Corporation Power Sector Cyber Attack Defense Training - "한국전력공사장 상" (KEPCO CEO Award - Korea's national electric utility company)](https://biz.newdaily.co.kr/site/data/html/2022/10/25/2022102500219.html)
+    + [Encouragement Award in Joongbu University JBU CTF Hacking Competition - "중부대학교 총장상" (University President Award)]()
+    + [3rd Place Excellence Award in Cyber Guardians Competition - "한국정보기술연구원장상" (KITRI Director Award)](https://www.dailysecu.com/news/articleView.html?idxno=135418)
+    + [Excellence Award in Yeungnam University of Science & Technology The Hacking Championship Junior - "대구디지털혁신진흥원장상" (Daegu Digital Innovation Promotion Agency Director Award)](https://www.boannews.com/media/view.asp?idx=111519)
+    + [Excellence Award in Korea Youth Activity Promotion Institute Youth After-school Academy Activity Essay Contest - "한국청소년활동진흥원장상" (National Youth Development Institute Director Award)](http://www.ggpyeonghwa.com/news/articleView.html?idxno=174846)
 
   + 2023
 
-    + [KOSPO & 교육부 정보보호 영재교육원 웹 서비스 정보보안 경진대회 최우수상 - "한국남부발전주식회사장 상"]()
-    + [충청권 정보보안 경진대회 2등 최우수상 - "한국보건산업진흥원장상"]()
-    + [2023 TS 보안 허점을 찾아라! 장려상 - "한국안전교통도로공단 이사장"]()
+    + [Excellence Award in KOSPO & Ministry of Education Information Security Gifted Education Center Web Service Information Security Competition - "한국남부발전주식회사장 상" (Korea Southern Power CEO Award)]()
+    + [2nd Place Excellence Award in Chungcheong Region Information Security Competition - "한국보건산업진흥원장상" (Korea Health Industry Development Institute Director Award)]()
+    + [Encouragement Award in 2023 TS Security Find the Vulnerability! - "한국안전교통도로공단 이사장" (Korea Transportation Safety Authority Chairman Award)]()
 
   + 2024
 
-    + [Best Of the Best 수료생 프로젝트 경진대회 Re-BOB(Anti-Virus Bug Hunt) - "한국정보기술연구원장상"]()
-    + [2024년도 한국융합보안학회 제2회 전라남도 웹취약점 경진대회 장려상 - "한국융합보안학회장상"]()
-    + [2024년도 한국연구재단 사이버 모의해킹 경진대회 최우수상 - "한국연구재단이사장상"]()
-    + [2024년도 한국남부발전 정보보안 경진대회 우수상 - "한국남부발전주식회사장상"]()
-    + [2024년도 호남사이버보안 웹 취약점 경진대회 최우수상 - "전력거래소이사장상"]()
-    + [2024년도 충청권 사이버보안 경진대회 우수상 - "한국보건산업진흥원장상"]()
-    + [2024년도 TS 보안 허점을 찾아라! 우수상 - "한국안전교통도로공단이사장상"]()
-    + [2024년도 LG U+ Security HACKATHON Growth Security 2024 우수상 - "?"]()
+    + [Best Of the Best Alumni Project Competition Re-BOB (Anti-Virus Bug Hunt) - "한국정보기술연구원장상" (KITRI Director Award)]()
+    + [Encouragement Award in 2024 Korea Association of Information Security 2nd Jeollanam-do Web Vulnerability Competition - "한국융합보안학회장상" (Korea Association of Information Security President Award)]()
+    + [Excellence Award in 2024 National Research Foundation Cyber Mock Hacking Competition - "한국연구재단이사장상" (National Research Foundation Chairman Award - Korea's national research funding agency)]()
+    + [Excellence Award in 2024 Korea Southern Power Information Security Competition - "한국남부발전주식회사장상" (Korea Southern Power CEO Award)]()
+    + [Excellence Award in 2024 Honam Cybersecurity Web Vulnerability Competition - "전력거래소이사장상" (Korea Power Exchange Chairman Award - national electricity trading organization)]()
+    + [Excellence Award in 2024 Chungcheong Region Cybersecurity Competition - "한국보건산업진흥원장상" (Korea Health Industry Development Institute Director Award)]()
+    + [Excellence Award in 2024 TS Security Find the Vulnerability! - "한국안전교통도로공단이사장상" (Korea Transportation Safety Authority Chairman Award)]()
+    + [Excellence Award in 2024 LG U+ Security HACKATHON Growth Security 2024 - "?" (Major Korean telecom company award)]()
 
 * * *
 
 ## Bug Bounty
 
-  + Wordpress Plugins 취약점 제보
-    + CVE-2022-47435, CVE-2022-47441, CVE-2022-46843 CVE-2022-47445, CVE-2022-46858, CVE-2022-46864, CVE-2022-47145, CVE-2022-47140, CVE-2022-47173, CVE-2022-47158, CVE-2022-47449, CVE-2022-46864, CVE-2022-47589, CVE-2023-27429, CVE-2023-30746, CVE-2023-32236 ( of KITRI BOB 전자상거래플랫폼 취약점 분석 Team )
+  + WordPress Plugins Vulnerability Reports
+    + CVE-2022-47435, CVE-2022-47441, CVE-2022-46843, CVE-2022-47445, CVE-2022-46858, CVE-2022-46864, CVE-2022-47145, CVE-2022-47140, CVE-2022-47173, CVE-2022-47158, CVE-2022-47449, CVE-2022-46864, CVE-2022-47589, CVE-2023-27429, CVE-2023-30746, CVE-2023-32236 (as part of KITRI BOB E-commerce Platform Vulnerability Analysis Team)
 
-## Project
+## Projects
 
-  + Web Application Vulnerability Fuzzer 개발 / SSL(Stealien Security Leader 2th)
-  + [Python requests 모듈 분석 및 가이드 작성](https://me2nuk.com/Python-requests-module-example/)
-  + KITRI BOB 11th ( 전자상거래플랫폼 취약점 분석 Team )
+  + Web Application Vulnerability Fuzzer Development / SSL (Stealien Security Leader 2nd)
+  + [Python requests Module Analysis and Guide Creation](https://me2nuk.com/Python-requests-module-example/)
+  + KITRI BOB 11th (E-commerce Platform Vulnerability Analysis Team)
 
 {% include comments.html %}
