@@ -21,7 +21,7 @@ permalink: /about/
 ## Profile
 
  * 2020 ~ 2023 Semyung Computer High School, Smart Security Solution Department, 7th Class (Enrolled 2020)
- * 2023 - 2027 (Expected) Korea University - Bachelor's Degree in AI & Cybersecurity
+ * 2023 - 2027 (Expected) Korea University Sejong Campus - Bachelor's Degree in AI & Cybersecurity
  * Former President of SCA (Security Client Access) Cybersecurity Club at Semyung Computer High School
  * Mentor for TeamH4C/BusinessH4C Beginner-level Intensive Training Survival Study Group Web Hacking Track
 
