@@ -6,6 +6,6 @@ permalink: /about/
 
 * * *
 
-<a href="cv.html">MinUk Kim(me2nuk) CV(Curriculum Vitae)</a>
+<a href="/cv.html">MinUk Kim(me2nuk) CV(Curriculum Vitae)</a>
 
 {% include comments.html %}
