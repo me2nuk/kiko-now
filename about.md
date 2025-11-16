@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum Vitae - MinUk Kim</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Arial&display=swap');
         
@@ -392,8 +386,6 @@
             }
         }
     </style>
-</head>
-<body>
     <div class="container">
         <div class="header">
             <h1>CURRICULUM VITAE - MINUK KIM</h1>
@@ -1051,5 +1043,3 @@
             </div>
         </div>
     </div>
-</body>
-</html>
