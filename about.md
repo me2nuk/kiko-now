@@ -1,132 +1,1055 @@
----
-layout: page
-title: About
-permalink: /about/
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - MinUk Kim</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Arial&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.5;
+            color: #333;
+            background-color: #f5f5f5;
+            font-size: 11pt;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Section */
+        .header {
+            border-bottom: 2px solid #2c3e50;
+            padding: 20px 30px;
+            background-color: #fafafa;
+        }
+        
+        .header h1 {
+            font-size: 26px;
+            color: #2c3e50;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        /* Personal Info Section */
+        .personal-info {
+            display: flex;
+            padding: 30px;
+            gap: 35px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .left-column {
+            flex: 0 0 220px;
+        }
+        
+        .right-column {
+            flex: 1;
+        }
+        
+        .profile-photo {
+            width: 160px;
+            height: 210px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        /* Affiliations Timeline */
+        .affiliation-timeline {
+            margin-top: 10px;
+        }
+        
+        .affiliation-entry {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        
+        .affiliation-period {
+            flex: 0 0 150px;
+            color: #666;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        
+        .affiliation-details {
+            flex: 1;
+            color: #333;
+        }
+        
+        .affiliation-details strong {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            font-size: 12px;
+            line-height: 1.8;
+            color: #495057;
+        }
+        
+        .contact-info p {
+            margin-bottom: 4px;
+        }
+        
+        /* Social Links */
+        .social-links {
+            margin-top: 15px;
+            text-decoration: none;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 10px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        .social-link:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            fill: currentColor;
+        }
+        
+        /* Section Title */
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            gap: 8px;
+            font-size: 12px;
+        }
+        
+        .skill-category {
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .skill-category strong {
+            color: #2c3e50;
+            display: inline-block;
+            min-width: 140px;
+            margin-right: 10px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-header {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        /* Timeline Items */
+        .timeline-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 12px;
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .timeline-date {
+            flex: 0 0 140px;
+            font-weight: bold;
+            color: #666;
+            font-size: 11px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+            font-size: 13px;
+        }
+        
+        .timeline-org {
+            color: #666;
+            font-style: italic;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content p {
+            font-size: 11px;
+            color: #495057;
+            line-height: 1.5;
+        }
+        
+        /* Training Items with Logo Space */
+        .training-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #fafafa;
+            border: 1px solid #e9ecef;
+        }
+        
+        .training-logo-space {
+            margin-right: 15px;
+            /*background: #e9ecef;*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #6c757d;
+            text-align: center;
+            /*border: 1px solid #dee2e6;*/
+        }
 
-* * *
+        .training-logo-space > img{
+            max-width: 50px;
+            max-height: 50px;
+        }
+        
+        /* Awards by Year */
+        .awards-year-section {
+            margin-bottom: 20px;
+        }
+        
+        .year-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            display: block;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 3px;
+        }
+        
+        .awards-list {
+            margin-left: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .award-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 5px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .trophy-icon {
+            font-size: 14px;
+            margin-right: 8px;
+            margin-top: 1px;
+        }
+        
+        /* Bug Bounty Section */
+        .cve-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .cve-item {
+            background: #e8f0fe;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-family: monospace;
+            color: #1976d2;
+            text-decoration: none;
+            border: 1px solid #d2e3fc;
+        }
+        
+        .cve-item:hover {
+            background: #d2e3fc;
+            text-decoration: underline;
+        }
+        
+        /* Links */
+        .link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 11px;
+        }
+        
+        .link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Highlight Boxes */
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 3px solid #2c3e50;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .personal-info {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .left-column {
+                margin-bottom: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-date {
+                margin-bottom: 5px;
+            }
+            
+            .awards-list {
+                margin-left: 0;
+            }
+            
+            .training-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .training-logo-space {
+                margin: 0 0 10px 0;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: white;
+                font-size: 10pt;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .timeline-item {
+                page-break-inside: avoid;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .link {
+                color: #2c3e50 !important;
+            }
+            
+            .cve-item {
+                color: #1976d2 !important;
+                text-decoration: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CURRICULUM VITAE - MINUK KIM</h1>
+        </div>
+        
+        <div class="personal-info">
+            <div class="left-column">
+                <img src="data:image/webp;base64,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" alt="MinUk Kim" class="profile-photo">
+                
 
-## Contact
+                
+                <div class="contact-info">
+                    <p>👤 MinUk Kim (me2nuk)</p>
+                    <p>🎂 June 17, 2004</p>
+                    <p>✉️ kimtong6451@gmail.com</p>
+                    <p>📱 +82-10-5830-0027</p>
+                    <p>🏠 Goyang, Gyeonggi-do, Korea</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://me2nuk.com/" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                        me2nuk.com
+                    </a>
+                    <a href="https://github.com/me2nuk" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/minuk-kim-b570a91ba/" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/@me2nuk" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M22.46 6c-.85.38-1.78.64-2.75.76 1-.6 1.76-1.55 2.12-2.68-.93.55-1.96.95-3.06 1.17-.88-.94-2.13-1.53-3.51-1.53-2.66 0-4.81 2.16-4.81 4.81 0 .38.04.75.13 1.1-4-.2-7.54-2.11-9.91-5.02-.41.7-.65 1.52-.65 2.4 0 1.67.85 3.14 2.14 4.01-.79-.03-1.54-.24-2.19-.6v.06c0 2.33 1.66 4.28 3.86 4.72-.4.1-.83.16-1.27.16-.31 0-.62-.03-.92-.08.63 1.91 2.39 3.3 4.49 3.34-1.65 1.29-3.73 2.06-5.99 2.06-.39 0-.77-.02-1.15-.07 2.13 1.36 4.66 2.16 7.38 2.16 8.85 0 13.68-7.33 13.68-13.68 0-.21 0-.42-.01-.62.94-.68 1.76-1.53 2.4-2.49z"/>
+                        </svg>
+                        Twitter
+                    </a>
+                    <a href="https://www.facebook.com/me2nuk" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                        </svg>
+                        Facebook
+                    </a>
+                    <a href="https://instagram.com/kimtong6451" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                        </svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="section">
+                    <h2 class="section-title">Professional Objective</h2>
+                    <p>I enjoy researching across diverse fields and like to explore topics very deeply from their fundamental processes, continuously questioning and identifying patterns in vulnerabilities. I have primarily been active in web hacking, and I plan to expand further into other domains and LLM security.</p><br>
 
-  * Name: MinUk Kim (김민욱) / me2nuk
-  * Email: kimtong6451@gmail.com
-  * [Linkedin](https://www.linkedin.com/in/minuk-kim-b570a91ba/)
-  * [GitHub](https://github.com/me2nuk)
-  * [Facebook](https://www.facebook.com/me2nuk)
-  * [Twitter](https://twitter.com/@me2nuk)
-  * [Instagram](https://instagram.com/kimtong6451)
-    
-* * *
+                    <p>I realized that I had focused heavily on CTF activities within Korea, so I am now aiming to leverage my broader international experience by pursuing bug bounty work through an LLM-powered automation tool project. I would appreciate your support as I move forward with these goals.</p>
+                </div>
 
-## Profile
+                <div class="section">
+                    <h2 class="section-title">Cybersecurity Community Involvement</h2>
+                    <div class="affiliation-timeline">
+                        <div class="affiliation-entry">
+                            <div class="affiliation-period">2021. 03 ~ Present</div>
+                            <div class="affiliation-details">
+                                <strong>TeamH4C</strong> - I have presented multiple times at security conferences hosted by the team and have teamed up with members within the team to win awards at numerous hacking competitions.<br>
+                                <a href="https://www.facebook.com/teamh4c" target="_blank" style="text-decoration: none;">
+                                    <svg style="vertical-align: bottom;" class="social-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                                    </svg>
+                                </a> or &nbsp;<a href="https://teamh4c.com" target="_blank" style="text-decoration: none;">[Link]</a><br><a href="https://www.youtube.com/watch?v=FXrE4cI_oW8" target="_blank" style="text-decoration: none;">[Conference Youtube Link-1]</a> <a href="https://www.youtube.com/watch?v=RgidYMxFfkw" target="_blank" style="text-decoration: none;">[Seminar Youtube Link-1]</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Affiliations & Memberships</h2>
+                    <div class="affiliation-timeline">
+                        <div class="affiliation-entry">
+                            <div class="affiliation-period">2023. 03 - 2028. 03 (Expected)</div>
+                            <div class="affiliation-details">
+                                <strong>Korea University</strong> - Bachelor's Degree in AI & Cybersecurity <a href="https://secu.korea.ac.kr" class="link" target="_blank">[Link]</a>
+                            </div>
+                        </div>
+                        <div class="affiliation-entry">
+                            <div class="affiliation-period">2021 - Present</div>
+                            <div class="affiliation-details">
+                                <strong>TeamH4C</strong> - Security Research Team Member <a href="https://teamh4c.com" class="link" target="_blank">[Link]</a>
+                            </div>
+                        </div>
+                        <div class="affiliation-entry">
+                            <div class="affiliation-period">2020. 03 - 2023. 02</div>
+                            <div class="affiliation-details">
+                                <strong>Semyung Computer High School</strong> - Smart Security Solution Department <a href="https://smc.sen.hs.kr/" class="link" target="_blank">[Link]</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
- * 2020 ~ 2023 Semyung Computer High School, Smart Security Solution Department, 7th Class (Enrolled 2020)
- * 2023 - 2027 (Expected) Korea University Sejong Campus - Bachelor's Degree in AI & Cybersecurity
- * Former President of SCA (Security Client Access) Cybersecurity Club at Semyung Computer High School
- * Mentor for TeamH4C/BusinessH4C Beginner-level Intensive Training Survival Study Group Web Hacking Track
+                <div class="section">
+                    <h2 class="section-title">Ranking</h2>
+                    <div class="skill-grid">
+                        <div class="skills-category">
+                            <strong><a href="https://webhacking.kr/rank.php" target="_blank" class="link" style="font-size:13px;">[Wargame] webhacking.kr</a></strong> - "me2nuk" <strong>All Solved</strong> 8th Ranking ( 2025. 11. 16 )
+                        </div>
+                        <div class="skills-category" style="margin-top: 5px;">
+                            <strong><a href="https://vdp.patchstack.com/database/leaderboard/december-2022" target="_blank" class="link" style="font-size:13px;">[VDP Hall Of Fame]</a></strong> - "Team WeBOB" 8th Ranking ( 2022. 12 )
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <strong>Programming:</strong> Python3, C, C#, JAVA, HTML/CSS/JS, PHP, SQL, NOSQL, Golang
+                        </div>
+                        <div class="skill-category">
+                            <strong>Security:</strong> Web Hacking, Custom Scanning Tools
+                        </div>
+                        <div class="skill-category">
+                            <strong>DevOps:</strong> Docker, Git, Vulnerability Research
+                        </div>
+                        <div class="skill-category">
+                            <strong>Languages:</strong> Korean (Native), English (Basic)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <!-- Professional Experience -->
+            <div class="section">
+                <h2 class="section-header">Professional Experience</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.01 - 2025. 10</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Head of AI & WEB Vulnerability Research (Remote + On-site)</div>
+                        <div class="timeline-org">BusinessH4C <a href="https://h4c.biz" class="link" target="_blank">[Link]</a></div>
+                        <p>Leading research on AI-powered vulnerability detection and web security assessments</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Professional Training -->
+            <div class="section">
+                <h2 class="section-header">Professional Training & Programs</h2>
+                <div class="training-item">
+                    <div class="training-logo-space"><img src="https://www.kitribob.kr/static/front/images/about/bob-logo.png"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">KITRI Best Of the Best 11th - Vulnerability Analysis Track</div>
+                        <div class="timeline-org">Korea Information Technology Research Institute <a href="https://www.kitribob.kr/" class="link" target="_blank">[Link]</a></div>
+                        <div class="timeline-date">2022.07 - 2022.12</div>
+                    </div>
+                </div>
+                <div class="training-item">
+                    <div class="training-logo-space"><img src="https://stealien.com/user/meta_logo2.jpg?dummy=1753218147"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Stealien Security Leader (SSL) 2nd Generation</div>
+                        <div class="timeline-org">Stealien Inc. <a href="https://stealien.com/ssl" class="link" target="_blank">[Link]</a></div>
+                        <div class="timeline-date">2021.07 - 2021.11</div>
+                    </div>
+                </div>
+                <div class="training-item">
+                    <div class="training-logo-space"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2FH_ROMfd06T9FD-cs5_OuDeMDVM5pidyDg&s"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Information Security Gifted Education Program - Advanced B</div>
+                        <div class="timeline-org">Seoul Women's University <a href="https://www.swu.ac.kr/front/boardview.do?bbsConfigFK=8&pkid=503378" class="link" target="_blank">[Link]</a></div>
+                        <div class="timeline-date">2021.03 - 2021.12</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Awards -->
+            <div class="section">
+                <h2 class="section-header">Awards & Achievements (26 Total)</h2>
+                
+                <div class="awards-year-section">
+                    <div class="year-label">2025</div>
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <span class="trophy-icon">🥇</span>
+                            <div>LG U+ Security Hacktheon(Capture The Flag) - <strong>1st Place</strong></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>Hackteon Information Security Competition - <strong>Excellence Award</strong></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="awards-year-section">
+                    <div class="year-label">2024</div>
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <span class="trophy-icon">❌</span>
+                            <div>DEF CON CTF Qualifier 2024(Team. budaejjigae) - <strong>26th Place</strong> <a href="https://ctftime.org/event/2229" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥇</span>
+                            <div>NRF(National Research Foundation) Cyber Competition - <strong>1st Place</strong> </div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥇</span>
+                            <div>Honam Cybersecurity Web Vulnerability - <strong>1st Place</strong> <a href="http://www.kcgsa.org/notice/view.php?idx=201&board_name=notice&mode=view&s_menu=s2&s_menu2=s2_1" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥇</span>
+                            <div>Korea University AI & Cybersecurity Academic Festival - <strong>1st Place</strong> <a href="https://aisecu.korea.ac.kr/album/?uid=558&mod=document" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>TS Korea Transportation Safety Authority - <strong>Merit Award</strong> <a href="https://main.kotsa.or.kr/portal/bbs/notice_view.do?bbscCode=notice&cateCode=&bbscSeqn=18222&pageNumb=1&sechCdtn=&sechKywd=&menuCode=05010100" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>LG U+ Security HACKTHEON - <strong>4th Place</strong> <a href="https://www.lg.co.kr/media/release/28299" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>Chungcheong Cybersecurity (NIS, KHIDI) - <strong>4th Place</strong> <a href="https://aisecu.korea.ac.kr/student-news/?mod=document&uid=540" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>KOSPO & Education Ministry Web Security - <strong>4th Place</strong> <a href="https://www.kospo.co.kr/bbs/kospo/95/108280/artclView.do" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>Jeollanam-do Web Penetration Testing Competition - <strong>Merit Award</strong> <a href="http://www.kcgsa.org/notice/view.php?idx=191&board_name=notice&mode=view&s_menu=s2&s_menu2=s2_1" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>BOB Re-BOB Project Competition - <strong>Excellence Award</strong> (Anti-Virus Hunting)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="awards-year-section">
+                    <div class="year-label">2023</div>
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <span class="trophy-icon">❌</span>
+                            <div>DEF CON CTF Qualifier 2023(Team. budaejjigae) - <strong>24th Place</strong> <a href="https://ctftime.org/event/1871" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥈</span>
+                            <div>BYUCTF 2023(Team. budaejjigae) - <strong>2nd Place</strong> <a href="https://ctftime.org/event/1935" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥉</span>
+                            <div>Chungcheong Cybersecurity (NIS, KHIDI) - <strong>3rd Place</strong> <a href="https://aisecu.korea.ac.kr/student-news/?mod=document&uid=540" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥉</span>
+                            <div>KOSPO & Education Ministry Web Security - <strong>3rd Place</strong> <a href="https://www.kospo.co.kr/kospo/216/subview.do;jsessionid=9_OGBqKv1Mec1HH13SlyiJNde88oOtbKLKfTsZRdHaGkBW4QAAQ8!573874235?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa29zcG8lMkY5NSUyRjEwNTg2NSUyRmFydGNsVmlldy5kbyUzRg%3D%3D" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>TS Korea Transportation Safety Authority - <strong>5th Place</strong></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="awards-year-section">
+                    <div class="year-label">2022</div>
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <span class="trophy-icon">🥇</span>
+                            <div>KEPCO(Korea Electric Power Corporation) ELECCON Power Sector Defense - <strong>1st Place</strong> <a href="https://www.instagram.com/p/CkK64l_vIeJ/?img_index=1" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥈</span>
+                            <div>KOSPO & Education Ministry Web Security - <strong>2nd Place</strong> <a href="https://www.kospo.co.kr/kospo/216/subview.do;jsessionid=9_OGBqKv1Mec1HH13SlyiJNde88oOtbKLKfTsZRdHaGkBW4QAAQ8!573874235?enc=Zm5jdDF8QEB8JTJGYmJzJTJGa29zcG8lMkY5NSUyRjEwNTg2NSUyRmFydGNsVmlldy5kbyUzRg%3D%3D" class="link" target="_blank">[Link]</a></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥉</span>
+                            <div>Cyber Guardians Competition - 3rd</div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>The Hacking Championship Junior CTF - <strong>Excellence Award</strong></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>Joongbu University JBU CTF - <strong>Merit Award</strong></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="awards-year-section">
+                    <div class="year-label">2021</div>
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <span class="trophy-icon">🥇</span>
+                            <div>7th Information Security Gifted Education Center Cybersecurity Competition <strong>1st Place</strong></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥇</span>
+                            <div>Semyung Computer High School SMC CTF - <strong>1st Place</strong></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥉</span>
+                            <div>Cyber Guardians CTF Competition - <strong>3rd Place</strong></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🥈</span>
+                            <div>Semyung Computer High School Smart Security Solutions Skills Competition - <strong>2nd Place</strong></div>
+                        </div>
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>The Hacking Championship Junior - <strong>4th Place</strong></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="awards-year-section">
+                    <div class="year-label">2020</div>
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <span class="trophy-icon">🏆</span>
+                            <div>The Hacking Championship Junior - <strong>10th Place</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTF Problem Creation -->
+            <div class="section">
+                <h2 class="section-header">CTF Problem Creation Experience (11 Competitions)</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">BrainHack CDDC2025 SENTINEL CTF - Web Hacking</div>
+                        <div class="timeline-org">Singapore Defence Science and Technology Agency (DSTA)</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Chungcheong Region Cybersecurity Competition CTF - Web Hacking</div>
+                        <div class="timeline-org">Korea Health Industry Development Institute</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Korea University KCTF & KCTF JR. - Web Hacking</div>
+                        <div class="timeline-org">Korea University AI & Cybersecurity Department <a href="https://github.com/kuality/KCTF-2025" class="link" target="_blank">[KCTF Repository]</a> <a href="https://github.com/kuality/KCTF-jr-2025" class="link" target="_blank">[KCTF Jr. Repository]</a></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">KAIST & POSTECH KAPO CTF - Web Hacking</div>
+                        <div class="timeline-org">KAIST, POSTECH <a href="https://dreamhack.io/wargame/challenges/1524" class="link" target="_blank">[cgi]</a> <a href="https://dreamhack.io/wargame/challenges/1525" class="link" target="_blank">[segfault]</a></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">BrainHack CDDC2024 - Web Hacking</div>
+                        <div class="timeline-org">Singapore Defence Science and Technology Agency (DSTA)</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">WhiteHat School 2nd Counter-Battle CTF - Web Hacking</div>
+                        <div class="timeline-org">KITRI WhiteHat(Pre-bob)</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Korea University KCTF & KCTF JR. - Web Hacking, Misc</div>
+                        <div class="timeline-org">Korea University AI & Cybersecurity Department <a href="https://github.com/kuality/KCTF-2024/tree/main/WEB" class="link" target="_blank">[KCTF Repository]</a> <a href="https://github.com/kuality/KCTFjr_2024/tree/master/WEB" class="link" target="_blank">[KCTF Jr Repository]</a></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Korea University KCTF JR. - Web Hacking, Misc</div>
+                        <div class="timeline-org">Korea University AI & Cybersecurity Department <a href="https://github.com/kuality/KCTF-2023/tree/main/web" class="link" target="_blank">[KCTF JR Repository]</a></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Semyung Computer High School Internal CTF - Reversing, Misc, Web</div>
+                        <div class="timeline-org">Semyung Computer High School</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">KITRI BOB BISC Conference - Web Hacking</div>
+                        <div class="timeline-org">KITRI Best Of the Best <a href="https://dreamhack.io/wargame/challenges/640/" class="link" target="_blank">[narrow Date]</a> <a href="https://dreamhack.io/wargame/challenges/653/" class="link" target="_blank">[Not Feeling Well]</a></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Power Of XX Women's Hacking Competition - Web Hacking</div>
+                        <div class="timeline-org"><a href="https://ctftime.org/ctf/28/" target="_blank" class="link">[POC Security]</a></div>
+                    </div>
+                </div>
+            </div>
 
-## Teams
+            <div class="section">
+                <h2 class="section-header">International Conference Presentations</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.03.08</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">2024 Asia WordCamp - Uncover the dark side of WordPress from a hacker's perspective</div>
+                        <div class="timeline-org">International WordPress Developer Conference <a href="https://asia.wordcamp.org/2024/speaker/minuk-kim/" class="link" target="_blank">[Conference Website]</a></div>
+                        <p>Presented advanced WordPress vulnerability research findings to an international audience of developers and security professionals.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Speaking Engagements -->
+            <div class="section">
+                <h2 class="section-header">Speaking Engagements & Lectures (16 Total)</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025. 11. 10 ~ 2025. 11. 12 </div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Air Force Cyber Operations Center Officers, NCOs, and Civilian Personnel - Advanced Web Hacking CTF & Wargame Solving</div>
+                        <p>(ko)공군 사이버 작전 센터 장교 & 부사관, 군무원 교육</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025. 11. 03 ~ 2025. 11. 04 </div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Army Cyber Operations Center Officers, NCOs, and Civilian Personnel - Advanced Web Hacking CTF & Wargame Solving</div>
+                        <p>(ko)육군 사이버 작전 센터 장교 & 부사관, 군무원 교육</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.12.03-05</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Army Cyber Operations Center Officers, NCOs, and Civilian Personnel - Advanced Web Hacking CTF & Wargame Solving</div>
+                        <p>(ko)육군 사이버 작전 센터 장교 & 부사관, 군무원 교육</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.12.02</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Chung-Ang University Industrial Security Department (SecuriOUS) - Web Hacking Introduction and Basic Practice</div>
+                        <p>(ko)중앙대학교 산업보안학과(시큐리어스 동아리) - 웹 해킹 기초 및 실습</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.09-Present</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Korea University KUality - Web Hacking Practice and Advanced Education</div>
+                        <p>(ko)고려대학교 세종캠퍼스(KUality 동아리) 웹 해킹 실습 및 심화교육</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.09.04-06</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Army Headquarters White Hacker Training Course - OWASP TOP 10 Mock Hacking Practice</div>
+                        <p>(ko)육군본부 화이트해커 훈련 과정 - OWASP TOP 10 모의해킹</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.03-07</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Korea University KUality - Python Basics and Hacking Introduction</div>
+                        <p>(ko)고려대학교 세종캠퍼스(KUality 동아리) 파이썬 기초 및 웹 해킹</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023.09 (1 week)</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Cyber Command Military Cyber Expert Education - Web Development, Web Hacking Basics & Advanced</div>
+                        <p>(ko)사이버 작전 사령부 - 웹 개발 & 웹 해킹 기초 및 고급 실습</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023.09.02</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Semyung Computer High School - Web Hacking Techniques and Development Knowledge</div>
+                        <p>(ko)세명컴퓨터고등학교 - 웹 해킹 기초</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023.07.10</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Kyonggi University(K.Knock) - Web Hacking and Development Introduction</div>
+                        <p>(ko)경기대학교 수원캠퍼스(K.Knock 동아리) - 웹 해킹 기초 및 실습</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023.05.01</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Jeonnam Regional University Alliance (HYPERS) - Hacking Guide and Basic Curriculum</div>
+                        <p>(ko)전남지역 연합 동아리(HYPERS) - 웹 해킹 입문 및 취약점 기초</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023.04.06</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Daejeon University HACTOR - What is Web Hacking?</div>
+                        <p>(ko)대전대학교(HACTOR 동아리) - 웹 해킹 이란?</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023.02.11</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">26th HackingCamp - Web Bug Bounty Experience Sharing <a href="https://www.facebook.com/h4ckingc4mp/posts/613701180565092" class="link" target="_blank">[Link]</a></div>
+                        <p>(ko)해킹캠프 - 웹 버그바운티 입문</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022.03.11</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Stony Brook University (Decompiler) - Web Hacking Story and How to Start</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022.01.29</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">TeamH4C 2022 "Hacking Owls Webinar" - Web Vulnerability Scanning Tool Methodology</div>
+                        <p>(ko)해킹하는 부엉이들 웹세미나 - 웹 스캐닝 툴 개발 <a href="https://www.youtube.com/watch?v=RgidYMxFfkw" target="_blank" style="text-decoration: none;">[Seminar Youtube Link-1]</a></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021.10.30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">TeamH4C "Student Hacking Notes Online Conference" - Web Hacking Introduction Story and Methods</div>
+                        <p>(ko)학생용 해킹 노트 온라인 컨퍼런스 - 웹 해킹 입문 스토리 <a href="https://www.youtube.com/watch?v=FXrE4cI_oW8" target="_blank" style="text-decoration: none;">[Conference Youtube Link-1]</a></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021.08.14</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">26th HackingCamp - webhacking.kr Renewed Problem Solving <a href="https://www.facebook.com/h4ckingc4mp/posts/265223635412850" class="link" target="_blank">[Link]</a></div>
+                        <p>(ko)해킹캠프 - webhacking.kr 리뉴얼 문제 풀이</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023.09</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Semyung Computer High School Admission Briefing (Alumni Invitation) - Security Department Adaptation and Graduation Story Sharing</div>
+                        <p>(ko)세명컴퓨터고등학교 입학설명회(동문 초청) - 보안학과 적응 및 졸업 스토리 공유</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bug Bounty -->
+            <div class="section">
+                <h2 class="section-header">Bug Bounty & Vulnerability Research</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2022-2023</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">WordPress Plugin Vulnerabilities (16 CVEs)</div>
+                        <div class="timeline-org">KITRI Best Of the Best 11th Project, Detection through Vulnerability Scanner Development</div>
+                        <p><strong>Types:</strong> Stored XSS, Reflected XSS, SQL Injection <a href="https://vdp.patchstack.com/database/leaderboard/december-2022" target="_blank" class="link">[Hall Of Fame]</a></p>
+                        <div class="cve-list">
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47435" target="_blank" class="cve-item">CVE-2022-47435</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47441" target="_blank" class="cve-item">CVE-2022-47441</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-46843" target="_blank" class="cve-item">CVE-2022-46843</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47445" target="_blank" class="cve-item">CVE-2022-47445</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-46858" target="_blank" class="cve-item">CVE-2022-46858</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-46864" target="_blank" class="cve-item">CVE-2022-46864</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47145" target="_blank" class="cve-item">CVE-2022-47145</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47140" target="_blank" class="cve-item">CVE-2022-47140</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47173" target="_blank" class="cve-item">CVE-2022-47173</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47158" target="_blank" class="cve-item">CVE-2022-47158</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47449" target="_blank" class="cve-item">CVE-2022-47449</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47589" target="_blank" class="cve-item">CVE-2022-47589</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27429" target="_blank" class="cve-item">CVE-2023-27429</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30746" target="_blank" class="cve-item">CVE-2023-30746</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32236" target="_blank" class="cve-item">CVE-2023-32236</a>
+                            <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32235" target="_blank" class="cve-item">CVE-2023-32235</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.09 - 10</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">NRF(National Research Foundation) Web Service Security Assessment</div>
+                        <div class="timeline-org">National Research Foundation (NRF)</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024.01 - 03</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Anti-Virus Vulnerability Bug Hunting</div>
+                        <div class="timeline-org">KITRI Best Of the Best</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2022.10 - 12</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">E-commerce Platform Vulnerability Bug Hunting</div>
+                        <div class="timeline-org">KITRI BOB (Best Of the Best) - WordPress Vulnerabilities</div>
+                    </div>
+                </div>
+            </div>
 
- * Executive Member of KUality Information Security Club, AI Cybersecurity Department, Korea University Sejong Campus
- * Member of SCA (Security Client Access) Team, Smart Security Solution Department, Semyung Computer High School
- * [White Hat Team TeamH4C (2021.03 ~ ongoing)](https://teamh4c.com)
- * Team Leader of C4C, TeamH4C CTF Team (2021.03 ~ ongoing)
- * KITRI BOB 11th Project Team - "E-commerce Platform Vulnerability Analysis"
-
----
-
-## Education
-
- * 2021 - Seoul Women's University Information Security Gifted Education Center, Advanced High School Course B (2021)
- * 2021 - STEALIEN SSL (Stealien Security Leader) 2nd Generation (2021)
- * 2022 - KITRI Best Of the Best 11th Vulnerability Analysis Track Trainee (2022)
-
----
-
-## Presentations
-
- * [2021 - 23rd Summer HackingCamp Presenter - "Approach to Web Hacking with webhacking.kr (Jong-min Jang, Min-uk Kim)"](http://hackingcamp.org/)
- * [2021 - TeamH4C Student Hacking Notes Online Conference Presenter - "Web Hacking Introduction Story by a Web Enthusiast Who Almost Got Serious About MapleStory - Presentation Video Link"](https://youtu.be/FXrE4cI_oW8)
- * [2022 - TeamH4C 2022 Hacking Owl Presenter - "Web_Fuzzer_Trial_Experience.ssul"](https://www.youtube.com/watch?v=RgidYMxFfkw)
- * [2022 - Stony Brook University Decompiler Information Security Club Invited Special Lecture - "How to Study Web Hacking"]()
- * [2023 - 26th Winter HackingCamp Presenter - "Web Bug Bounty Prison Diary"](https://www.facebook.com/h4ckingc4mp/posts/613701180565092)
- * [2023 - Daejeon University HACTOR Information Security Club "What is Web Hacking?" Special Lecture]()
- * [2023 - Jeonnam Regional University Alliance Club HYPERS - "Web Development & Hacking Guide"]()
- * [2023 - Kyonggi University Security Club K.Knock - "Web, Stepping into the Web Hacking Swamp"]()
- * [2023 - Semyung Computer High School Smart Security Solution Department Web Hacking Basics Lecture]()
- * [2023 - Cyber Operations Command Military Cyber Expert Training Course - "Web Hacking Basics to Advanced Lecture"]()
- * [2024 - WordCamp Asia 2024, Taiwan TICC - "【Ctrl+Hack+Delete】 Uncover the dark side of WordPress from a hacker's perspective"](https://asia.wordcamp.org/2024/speaker/minuk-kim/)
- * [2024 - Korea University Sejong Campus Kuality Security Club 1st Semester Python Basics Lecture]()
- * [2024 - Army Headquarters White Hacker Training Course Lecture - "OWASP TOP 10 Web Hacking Lecture"]()
- * [2024 - Army Headquarters White Hacker Training Course Lecture - "CTF and War Game Problem Solving"]()
- * [2024 - Chung-Ang University Industrial Security Department Securious Alliance Club Web Hacking Lecture - "Web Hacking Introduction and Basics"]()
-
----
-
-## Organized Events
-
-  * 2021 - [H4CKING GAME War Game Problem Setter (WEB, MISC)](https://h4ckingga.me/challenges)
-  * 2021 - Power Of XX (Women's Hacking Competition) WEB Problem Setter ([public-connect](/files/pox/public-connect.png), [handling](/files/pox/handling.png))
-  * 2022 - BISC (Bob Information Security Conference) CTF Problem Setter ([narrow data](https://dreamhack.io/wargame/challenges/640), [not feeling well](https://dreamhack.io/wargame/challenges/653)) * Published on DreamHack War Game
-  * 2024 - Korea University Sejong Campus Kuality Security Club Web Hacking Problem Setter
-  * 2024 - Singapore Defence Science and Technology Agency (DSTA) BrainHack CDDC2024 Web Hacking Problem Setter
-  * 2024 - WhiteHat School 2nd Generation Inter-Class CTF Web Hacking Problem Setter (findfindfind, html-viewer)
-
----
-
-## Awards
-
-  + 2020
-
-    + 🏆 [The Hacking Championship Junior 2020 CTF 10th Place - "이글루시큐리티 대표이사 상" (CEO Award from Igloo Security, a leading Korean cybersecurity company)](http://www.kukinews.com/newsView/kuk202011260227)
-    + 🥇 [Semyung Computer High School Smart Security Solution Department Cyber Guardians Internal Hacking Competition - "세명컴퓨터고등학교장상" (Principal's Award)]()
-
-  + 2021
-
-    + 🥈 [Semyung Computer High School Smart Security Solution Department Skills Competition - "세명컴퓨터고등학교장상" (Principal's Award)]()
-    + 🥇 [Semyung Computer High School Smart Security Solution Department SMC CTF - "세명컴퓨터고등학교장상" (Principal's Award)]()
-    + 🥈 [HackingCamp 2nd CTF](/files/HackingCamp/CTF-2th.png)
-    + 🥇 [7th Information Security Gifted Education Center Information Security Competition Team Award - "부총리 겸 교육부 장관상" (Deputy Prime Minister and Minister of Education Award - highest government education award in Korea)]()
-    + 🏆 [Yeungnam University of Science & Technology The Hacking Championship Junior CTF 4th Place - "스틸리언 대표 이사상" (CEO Award from Stealien, cybersecurity company)](http://news.unn.net/news/articleView.html?idxno=517151)
-    + 🏆 [Cyber Guardians Competition CTF 4th Place - "한국정보기술연구원장상" (KITRI Director Award - Korea's national IT research institute)](https://www.facebook.com/dreamhack.io/photos/a.124467269979127/127564286336092)
-
-  + 2022
-  
-    + 🏆 [KOSPO & Ministry of Education Information Security Gifted Education Center Web Service Information Security Competition - "한국남부발전주식회사장 상" (Korea Southern Power CEO Award - major Korean power generation company)](https://www.kospo.co.kr/sites/kospo/popup/web_service_pop5.html)
-    + 🥇🥈 [KEPCO Korea Electric Power Corporation Power Sector Cyber Attack Defense Training 1st Place Youth Division & 2nd Place Overall - "한국전력공사장 상" (KEPCO CEO Award - Korea's national electric utility company)](https://biz.newdaily.co.kr/site/data/html/2022/10/25/2022102500219.html)
-    + 🏆 [Joongbu University JBU CTF Hacking Competition - "중부대학교 총장상" (University President Award)]()
-    + 🥉 [Cyber Guardians Competition - "한국정보기술연구원장상" (KITRI Director Award)](https://www.dailysecu.com/news/articleView.html?idxno=135418)
-    + 🏆 [Yeungnam University of Science & Technology The Hacking Championship Junior - "대구디지털혁신진흥원장상" (Daegu Digital Innovation Promotion Agency Director Award)](https://www.boannews.com/media/view.asp?idx=111519)
-    + 🏆 [Korea Youth Activity Promotion Institute Youth After-school Academy Activity Essay Contest - "한국청소년활동진흥원장상" (National Youth Development Institute Director Award)](http://www.ggpyeonghwa.com/news/articleView.html?idxno=174846)
-
-  + 2023
-
-    + 🏆 [KOSPO & Ministry of Education Information Security Gifted Education Center Web Service Information Security Competition - "한국남부발전주식회사장 상" (Korea Southern Power CEO Award)]()
-    + 🥈 [Chungcheong Region Information Security Competition - "한국보건산업진흥원장상" (Korea Health Industry Development Institute Director Award)]()
-    + 🏆 [TS Security Find the Vulnerability! - "한국안전교통도로공단 이사장" (Korea Transportation Safety Authority Chairman Award)]()
-
-  + 2024
-
-    + 🏆 [Best Of the Best Alumni Project Competition Re-BOB (Anti-Virus Bug Hunt) - "한국정보기술연구원장상" (KITRI Director Award)]()
-    + 🏆 [Korea Association of Information Security 2nd Jeollanam-do Web Vulnerability Competition - "한국융합보안학회장상" (Korea Association of Information Security President Award)]()
-    + 🏆 [National Research Foundation Cyber Mock Hacking Competition - "한국연구재단이사장상" (National Research Foundation Chairman Award - Korea's national research funding agency)]()
-    + 🏆 [Korea Southern Power Information Security Competition - "한국남부발전주식회사장상" (Korea Southern Power CEO Award)]()
-    + 🏆 [Honam Cybersecurity Web Vulnerability Competition - "전력거래소이사장상" (Korea Power Exchange Chairman Award - national electricity trading organization)]()
-    + 🏆 [Chungcheong Region Cybersecurity Competition - "한국보건산업진흥원장상" (Korea Health Industry Development Institute Director Award)]()
-    + 🏆 [TS Security Find the Vulnerability! - "한국안전교통도로공단이사장상" (Korea Transportation Safety Authority Chairman Award)]()
-    + 🏆 [LG U+ Security HACKATHON Growth Security 2024 - "?" (Major Korean telecom company award)]()
-
-* * *
-
-## Bug Bounty
-
-  + WordPress Plugins Vulnerability Reports
-    + CVE-2022-47435, CVE-2022-47441, CVE-2022-46843, CVE-2022-47445, CVE-2022-46858, CVE-2022-46864, CVE-2022-47145, CVE-2022-47140, CVE-2022-47173, CVE-2022-47158, CVE-2022-47449, CVE-2022-46864, CVE-2022-47589, CVE-2023-27429, CVE-2023-30746, CVE-2023-32236 (as part of KITRI BOB E-commerce Platform Vulnerability Analysis Team)
-
-## Projects
-
-  + Web Application Vulnerability Fuzzer Development / SSL (Stealien Security Leader 2nd)
-  + [Python requests Module Analysis and Guide Creation](https://me2nuk.com/Python-requests-module-example/)
-  + KITRI BOB 11th (E-commerce Platform Vulnerability Analysis Team)
-
-{% include comments.html %}
+            <!-- Additional Activities -->
+            <div class="section">
+                <h2 class="section-header">Additional Activities</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">Current</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">BusinessH4C WhiteHat Hacking OFFENSIVE Web Track Mentor</div>
+                        <div class="timeline-org">Mentoring for Hacking Beginners</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Former</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">KITRI Pre-BOB WhiteHat 2nd Project Leader</div>
+                        <div class="timeline-org">CTF and BugBounty Web Hacking Study Project Team <a href="https://whitehatschool.kr/home/kor/M459864420/contents.do" class="link" target="_blank">[Link]</a></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Former</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">KITRI Pre-BOB WhiteHat 1st Project Leader</div>
+                        <div class="timeline-org">CTF and BugBounty Web Hacking Study Project Team <a href="https://whitehatschool.kr/home/kor/M459864420/contents.do" class="link" target="_blank">[Link]</a></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Former</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Korea University KUality Operations Team</div>
+                        <div class="timeline-org">Information Security Club Management</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Former</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Semyung Computer High School SCA Cybersecurity Club Vice President</div>
+                        <div class="timeline-org">Smart Security Solution Department</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
